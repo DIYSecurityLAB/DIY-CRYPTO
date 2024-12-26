@@ -10,7 +10,6 @@ import { useTranslation } from 'react-i18next';
 import { IconType } from 'react-icons';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { blogData } from '../../../blogContent/blogPosts';
 import { LanguageTexts } from '../../../domain/locales/Language';
 import { ROUTES } from '../../routes/Routes';
 import { useCurrentLang } from '../../utils/useCurrentLang';
@@ -128,65 +127,6 @@ export function NavLinks({
             >
               {t(LanguageTexts.header.links[1])}
             </button>
-
-            <Popover className="relative">
-              <PopoverButton className="text-2xl flex items-center justify-center gap-x-1 lg:text-xl font-semibold leading-6 text-black dark:text-white hover:text-[#F6911D]">
-                {t(LanguageTexts.header.links[2])}
-                <MdKeyboardArrowDown
-                  aria-hidden="true"
-                  size={isLargeScreen ? 24 : 28}
-                  className="flex-none hover:text-[#F6911D]"
-                />
-              </PopoverButton>
-
-              <PopoverPanel
-                transition
-                className="absolute -left-32 lg:-left-8 top-full z-10 w-screen max-w-md overflow-hidden rounded-3xl bg-white dark:bg-gray-800 dark:text-white shadow-lg ring-1 ring-gray-900/5 transition"
-              >
-                <div className="p-4 grid grid-cols-1 gap-y-4">
-                  {Object.keys(blogData)
-                    .slice(0, 1)
-                    .map((postId) => {
-                      const post = blogData[postId];
-                      const translation = post.translations[currentLang];
-
-                      if (!translation) {
-                        console.error(
-                          `No translation found for language: ${currentLang}`,
-                        );
-                        return null;
-                      }
-                      return (
-                        <button
-                          key={postId}
-                          onClick={() =>
-                            handleOnLink(
-                              ROUTES.blog.callLang(currentLang, postId),
-                              LinkCallBack,
-                            )
-                          }
-                          className="flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
-                        >
-                          <img
-                            src={
-                              typeof post.translations.pt.sections[0].image ===
-                              'string'
-                                ? post.translations.pt.sections[0].image
-                                : post.translations.pt.sections[0].image?.src
-                            }
-                            alt={translation.title}
-                            className="h-12 w-12 rounded-lg object-cover cursor-pointer"
-                          />
-                          <div className="bg-white dark:bg-slate-800 overflow-hidden transition-transform transform hover:scale-105">
-                            {translation.title}
-                            <span className="absolute inset-0" />
-                          </div>
-                        </button>
-                      );
-                    })}
-                </div>
-              </PopoverPanel>
-            </Popover>
 
             <Popover className="relative">
               <PopoverButton className=" hover:text-[#F6911D] text-2xl flex items-center justify-center gap-x-1 lg:text-xl font-semibold leading-6 text-black dark:text-white ">

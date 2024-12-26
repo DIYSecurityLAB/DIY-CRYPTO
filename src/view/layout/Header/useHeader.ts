@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FaBloggerB } from 'react-icons/fa';
 import { MdHelp, MdSchool, MdTouchApp, MdVideoLibrary } from 'react-icons/md'; // Ícones novos
 import { ThemeMode } from '../../../domain/entities/theme.entity';
 import { LanguageTexts } from '../../../domain/locales/Language';
@@ -72,6 +73,11 @@ export function useHeader() {
       name: 'Videos',
       href: ROUTES.videos.call(currentLang),
       icon: MdVideoLibrary,
+    },
+    {
+      name: t(LanguageTexts.header.links[2]),
+      href: ROUTES.blog.callLang(currentLang, 'krux'),
+      icon: FaBloggerB,
     },
   ];
 

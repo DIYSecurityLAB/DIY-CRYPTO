@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { FaBitcoin } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import {
@@ -24,7 +25,7 @@ export function Hero() {
         ref={ref}
         className="grid grid-cols-12 px-6 sm:px-4 md:px-8 h-screen"
       >
-        <article className="h-full col-span-12 md:col-span-6 flex flex-col gap-y-4 justify-center items-center">
+        <article className="h-full col-span-12 md:col-span-6 flex flex-col gap-y-6 justify-center items-center">
           <h1 className="max-w-2xl text-4xl md:text-6xl text-center font-bold whitespace-pre-wrap break-words animate-fade-right animate-once animate-duration-500 animate-delay-300">
             {styleFirstWord(t(LanguageTexts.hero.title))}
           </h1>
@@ -34,26 +35,20 @@ export function Hero() {
           <div className="w-full flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-4">
             <Link
               to={ROUTES.products.call(currentLang || AcceptedLanguages.pt)}
-              className="w-full py-2 bg-orange-primary text-white text-center font-semibold rounded-sm transition-colors duration-300 hover:bg-orange-600 shadow-md"
+              className="w-full py-4 bg-orange-primary text-white text-center font-semibold rounded-sm transition-colors duration-300 hover:bg-orange-600 shadow-md"
             >
               {t(LanguageTexts.hero.buttons.products)}
             </Link>
 
             <Link
-              to="#statistics"
-              className="w-full py-2 bg-orange-primary text-white text-center font-semibold rounded-sm transition-colors duration-300 hover:bg-orange-600 shadow-md"
+              to={ROUTES.buyBitcoin.call(currentLang || AcceptedLanguages.pt)}
+              className="w-full flex items-center justify-center gap-x-2 py-4 bg-blue-500 rounded-sm transition-colors duration-300 hover:bg-blue-600 shadow-md"
             >
-              {t(LanguageTexts.hero.buttons.learnMore)}
+              <FaBitcoin size={24} />
+              <span className="text-white font-semibold">
+                {t(LanguageTexts.hero.buttons.buybitcoin)}
+              </span>
             </Link>
-          </div>
-
-          <div className="w-full flex justify-center mt-4">
-            <a
-              href={ROUTES.buyBitcoin.call(currentLang || AcceptedLanguages.pt)}
-              className="w-full py-2 text-center border border-solid border-orange-primary font-semibold rounded-sm transition-all duration-500 hover:bg-orange-600 hover:text-white shadow-md"
-            >
-              {t(LanguageTexts.hero.buttons.buybitcoin)}
-            </a>
           </div>
         </article>
         <article className="hidden md:flex h-full col-span-12 md:col-span-6 flex-col gap-y-4 justify-center items-center">

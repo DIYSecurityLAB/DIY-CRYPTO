@@ -1,5 +1,5 @@
 import EfiPay from 'payment-token-efi';
-import { ExceptionHandler } from '../../utils/ExceptionHandler';
+import { ExceptionHandler } from '../../utils/decorators/ExceptionHandler';
 import { DefaultResultError, Result } from '../../utils/Result';
 
 type Installment = {

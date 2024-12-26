@@ -116,4 +116,10 @@ export class EfiDatasourceImpl implements EfiDatasource {
       return Result.Error({ code: 'UNKNOWN' });
     }
   }
+
+  public static checkError(error: Error) {
+    if (error.message.includes('O valor [100] é inferior ao limite mínimo')) {
+      return Result.Error({ code: 'VALUE_TOO_LOW' });
+    }
+  }
 }

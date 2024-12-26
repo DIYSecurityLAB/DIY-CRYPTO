@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { isAxiosError } from 'axios';
+import { EfiDatasourceImpl } from '../../data/datasource/Efi.datasource';
 import { RemoteDataSource } from '../../data/datasource/Remote.datasource';
 import { Http } from '../../domain/HttpClient';
 import { Result } from '../Result';
@@ -18,11 +19,7 @@ export function ExceptionHandler() {
       } catch (error) {
         if (error instanceof Error) {
           Http.checkError(error);
-          if (
-            error.message.includes('O valor [100] é inferior ao limite mínimo')
-          ) {
-            return Result.Error({ code: 'VALUE_TOO_LOW' });
-          }
+          EfiDatasourceImpl.checkError(error);
         }
 
         if (isAxiosError(error)) {

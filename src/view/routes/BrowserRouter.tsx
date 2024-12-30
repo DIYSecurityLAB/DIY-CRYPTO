@@ -21,7 +21,7 @@ import { PixPayment } from '../screens/Checkout/PixPayment';
 import { ROUTES } from './Routes';
 
 const About = lazy(() =>
-  import('../screens/About').then((module) => ({
+  import('../screens/About/About').then((module) => ({
     default: module.About,
   })),
 );

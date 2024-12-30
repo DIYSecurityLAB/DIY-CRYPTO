@@ -1,20 +1,18 @@
+import { LanguageTexts } from '@/domain/locales/Language';
+import image2 from '@/view/assets/images/about/IMG_2721.jpg';
+import image1 from '@/view/assets/images/about/IMG_2724.jpg';
+import { BackgroundAnimatedProduct } from '@/view/components/BackgroundAnimatedProduct';
 import { useTranslation } from 'react-i18next';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
-import { LanguageTexts } from '../../domain/locales/Language';
-import { BackgroundAnimatedProduct } from '../components/BackgroundAnimatedProduct';
-
-import { Navigation, Pagination } from 'swiper/modules';
-
-import image2 from '../assets/images/about/IMG_2721.jpg';
-import image1 from '../assets/images/about/IMG_2724.jpg';
 
 export function About() {
   const { t } = useTranslation();
 
-  const manifest = t(LanguageTexts.about.manifest, {
-    returnObjects: true,
-  }) as string[];
+  // const manifest = t(LanguageTexts.about.manifest, {
+  //   returnObjects: true,
+  // }) as string[];
 
   const images = [{ src: image1 }, { src: image2 }];
 
@@ -59,11 +57,39 @@ export function About() {
         </article>
         <article className="h-full col-span-full md:col-span-6 flex flex-col gap-y-4 items-center md:items-start justify-center py-6 md:px-6">
           <div className="w-full max-w-4xl">
-            {manifest.map((paragraph, idx) => (
+            <h2 className="text-2xl font-bold pb-6">
+              O que é a DIY Security Lab?
+            </h2>
+            <p className="pb-6">
+              A DIY Security Lab é uma empresa focada em soluções que promovem a
+              adoção do Bitcoin, removendo intermediários e empoderando o
+              usuário final. Criamos o BITKIT, o método mais seguro e simples de
+              armazenar Bitcoins, e o Alfred P2P, uma plataforma para compra
+              descentralizada e anônima. Nossa missão é garantir que todos
+              possam controlar seus próprios ativos de forma segura e
+              independente, contribuindo para um futuro financeiro mais livre e
+              descentralizado.
+            </p>
+
+            <h2 className="text-2xl font-bold pb-6">Fundadores</h2>
+            <p className="pb-6">
+              A DIY Security Lab foi fundada em 2024 por três engenheiros
+              apaixonados por finanças descentralizadas, que iniciaram seus
+              estudos no mercado cripto em 2017. Leonardo Maximiliano, CEO, é
+              fascinado por macroeconomia e pelos impactos sociais que o Bitcoin
+              pode gerar em diferentes estruturas sociais. Guilherme, com seu
+              foco em gestão de negócios e empreendedorismo, busca
+              constantemente inovações disruptivas. Giovanni, o "nerd da
+              tecnologia", transforma ideias em soluções técnicas avançadas.
+              Juntos, eles se complementam para criar soluções que promovem a
+              adoção do Bitcoin, empoderando o usuário final e eliminando
+              intermediários.
+            </p>
+            {/* {manifest.map((paragraph, idx) => (
               <p key={idx} className="text-justify text-base lg:text-lg">
                 {paragraph}
               </p>
-            ))}
+            ))} */}
           </div>
           <p className="text-center md:text-left font-semibold text-base md:text-lg mt-8">
             {t(LanguageTexts.about.signature)}

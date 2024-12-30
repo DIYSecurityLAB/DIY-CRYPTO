@@ -1,11 +1,11 @@
+import { useTheme } from '@/view/hooks/useTheme';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaBloggerB } from 'react-icons/fa';
-import { MdHelp, MdSchool, MdTouchApp, MdVideoLibrary } from 'react-icons/md'; // Ícones novos
+import { MdHelp, MdSchool, MdTouchApp, MdVideoLibrary } from 'react-icons/md';
 import { ThemeMode } from '../../../domain/entities/theme.entity';
 import { LanguageTexts } from '../../../domain/locales/Language';
 import { ROUTES } from '../../routes/Routes';
-import { useTheme } from '../../screens/useTheme';
 import { useCurrentLang } from '../../utils/useCurrentLang';
 import { useWindowSize } from '../../utils/useWindowSize';
 

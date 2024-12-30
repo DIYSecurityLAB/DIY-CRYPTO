@@ -3,15 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { FaBitcoin } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
+
 import {
   AcceptedLanguages,
   LanguageTexts,
   useLanguage,
-} from '../../../domain/locales/Language';
-import HeroImage from '../../assets/images/hero-image1.png';
-import { BackgroundAnimated } from '../../components/BackgroundAnimated';
-import { ROUTES } from '../../routes/Routes';
-import { styleFirstWord } from '../../utils/StyleWord';
+} from '@/domain/locales/Language';
+import HeroImage from '@/view/assets/images/hero-image1.png';
+import { BackgroundAnimated } from '@/view/components/BackgroundAnimated';
+import { ROUTES } from '@/view/routes/Routes';
+import { styleFirstWord } from '@/view/utils/StyleWord';
 
 export function Hero() {
   const { t } = useTranslation();

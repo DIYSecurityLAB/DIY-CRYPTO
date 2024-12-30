@@ -1,14 +1,14 @@
+import { LanguageTexts } from '@/domain/locales/Language';
+import PositivePoints1 from '@/view/assets/images/positive-points/positive-points-1.png';
+import PositivePoints2 from '@/view/assets/images/positive-points/positive-points-2.png';
+import PositivePoints3 from '@/view/assets/images/positive-points/positive-points-3.png';
+import PositivePoints4 from '@/view/assets/images/positive-points/positive-points-4.png';
+import { styleThreeWordsAfterFourth } from '@/view/utils/StyleWord';
+import { useWindowSize } from '@/view/utils/useWindowSize';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
-import { LanguageTexts } from '../../../domain/locales/Language';
-import PositivePoints1 from '../../assets/images/positive-points/positive-points-1.png';
-import PositivePoints2 from '../../assets/images/positive-points/positive-points-2.png';
-import PositivePoints3 from '../../assets/images/positive-points/positive-points-3.png';
-import PositivePoints4 from '../../assets/images/positive-points/positive-points-4.png';
-import { styleThreeWordsAfterFourth } from '../../utils/StyleWord';
-import { useWindowSize } from '../../utils/useWindowSize';
 
 export function PositivePoints() {
   const { t } = useTranslation();

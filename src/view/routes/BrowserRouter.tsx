@@ -1,3 +1,4 @@
+import { AcceptedLanguages, useLanguage } from '@/domain/locales/Language';
 import { Suspense, lazy } from 'react';
 import {
   Navigate,
@@ -5,7 +6,6 @@ import {
   BrowserRouter as Router,
   Routes,
 } from 'react-router-dom';
-import { AcceptedLanguages, useLanguage } from '../../domain/locales/Language';
 import { Loader } from '../components/Loader';
 import ScrollToTop from '../components/ScrollToTop';
 import { DefaultLayout } from '../layout/DefaultyLayout';
@@ -21,7 +21,7 @@ import { PixPayment } from '../screens/Checkout/PixPayment';
 import { ROUTES } from './Routes';
 
 const About = lazy(() =>
-  import('../screens/About').then((module) => ({
+  import('../screens/About/About').then((module) => ({
     default: module.About,
   })),
 );
@@ -46,12 +46,12 @@ const NotFound = lazy(() =>
   })),
 );
 const Page = lazy(() =>
-  import('../screens/Page').then((module) => ({
+  import('../screens/landing/Page').then((module) => ({
     default: module.Page,
   })),
 );
 const Products = lazy(() =>
-  import('../screens/partials/Products').then((module) => ({
+  import('../screens/landing/partials/Products').then((module) => ({
     default: module.Products,
   })),
 );

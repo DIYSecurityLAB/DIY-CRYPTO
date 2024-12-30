@@ -1,13 +1,13 @@
+import { blogData } from '@/blogContent/blogPosts';
+import Bitkit8 from '@/blogContent/image1/image1.png';
+import { LanguageTexts } from '@/domain/locales/Language';
+import { styleFirstWord } from '@/view/utils/StyleWord';
+import { useCurrentLang } from '@/view/utils/useCurrentLang';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { MdArrowForward } from 'react-icons/md';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
-import { blogData } from '../../../blogContent/blogPosts';
-import Bitkit8 from '../../../blogContent/image1/image1.png';
-import { LanguageTexts } from '../../../domain/locales/Language';
-import { styleFirstWord } from '../../utils/StyleWord';
-import { useCurrentLang } from '../../utils/useCurrentLang';
 
 export function BlogLinks() {
   const { t } = useTranslation();

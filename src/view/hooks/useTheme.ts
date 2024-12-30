@@ -1,5 +1,5 @@
+import { ThemeMode } from '@/domain/entities/theme.entity';
 import { useEffect, useState } from 'react';
-import { ThemeMode } from '../../domain/entities/theme.entity';
 
 export function useTheme() {
   const [currentTheme, setCurrentTheme] = useState<ThemeMode>(

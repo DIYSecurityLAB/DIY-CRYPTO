@@ -1,6 +1,6 @@
+import { useTheme } from '@/view/hooks/useTheme';
 import { useEffect, useState } from 'react';
 import { ThemeMode } from '../../../domain/entities/theme.entity';
-import { useTheme } from '../../screens/useTheme';
 import { useWindowSize } from '../../utils/useWindowSize';
 
 export function useHeaderAlfred() {

@@ -2,7 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../domain/locales/Language';
 import WhatsAppButton from '../components/buttonWhatsApp';
 import { ROUTES } from '../routes/Routes';
-import { Newsletter } from '../screens/partials/Newsletter/Newsletter';
+import { Newsletter } from '../screens/landing/partials/Newsletter/Newsletter';
 import { Footer } from './Footer/Footer';
 import Header from './Header/Header';
 

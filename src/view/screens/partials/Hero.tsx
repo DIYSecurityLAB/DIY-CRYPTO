@@ -40,15 +40,17 @@ export function Hero() {
               {t(LanguageTexts.hero.buttons.products)}
             </Link>
 
-            <Link
-              to={ROUTES.buyBitcoin.call(currentLang || AcceptedLanguages.pt)}
+            <a
+              href="https://www.alfredp2p.io/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-x-2 py-4 bg-blue-500 rounded-sm transition-colors duration-300 hover:bg-blue-600 shadow-md"
             >
               <FaBitcoin size={24} />
               <span className="text-white font-semibold">
                 {t(LanguageTexts.hero.buttons.buybitcoin)}
               </span>
-            </Link>
+            </a>
           </div>
         </article>
         <article className="hidden md:flex h-full col-span-12 md:col-span-6 flex-col gap-y-4 justify-center items-center">

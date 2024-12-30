@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { PaymentMethod } from '../../domain/entities/payment.entity';
-import { ExceptionHandler } from '../../utils/ExceptionHandler';
+import { ExceptionHandler } from '../../utils/decorators/ExceptionHandler';
 import { DefaultResultError, Result } from '../../utils/Result';
 import { EfiDatasource } from '../datasource/Efi.datasource';
 import { RemoteDataSource } from '../datasource/Remote.datasource';

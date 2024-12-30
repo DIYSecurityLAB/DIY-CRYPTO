@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ExceptionHandler } from '../../utils/ExceptionHandler';
+import { ExceptionHandler } from '../../utils/decorators/ExceptionHandler';
 import { DefaultResultError, Result } from '../../utils/Result';
 import { RemoteDataSource } from '../datasource/Remote.datasource';
 import {

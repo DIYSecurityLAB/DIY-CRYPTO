@@ -1,5 +1,5 @@
 import EfiPay from 'payment-token-efi';
-import { ExceptionHandler } from '../../utils/ExceptionHandler';
+import { ExceptionHandler } from '../../utils/decorators/ExceptionHandler';
 import { DefaultResultError, Result } from '../../utils/Result';
 
 type Installment = {
@@ -114,6 +114,12 @@ export class EfiDatasourceImpl implements EfiDatasource {
       return Result.Success(result);
     } else {
       return Result.Error({ code: 'UNKNOWN' });
+    }
+  }
+
+  public static checkError(error: Error) {
+    if (error.message.includes('O valor [100] é inferior ao limite mínimo')) {
+      return Result.Error({ code: 'VALUE_TOO_LOW' });
     }
   }
 }

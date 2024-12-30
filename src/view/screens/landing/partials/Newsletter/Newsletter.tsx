@@ -1,6 +1,6 @@
+import { LanguageTexts } from '@/domain/locales/Language';
+import { Loader } from '@/view/components/Loader';
 import { FormProvider } from 'react-hook-form';
-import { LanguageTexts } from '../../../../domain/locales/Language';
-import { Loader } from '../../../components/Loader';
 import { useNewsletter } from './useNewsletter';
 
 export function Newsletter() {

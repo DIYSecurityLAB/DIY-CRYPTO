@@ -1,8 +1,8 @@
+import { LanguageTexts } from '@/domain/locales/Language';
+import StatisticsImage from '@/view/assets/images/Statistics/Statistics.jpg';
+import { useWindowSize } from '@/view/utils/useWindowSize';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LanguageTexts } from '../../../domain/locales/Language';
-import StatisticsImage from '../../assets/images/Statistics/Statistics.jpg';
-import { useWindowSize } from '../../utils/useWindowSize';
 
 type Info = {
   title: string;

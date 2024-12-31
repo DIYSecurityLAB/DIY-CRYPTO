@@ -164,16 +164,16 @@ export function NavLinks({
               </PopoverPanel>
             </Popover>
 
-            <button
-              onClick={() =>
-                handleOnLink(ROUTES.buyBitcoin.call(currentLang), LinkCallBack)
-              }
+            <a
+              href="https://www.alfredp2p.io/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center text-2xl lg:text-xl font-semibold leading-6 text-black dark:text-white hover:text-[#F6911D]"
             >
               <span className="hover:text-[#F6911D]">
                 {t(LanguageTexts.header.links[5])}
               </span>
-            </button>
+            </a>
           </PopoverGroup>
         </>
       )}

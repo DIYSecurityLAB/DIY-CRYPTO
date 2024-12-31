@@ -23,6 +23,7 @@ export function useAddressForm() {
           switch (ListedAddress.error.code) {
             case 'SERIALIZATION':
               alert('ERRO DE SERIALIZAÇÃO!');
+              console.log(ListedAddress.error.payload);
               return;
             default:
               alert('ERRO DESCONHECIDO');

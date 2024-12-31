@@ -1,12 +1,12 @@
+import { LanguageTexts, useLanguage } from '@/domain/locales/Language';
+import { BackgroundAnimatedProduct } from '@/view/components/BackgroundAnimatedProduct';
+import { ROUTES } from '@/view/routes/Routes';
+import { styleFirstWord } from '@/view/utils/StyleWord';
+import { useProducts } from '@/view/utils/useProduct';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { LanguageTexts, useLanguage } from '../../../domain/locales/Language';
-import { BackgroundAnimatedProduct } from '../../components/BackgroundAnimatedProduct';
-import { ROUTES } from '../../routes/Routes';
-import { styleFirstWord } from '../../utils/StyleWord';
-import { useProducts } from '../../utils/useProduct';
 
 export function Products() {
   const { t } = useTranslation();

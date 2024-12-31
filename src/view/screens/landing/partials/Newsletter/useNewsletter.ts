@@ -1,8 +1,8 @@
+import { InsertNewsletter } from '@/domain/entities/Newsletter.entity';
+import { UseCases } from '@/domain/usecases/UseCases';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { InsertNewsletter } from '../../../../domain/entities/Newsletter.entity';
-import { UseCases } from '../../../../domain/usecases/UseCases';
 
 export function useNewsletter() {
   const [loading, setLoading] = useState<boolean>(false);

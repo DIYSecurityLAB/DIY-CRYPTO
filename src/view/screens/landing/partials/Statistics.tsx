@@ -1,7 +1,7 @@
 import { LanguageTexts } from '@/domain/locales/Language';
 import StatisticsImage from '@/view/assets/images/Statistics/Statistics.jpg';
+import { useScaleFactor } from '@/view/hooks/useScaleFactor';
 import { useWindowSize } from '@/view/utils/useWindowSize';
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type Info = {
@@ -12,14 +12,7 @@ type Info = {
 export function Statistics() {
   const { t } = useTranslation();
   const { width } = useWindowSize();
-  const [scaleFactor, setScaleFactor] = useState(1);
-
-  useEffect(() => {
-    const ratio = window.devicePixelRatio;
-    if (ratio > 1) {
-      setScaleFactor(ratio);
-    }
-  }, [scaleFactor]);
+  const { scaleFactor } = useScaleFactor();
 
   const negativeMarginTop =
     width <= 1200

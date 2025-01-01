@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { BlogLinks } from './partials/BlogLinks';
 import { Hero } from './partials/Hero';
 import { PositivePoints } from './partials/PositivePoints';
 import { Products } from './partials/Products';
@@ -20,7 +19,7 @@ export function Page() {
       <PositivePoints />
       <Statistics />
       <Products />
-      <BlogLinks />
+      {/* <BlogLinks /> */}
     </>
   );
 }

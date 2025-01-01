@@ -5,6 +5,10 @@ export const ROUTES = {
   home: {
     call: () => '/',
   },
+  blogs: {
+    path: 'blogs',
+    call: (currentLang: string) => `/${currentLang}/blogs`,
+  },
   blog: {
     path: 'blog/:id',
     call: (id: string) => `/blog/${id}`,

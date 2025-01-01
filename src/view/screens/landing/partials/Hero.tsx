@@ -47,7 +47,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-x-2 py-4 bg-blue-500 rounded-sm transition-colors duration-300 hover:bg-blue-600 shadow-md"
             >
-              <FaBitcoin size={24} />
+              <FaBitcoin size={24} className="text-white" />
               <span className="text-white font-semibold">
                 {t(LanguageTexts.hero.buttons.buybitcoin)}
               </span>

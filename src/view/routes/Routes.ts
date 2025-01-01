@@ -10,9 +10,8 @@ export const ROUTES = {
     call: (currentLang: string) => `/${currentLang}/blogs`,
   },
   blog: {
-    path: 'blog/:id',
-    call: (id: string) => `/blog/${id}`,
-    callLang: (currentLang: string, id: string) => `/${currentLang}/blog/${id}`,
+    path: 'blog-old/:id',
+    call: (currentLang: string, id: string) => `/${currentLang}/blog-old/${id}`,
   },
   buyBitcoin: {
     path: 'buy-bitcoin',

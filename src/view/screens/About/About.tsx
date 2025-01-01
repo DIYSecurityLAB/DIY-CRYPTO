@@ -10,10 +10,6 @@ import 'swiper/swiper-bundle.css';
 export function About() {
   const { t } = useTranslation();
 
-  // const manifest = t(LanguageTexts.about.manifest, {
-  //   returnObjects: true,
-  // }) as string[];
-
   const images = [{ src: image1 }, { src: image2 }];
 
   return (
@@ -85,11 +81,6 @@ export function About() {
               adoção do Bitcoin, empoderando o usuário final e eliminando
               intermediários.
             </p>
-            {/* {manifest.map((paragraph, idx) => (
-              <p key={idx} className="text-justify text-base lg:text-lg">
-                {paragraph}
-              </p>
-            ))} */}
           </div>
           <p className="text-center md:text-left font-semibold text-base md:text-lg mt-8">
             {t(LanguageTexts.about.signature)}

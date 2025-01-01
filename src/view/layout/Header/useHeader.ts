@@ -51,11 +51,6 @@ export function useHeader() {
       href: ROUTES.cart.product.call(currentLang, 'BITKIT', '2'),
       icon: MdTouchApp,
     },
-    // {
-    //   name: 'ALFRED',
-    //   href: ROUTES.buyBitcoin.call(currentLang),
-    //   icon: MdTouchApp,
-    // },
   ];
 
   const supportlink = [
@@ -76,7 +71,7 @@ export function useHeader() {
     },
     {
       name: t(LanguageTexts.header.links[2]),
-      href: ROUTES.blog.callLang(currentLang, 'krux'),
+      href: ROUTES.blogs.call(currentLang),
       icon: FaBloggerB,
     },
   ];

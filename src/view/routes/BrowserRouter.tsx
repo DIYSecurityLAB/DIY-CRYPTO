@@ -25,6 +25,13 @@ const About = lazy(() =>
     default: module.About,
   })),
 );
+
+const Blogs = lazy(() =>
+  import('../screens/Blogs/Blogs').then((module) => ({
+    default: module.Blogs,
+  })),
+);
+
 const BlogPost = lazy(() =>
   import('../screens/BlogPost/BlogPost').then((module) => ({
     default: module.BlogPost,
@@ -115,6 +122,7 @@ export function BrowserRouter() {
             <Route path={ROUTES.cart.path} element={<Cart />} />
             <Route path={ROUTES.tutorials.path} element={<TutorialsPage />} />
             <Route path={ROUTES.videos.path} element={<VideosPage />} />
+            <Route path={ROUTES.blogs.path} element={<Blogs />} />
             <Route
               path={ROUTES.paymentStatus.success.path}
               element={<PaymentSuccess />}

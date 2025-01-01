@@ -3,10 +3,10 @@ import PositivePoints1 from '@/view/assets/images/positive-points/positive-point
 import PositivePoints2 from '@/view/assets/images/positive-points/positive-points-2.png';
 import PositivePoints3 from '@/view/assets/images/positive-points/positive-points-3.png';
 import PositivePoints4 from '@/view/assets/images/positive-points/positive-points-4.png';
+import { useScaleFactor } from '@/view/hooks/useScaleFactor';
 import { styleThreeWordsAfterFourth } from '@/view/utils/StyleWord';
 import { useWindowSize } from '@/view/utils/useWindowSize';
 import classNames from 'classnames';
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
 
@@ -16,15 +16,8 @@ export function PositivePoints() {
     threshold: 0.1,
     triggerOnce: true,
   });
-  const [scaleFactor, setScaleFactor] = useState(1);
   const { width } = useWindowSize();
-
-  useEffect(() => {
-    const ratio = window.devicePixelRatio;
-    if (ratio > 1) {
-      setScaleFactor(ratio);
-    }
-  }, []);
+  const { scaleFactor } = useScaleFactor();
 
   const isMobile = width < 640;
   const cardWidth = isMobile

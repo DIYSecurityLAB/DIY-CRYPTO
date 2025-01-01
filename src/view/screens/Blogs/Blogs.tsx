@@ -18,17 +18,15 @@ export function Blogs() {
           <div className="flex items-center">
             <img src={Logo} alt="author" className="w-20 h-20 rounded-full" />
 
-            <p className="font-medium text-lg sm:text-xl">
-              By <span className="text-gray-900">DIY SEC LAB</span>
-            </p>
+            <p className="font-medium text-lg sm:text-xl">By DIY SEC LAB</p>
           </div>
           <Link
             to={ROUTES.blog.call(currentLang, 'krux')}
-            className="block text-gray-900 font-bold text-4xl leading-snug"
+            className="block font-bold text-4xl leading-snug"
           >
             Krux: A melhor Carteira Bitcoin Air Gap e DIY
           </Link>
-          <ul className="text-sm text-gray-600 flex items-center space-x-4">
+          <ul className="text-sm flex items-center space-x-4">
             <li className="flex gap-x-2 items-center">
               <FaClock />
               October 19, 2024 - 3 min read
@@ -45,7 +43,7 @@ export function Blogs() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
-              <article className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col 2xl:flex-row items-center">
+              <article className="bg-white dark:bg-slate-700 shadow-md rounded-lg overflow-hidden flex flex-col 2xl:flex-row items-center">
                 <Link to={ROUTES.blog.call(currentLang, 'krux')}>
                   <img
                     className="w-[800px] h-64 object-cover"
@@ -97,7 +95,7 @@ export function Blogs() {
             <div>
               <h3 className="text-xl font-bold mb-4">Mais Recentes</h3>
               <div className="space-y-4">
-                <div className="flex bg-white shadow-md rounded-lg overflow-hidden">
+                <div className="flex bg-white dark:bg-slate-700 shadow-md rounded-lg overflow-hidden">
                   <img
                     className="w-24 h-24 object-cover"
                     src="https://via.placeholder.com/100x100"

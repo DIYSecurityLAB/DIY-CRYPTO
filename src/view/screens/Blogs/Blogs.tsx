@@ -21,7 +21,7 @@ export function Blogs() {
             <p className="font-medium text-lg sm:text-xl">By DIY SEC LAB</p>
           </div>
           <Link
-            to={ROUTES.blog.call(currentLang, 'krux')}
+            to={ROUTES.blog_old.call(currentLang, 'krux')}
             className="block font-bold text-4xl leading-snug"
           >
             Krux: A melhor Carteira Bitcoin Air Gap e DIY
@@ -34,7 +34,10 @@ export function Blogs() {
           </ul>
         </div>
         <div className="rounded-lg overflow-hidden flex justify-center">
-          <Link to={ROUTES.blog.call(currentLang, 'krux')} className="w-3/4">
+          <Link
+            to={ROUTES.blog_old.call(currentLang, 'krux')}
+            className="w-3/4"
+          >
             <img src={ImageBlogKrux} alt="feature-post-thumb" />
           </Link>
         </div>
@@ -44,7 +47,7 @@ export function Blogs() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
               <article className="bg-white dark:bg-slate-700 shadow-md rounded-lg overflow-hidden flex flex-col 2xl:flex-row items-center">
-                <Link to={ROUTES.blog.call(currentLang, 'krux')}>
+                <Link to={ROUTES.blog_old.call(currentLang, 'krux')}>
                   <img
                     className="w-[800px] h-64 object-cover"
                     src={ImageBlogKrux}
@@ -62,7 +65,7 @@ export function Blogs() {
                   </div>
                   <h2 className="text-2xl font-bold mb-4">
                     <Link
-                      to={ROUTES.blog.call(currentLang, 'krux')}
+                      to={ROUTES.blog_old.call(currentLang, 'krux')}
                       className="hover:text-blue-600 transition"
                     >
                       Krux: A melhor Carteira Bitcoin Air Gap e DIY
@@ -84,7 +87,7 @@ export function Blogs() {
                     customização e segurança...
                   </p>
                   <Link
-                    to={ROUTES.blog.call(currentLang, 'krux')}
+                    to={ROUTES.blog_old.call(currentLang, 'krux')}
                     className="text-blue-500 font-semibold hover:underline"
                   >
                     Ler Mais

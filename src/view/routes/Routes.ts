@@ -9,7 +9,7 @@ export const ROUTES = {
     path: 'blogs',
     call: (currentLang: string) => `/${currentLang}/blogs`,
   },
-  blog: {
+  blog_old: {
     path: 'blog-old/:id',
     call: (currentLang: string, id: string) => `/${currentLang}/blog-old/${id}`,
   },

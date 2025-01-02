@@ -115,7 +115,7 @@ export function BrowserRouter() {
           <Route path={ROUTES.lang.call()} element={<DefaultLayout />}>
             <Route index element={<Page />} />
             <Route path={ROUTES.cart.products.path} element={<Products />} />
-            <Route path={ROUTES.blog.path} element={<BlogPost />} />
+            <Route path={ROUTES.blog_old.path} element={<BlogPost />} />
             <Route path={ROUTES.cart.product.path} element={<ProductPage />} />
             <Route path={ROUTES.about.path} element={<About />} />
             <Route path={ROUTES.Support.path} element={<SupportPage />} />

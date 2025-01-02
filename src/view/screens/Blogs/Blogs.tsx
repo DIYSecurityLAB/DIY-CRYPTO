@@ -18,17 +18,15 @@ export function Blogs() {
           <div className="flex items-center">
             <img src={Logo} alt="author" className="w-20 h-20 rounded-full" />
 
-            <p className="font-medium text-lg sm:text-xl">
-              By <span className="text-gray-900">DIY SEC LAB</span>
-            </p>
+            <p className="font-medium text-lg sm:text-xl">By DIY SEC LAB</p>
           </div>
           <Link
-            to={ROUTES.blog.callLang(currentLang, 'krux')}
-            className="block text-gray-900 font-bold text-4xl leading-snug"
+            to={ROUTES.blog_old.call(currentLang, 'krux')}
+            className="block font-bold text-4xl leading-snug"
           >
             Krux: A melhor Carteira Bitcoin Air Gap e DIY
           </Link>
-          <ul className="text-sm text-gray-600 flex items-center space-x-4">
+          <ul className="text-sm flex items-center space-x-4">
             <li className="flex gap-x-2 items-center">
               <FaClock />
               October 19, 2024 - 3 min read
@@ -37,7 +35,7 @@ export function Blogs() {
         </div>
         <div className="rounded-lg overflow-hidden flex justify-center">
           <Link
-            to={ROUTES.blog.callLang(currentLang, 'krux')}
+            to={ROUTES.blog_old.call(currentLang, 'krux')}
             className="w-3/4"
           >
             <img src={ImageBlogKrux} alt="feature-post-thumb" />
@@ -48,8 +46,8 @@ export function Blogs() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
-              <article className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col 2xl:flex-row items-center">
-                <Link to={ROUTES.blog.callLang(currentLang, 'krux')}>
+              <article className="bg-white dark:bg-slate-700 shadow-md rounded-lg overflow-hidden flex flex-col 2xl:flex-row items-center">
+                <Link to={ROUTES.blog_old.call(currentLang, 'krux')}>
                   <img
                     className="w-[800px] h-64 object-cover"
                     src={ImageBlogKrux}
@@ -67,7 +65,7 @@ export function Blogs() {
                   </div>
                   <h2 className="text-2xl font-bold mb-4">
                     <Link
-                      to={ROUTES.blog.callLang(currentLang, 'krux')}
+                      to={ROUTES.blog_old.call(currentLang, 'krux')}
                       className="hover:text-blue-600 transition"
                     >
                       Krux: A melhor Carteira Bitcoin Air Gap e DIY
@@ -89,7 +87,7 @@ export function Blogs() {
                     customização e segurança...
                   </p>
                   <Link
-                    to={ROUTES.blog.callLang(currentLang, 'krux')}
+                    to={ROUTES.blog_old.call(currentLang, 'krux')}
                     className="text-blue-500 font-semibold hover:underline"
                   >
                     Ler Mais
@@ -99,27 +97,34 @@ export function Blogs() {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Mais Recentes</h3>
-              <div className="space-y-4">
-                <div className="flex bg-white shadow-md rounded-lg overflow-hidden">
-                  <img
-                    className="w-24 h-24 object-cover"
-                    src="https://via.placeholder.com/100x100"
-                    alt="Featured Post Image"
-                  />
+              <div className="grid grid-cols-12 bg-white dark:bg-slate-700 shadow-md rounded-lg overflow-hidden">
+                <img
+                  className="w-full h-full object-cover col-span-2"
+                  src="https://via.placeholder.com/100x100"
+                  alt="Featured Post Image"
+                />
+                <Link
+                  to={ROUTES.blog.call(
+                    currentLang,
+                    'bitcoin-pode-subsitituir-a-aposentadoria-tradicional',
+                  )}
+                  className="w-full h-full flex col-span-10"
+                >
                   <div className="p-4">
                     <h4 className="text-lg font-semibold">
-                      <a href="#" className="hover:text-blue-600 transition">
-                        Featured Post Title
-                      </a>
+                      <span className="hover:text-blue-600 transition">
+                        Como o Bitcoin pode substituir a Aposentadoria
+                        Tradicional?
+                      </span>
                     </h4>
                     <time
                       className="text-sm text-gray-500"
                       dateTime="2023-12-31"
                     >
-                      December 31, 2023
+                      December 31, 2024
                     </time>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </div>

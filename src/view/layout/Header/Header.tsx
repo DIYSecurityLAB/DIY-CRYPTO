@@ -1,3 +1,5 @@
+import { useScaleFactor } from '@/view/hooks/useScaleFactor';
+import { useWindowSize } from '@/view/utils/useWindowSize';
 import classNames from 'classnames';
 import { createPortal } from 'react-dom';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -30,6 +32,12 @@ export default function Header() {
 
   const totalItems = items.reduce((total, item) => total + item.quantity, 0);
 
+  const { width } = useWindowSize();
+  const { scaleFactor } = useScaleFactor();
+
+  const IS_LARGE_SCREEN = width >= 768;
+  const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
+
   return (
     <header
       className={classNames(
@@ -46,7 +54,10 @@ export default function Header() {
             <img
               src={theme.isDarkTheme ? LogoWhite : Logo}
               alt="DIY LAB Logo"
-              className="w-26 h-24"
+              className={classNames(
+                !IS_ZOOM_BIGGER_THAN_100 && 'w-26 h-24',
+                IS_ZOOM_BIGGER_THAN_100 && 'w-24 h-20',
+              )}
             />
             <span className="sr-only">DIY LAB</span>
           </Link>
@@ -115,7 +126,12 @@ export default function Header() {
                 </span>
               )}
             </button>
-            <LanguageSwitcher className="text-xl flex items-center justify-center gap-x-2 lg:text-xl font-semibold leading-6 hover:text-[#F6911D]" />
+            <LanguageSwitcher
+              className={classNames(
+                'flex items-center justify-center gap-x-2 font-semibold leading-6 hover:text-[#F6911D]',
+                !IS_ZOOM_BIGGER_THAN_100 && 'text-xl',
+              )}
+            />
             <label className="inline-flex items-center relative cursor-pointer ml-4">
               <input
                 className="peer hidden"

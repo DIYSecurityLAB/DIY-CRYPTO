@@ -24,6 +24,9 @@ export function PositivePoints() {
     ? '100%'
     : `${Math.max(100 / (4 * scaleFactor), 20)}%`;
 
+  const IS_LARGE_SCREEN = width >= 768;
+  const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
+
   return (
     <section className="w-full min-h-screen px-4 sm:px-8 bg-slate-800 dark:bg-primary-light flex flex-col justify-start items-center">
       <article
@@ -34,9 +37,10 @@ export function PositivePoints() {
       >
         <h2
           className={classNames(
-            'text-4xl md:text-6xl text-center text-white dark:text-black font-bold whitespace-pre-wrap break-words max-w-4xl',
+            'text-4xl  text-center text-white dark:text-black font-bold whitespace-pre-wrap break-words max-w-4xl',
             inView && 'opacity-100 animate-fade-right',
             !inView && 'opacity-0',
+            !IS_ZOOM_BIGGER_THAN_100 && 'md:text-6xl',
           )}
         >
           {styleThreeWordsAfterFourth(t(LanguageTexts.positivePoints.title))}
@@ -65,8 +69,11 @@ export function PositivePoints() {
           <div
             key={idx}
             className={classNames(
-              'bg-primary-light dark:border h-72 w-full sm:w-60 md:w-64 lg:w-72 rounded-md shadow-sm flex flex-col justify-center items-center m-4 p-4 md:p-6 lg:p-8',
+              'bg-primary-light  w-full rounded-md shadow-sm flex flex-col justify-center items-center m-4 p-4 dark:border',
+              'sm:w-60 md:w-64 lg:w-72 ',
               inView && 'opacity-100 animate-fade-right',
+              !IS_ZOOM_BIGGER_THAN_100 && 'h-72 md:p-6 lg:p-8',
+              IS_ZOOM_BIGGER_THAN_100 && 'md:p-5 lg:p-7',
             )}
             style={{ width: scaleFactor > 1 ? cardWidth : '' }}
           >

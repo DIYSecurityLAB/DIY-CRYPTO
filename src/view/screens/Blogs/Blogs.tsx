@@ -97,27 +97,34 @@ export function Blogs() {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Mais Recentes</h3>
-              <div className="space-y-4">
-                <div className="flex bg-white dark:bg-slate-700 shadow-md rounded-lg overflow-hidden">
-                  <img
-                    className="w-24 h-24 object-cover"
-                    src="https://via.placeholder.com/100x100"
-                    alt="Featured Post Image"
-                  />
+              <div className="grid grid-cols-12 bg-white dark:bg-slate-700 shadow-md rounded-lg overflow-hidden">
+                <img
+                  className="w-full h-full object-cover col-span-2"
+                  src="https://via.placeholder.com/100x100"
+                  alt="Featured Post Image"
+                />
+                <Link
+                  to={ROUTES.blog.call(
+                    currentLang,
+                    'bitcoin-pode-subsitituir-a-aposentadoria-tradicional',
+                  )}
+                  className="w-full h-full flex col-span-10"
+                >
                   <div className="p-4">
                     <h4 className="text-lg font-semibold">
-                      <a href="#" className="hover:text-blue-600 transition">
-                        Featured Post Title
-                      </a>
+                      <span className="hover:text-blue-600 transition">
+                        Como o Bitcoin pode substituir a Aposentadoria
+                        Tradicional?
+                      </span>
                     </h4>
                     <time
                       className="text-sm text-gray-500"
                       dateTime="2023-12-31"
                     >
-                      December 31, 2023
+                      December 31, 2024
                     </time>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </div>

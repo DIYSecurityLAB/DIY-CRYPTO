@@ -9,6 +9,10 @@ export const ROUTES = {
     path: 'blogs',
     call: (currentLang: string) => `/${currentLang}/blogs`,
   },
+  blog: {
+    path: 'blog/:id',
+    call: (currentLang: string, id: string) => `/${currentLang}/blog/${id}`,
+  },
   blog_old: {
     path: 'blog-old/:id',
     call: (currentLang: string, id: string) => `/${currentLang}/blog-old/${id}`,

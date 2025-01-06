@@ -3,10 +3,10 @@ import PositivePoints1 from '@/view/assets/images/positive-points/positive-point
 import PositivePoints2 from '@/view/assets/images/positive-points/positive-points-2.png';
 import PositivePoints3 from '@/view/assets/images/positive-points/positive-points-3.png';
 import PositivePoints4 from '@/view/assets/images/positive-points/positive-points-4.png';
+import { useScaleFactor } from '@/view/hooks/useScaleFactor';
 import { styleThreeWordsAfterFourth } from '@/view/utils/StyleWord';
 import { useWindowSize } from '@/view/utils/useWindowSize';
 import classNames from 'classnames';
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
 
@@ -16,20 +16,16 @@ export function PositivePoints() {
     threshold: 0.1,
     triggerOnce: true,
   });
-  const [scaleFactor, setScaleFactor] = useState(1);
   const { width } = useWindowSize();
-
-  useEffect(() => {
-    const ratio = window.devicePixelRatio;
-    if (ratio > 1) {
-      setScaleFactor(ratio);
-    }
-  }, []);
+  const { scaleFactor } = useScaleFactor();
 
   const isMobile = width < 640;
   const cardWidth = isMobile
     ? '100%'
     : `${Math.max(100 / (4 * scaleFactor), 20)}%`;
+
+  const IS_LARGE_SCREEN = width >= 768;
+  const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
 
   return (
     <section className="w-full min-h-screen px-4 sm:px-8 bg-slate-800 dark:bg-primary-light flex flex-col justify-start items-center">
@@ -41,9 +37,10 @@ export function PositivePoints() {
       >
         <h2
           className={classNames(
-            'text-4xl md:text-6xl text-center text-white dark:text-black font-bold whitespace-pre-wrap break-words max-w-4xl',
+            'text-4xl  text-center text-white dark:text-black font-bold whitespace-pre-wrap break-words max-w-4xl',
             inView && 'opacity-100 animate-fade-right',
             !inView && 'opacity-0',
+            !IS_ZOOM_BIGGER_THAN_100 && 'md:text-6xl',
           )}
         >
           {styleThreeWordsAfterFourth(t(LanguageTexts.positivePoints.title))}
@@ -72,8 +69,11 @@ export function PositivePoints() {
           <div
             key={idx}
             className={classNames(
-              'bg-primary-light dark:border h-72 w-full sm:w-60 md:w-64 lg:w-72 rounded-md shadow-sm flex flex-col justify-center items-center m-4 p-4 md:p-6 lg:p-8',
+              'bg-primary-light  w-full rounded-md shadow-sm flex flex-col justify-center items-center m-4 p-4 dark:border',
+              'sm:w-60 md:w-64 lg:w-72 ',
               inView && 'opacity-100 animate-fade-right',
+              !IS_ZOOM_BIGGER_THAN_100 && 'h-72 md:p-6 lg:p-8',
+              IS_ZOOM_BIGGER_THAN_100 && 'md:p-5 lg:p-7',
             )}
             style={{ width: scaleFactor > 1 ? cardWidth : '' }}
           >

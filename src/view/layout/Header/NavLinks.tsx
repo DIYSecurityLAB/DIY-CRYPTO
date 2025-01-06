@@ -1,3 +1,5 @@
+import { useScaleFactor } from '@/view/hooks/useScaleFactor';
+import { useWindowSize } from '@/view/utils/useWindowSize';
 import {
   Popover,
   PopoverButton,
@@ -5,6 +7,7 @@ import {
   PopoverPanel,
 } from '@headlessui/react';
 import { PhoneIcon } from '@heroicons/react/20/solid';
+import classNames from 'classnames';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IconType } from 'react-icons';
@@ -56,6 +59,12 @@ export function NavLinks({
     navigate(path);
   };
 
+  const { width } = useWindowSize();
+  const { scaleFactor } = useScaleFactor();
+
+  const IS_LARGE_SCREEN = width >= 768;
+  const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
+
   return (
     <>
       {isVisible && (
@@ -67,7 +76,13 @@ export function NavLinks({
           )}
           <PopoverGroup className="flex flex-col items-center justify-center gap-y-10 lg:gap-x-12 lg:flex-row lg:gap-y-0">
             <Popover className="relative">
-              <PopoverButton className=" hover:text-[#F6911D] text-2xl flex items-center justify-center gap-x-1 lg:text-xl font-semibold leading-6 text-black dark:text-white ">
+              <PopoverButton
+                className={classNames(
+                  'hover:text-[#F6911D] text-2xl flex items-center justify-center gap-x-1 font-semibold leading-6 text-black dark:text-white',
+                  IS_ZOOM_BIGGER_THAN_100 && 'lg:text-base',
+                  !IS_ZOOM_BIGGER_THAN_100 && 'lg:text-xl',
+                )}
+              >
                 {t(LanguageTexts.header.links[0])}
                 <MdKeyboardArrowDown
                   aria-hidden="true"
@@ -123,13 +138,23 @@ export function NavLinks({
               onClick={() =>
                 handleOnLink(ROUTES.about.call(currentLang), LinkCallBack)
               }
-              className="text-2xl lg:text-xl font-semibold leading-6 text-black dark:text-white hover:text-[#F6911D]"
+              className={classNames(
+                'text-2xl font-semibold leading-6 text-black dark:text-white hover:text-[#F6911D]',
+                IS_ZOOM_BIGGER_THAN_100 && 'lg:text-base',
+                !IS_ZOOM_BIGGER_THAN_100 && 'lg:text-xl',
+              )}
             >
               {t(LanguageTexts.header.links[1])}
             </button>
 
             <Popover className="relative">
-              <PopoverButton className=" hover:text-[#F6911D] text-2xl flex items-center justify-center gap-x-1 lg:text-xl font-semibold leading-6 text-black dark:text-white ">
+              <PopoverButton
+                className={classNames(
+                  'hover:text-[#F6911D] text-2xl flex items-center justify-center gap-x-1 font-semibold leading-6 text-black dark:text-white',
+                  IS_ZOOM_BIGGER_THAN_100 && 'lg:text-base',
+                  !IS_ZOOM_BIGGER_THAN_100 && 'lg:text-xl',
+                )}
+              >
                 {t(LanguageTexts.header.links[4])}
                 <MdKeyboardArrowDown
                   aria-hidden="true"
@@ -168,7 +193,11 @@ export function NavLinks({
               href="https://www.alfredp2p.io/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-2xl lg:text-xl font-semibold leading-6 text-black dark:text-white hover:text-[#F6911D]"
+              className={classNames(
+                'flex items-center text-2xl font-semibold leading-6 text-black dark:text-white hover:text-[#F6911D]',
+                IS_ZOOM_BIGGER_THAN_100 && 'lg:text-base',
+                !IS_ZOOM_BIGGER_THAN_100 && 'lg:text-xl',
+              )}
             >
               <span className="hover:text-[#F6911D]">
                 {t(LanguageTexts.header.links[5])}

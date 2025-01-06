@@ -65,7 +65,6 @@ export const LanguageTexts = {
   about: {
     title: 'about.title',
     subtitle: 'about.subtitle',
-    manifest: 'about.manifest',
     signature: 'about.signature',
   },
   post: {

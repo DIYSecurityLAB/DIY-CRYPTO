@@ -76,7 +76,7 @@ export function BlogPost() {
             </div>
           )}
           <div className={`lg:w-1/2 ${section.image ? 'lg:px-10' : ''}`}>
-            <h3 className="text-3xl font-semibold text-[#F6911D] dark:text-[#F6911D] mb-4">
+            <h3 className="text-3xl font-semibold text-[#F6911D] dark:text-[#F6911D] mb-4 mt-6">
               <span className="flex items-center">
                 <FaRegCircle className="text-[#F6911D] mr-2" />
                 {index + 1}. {section.title}

@@ -277,7 +277,7 @@ export function ProductPage() {
                 )}
               >
                 <li className="flex items-center gap-x-4">
-                  <MdCheck size={32} className="text-green-700" />
+                  <MdCheck size={32} className="text-green-700 flex-shrink-0" />
                   <span className="font-medium text-sm dark:text-white">
                     {resource}
                   </span>

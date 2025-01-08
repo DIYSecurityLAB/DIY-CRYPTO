@@ -4,7 +4,7 @@ import image3 from '@/view/assets/images/Blogs/RendaFixaOuBitcoin/image3.png'; /
 
 export function RendaFixaOuBitcoin() {
   return (
-    <main className="pt-24 pb-16 px-48 flex flex-col gap-y-8">
+    <main className="pt-24 pb-16 px-6 sm:px-12 md:px-24 lg:px-48 flex flex-col gap-y-4">
       <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl">
         Renda Fixa ou Bitcoin, qual é o melhor investimento?
       </h1>

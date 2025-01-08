@@ -19,38 +19,53 @@ export function Blogs() {
   return (
     <>
       <BackgroundAnimatedProduct />
-      <section className="py-36 px-44 w-full flex flex-wrap flex-col md:flex-row items-center">
-        <div className="flex flex-col flex-1 gap-y-2">
-          <div className="flex items-center">
-            <img src={Logo} alt="author" className="w-20 h-20 rounded-full" />
-            <p className="font-medium text-lg sm:text-xl">By DIY SEC LAB</p>
+      <section className="py-12 px-6 sm:py-24 sm:px-12 md:py-36 md:px-24 w-full flex flex-wrap flex-col md:flex-row items-center">
+        <div className="flex flex-col flex-1 gap-y-4 text-center md:text-left">
+          <div className="flex items-center justify-center md:justify-start">
+            <img
+              src={Logo}
+              alt="author"
+              className="w-16 h-16 md:w-20 md:h-20 rounded-full"
+            />
+            <p className="font-medium text-base sm:text-lg md:text-xl ml-4">
+              By DIY SEC LAB
+            </p>
           </div>
           <Link
             to={ROUTES.blog_old.call(currentLang, 'krux')}
-            className="block font-bold text-4xl leading-snug"
+            className="block font-bold text-2xl sm:text-3xl md:text-4xl leading-snug"
           >
             Krux: A melhor Carteira Bitcoin Air Gap e DIY
           </Link>
-          <ul className="text-sm flex items-center space-x-4">
+          <ul className="text-sm flex flex-wrap justify-center md:justify-start items-center space-x-4">
             <li className="flex gap-x-2 items-center">
               <FaClock />
-              October 19, 2024 - 3 min read
+              <span>October 19, 2024 - 3 min read</span>
             </li>
           </ul>
         </div>
-        <div className="rounded-lg overflow-hidden flex justify-center">
+        <div className="rounded-lg overflow-hidden flex justify-center mt-6 md:mt-0">
           <Link
             to={ROUTES.blog_old.call(currentLang, 'krux')}
             className="w-3/4"
           >
-            <img src={ImageBlogKrux} alt="feature-post-thumb" />
+            <img
+              src={ImageBlogKrux}
+              alt="feature-post-thumb"
+              className="w-full h-auto"
+            />
           </Link>
         </div>
       </section>
 
       <div className="lg:col-span-2 max-w-3xl mx-auto">
         <article className="bg-white dark:bg-slate-700 shadow-md rounded-lg overflow-hidden flex flex-col 2xl:flex-row items-center">
-          <Link to={ROUTES.blog_old.call(currentLang, 'krux')}>
+          <Link
+            to={ROUTES.blog.call(
+              currentLang,
+              'bitcoin-pode-subsitituir-a-aposentadoria-tradicional',
+            )}
+          >
             <img
               className="w-[800px] h-64 object-cover"
               src={bitcoinAposentadoriaimg}
@@ -146,7 +161,7 @@ export function Blogs() {
                   alt="Featured Post Image"
                 />
                 <Link
-                  to={ROUTES.blog.call(currentLang, 'know-your-customer')}
+                  to={ROUTES.blog.call(currentLang, 'know-your-customer-kyc')}
                   className="w-full h-full flex col-span-10"
                 >
                   <div className="p-4">
@@ -174,7 +189,7 @@ export function Blogs() {
                 <Link
                   to={ROUTES.blog.call(
                     currentLang,
-                    'bitcoin-on-chain-e-lightning',
+                    'Bitcoin-on-chain-e-Lightning-Qual-escolher',
                   )}
                   className="w-full h-full flex col-span-10"
                 >
@@ -201,7 +216,7 @@ export function Blogs() {
                   alt="Featured Post Image"
                 />
                 <Link
-                  to={ROUTES.blog.call(currentLang, 'liquid-network')}
+                  to={ROUTES.blog.call(currentLang, 'O-que-é-a-Liquid-Network')}
                   className="w-full h-full flex col-span-10"
                 >
                   <div className="p-4">
@@ -228,7 +243,10 @@ export function Blogs() {
                   alt="Featured Post Image"
                 />
                 <Link
-                  to={ROUTES.blog.call(currentLang, 'memorizar-seeds')}
+                  to={ROUTES.blog.call(
+                    currentLang,
+                    'Como-memorizar-suas-Seeds-de-forma-segura',
+                  )}
                   className="w-full h-full flex col-span-10"
                 >
                   <div className="p-4">
@@ -254,7 +272,10 @@ export function Blogs() {
                   alt="Featured Post Image"
                 />
                 <Link
-                  to={ROUTES.blog.call(currentLang, 'hardware-wallet')}
+                  to={ROUTES.blog.call(
+                    currentLang,
+                    'Hardware-Wallet-O-que-é-e-quais-são-as-melhores-opções-para-armazenar-Bitcoin',
+                  )}
                   className="w-full h-full flex col-span-10"
                 >
                   <div className="p-4">
@@ -281,7 +302,10 @@ export function Blogs() {
                   alt="Featured Post Image"
                 />
                 <Link
-                  to={ROUTES.blog.call(currentLang, 'renda-fixa-ou-bitcoin')}
+                  to={ROUTES.blog.call(
+                    currentLang,
+                    'Renda-Fixa-ou-Bitcoin-qual-é-o-melhor-investimento',
+                  )}
                   className="w-full h-full flex col-span-10"
                 >
                   <div className="p-4">

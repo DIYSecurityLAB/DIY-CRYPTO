@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { t } from 'i18next';
 import { ReactNode } from 'react';
 import { FaBitcoin, FaRegCreditCard } from 'react-icons/fa';
-import Pix from '../../../assets/Pix.svg';
 import { usePaymentOptions } from './usePaymentOptions';
 
 type Option = {
@@ -12,11 +11,11 @@ type Option = {
 };
 
 const options: Option[] = [
-  {
-    label: `${t('paymentForm.pix')} - MP`,
-    value: 'MP',
-    icon: <img src={Pix} alt="Pix" className="w-8" />,
-  },
+  // {
+  //   label: `${t('paymentForm.pix')} - MP`,
+  //   value: 'MP',
+  //   icon: <img src={Pix} alt="Pix" className="w-8" />,
+  // },
   // {
   //  label: `${t('paymentForm.creditCard')}`,
   //   value: 'OTHER',

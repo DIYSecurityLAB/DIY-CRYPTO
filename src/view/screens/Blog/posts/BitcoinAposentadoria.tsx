@@ -7,7 +7,7 @@ import image4 from '@/view/assets/images/Blogs/BitcoinAposentadoria/image4.png';
 
 export function BitcoinAposentadoria() {
   return (
-    <main className="pt-24 pb-16 px-48 flex flex-col gap-y-4">
+    <main className="pt-24 pb-16 px-6 sm:px-12 md:px-24 lg:px-48 flex flex-col gap-y-4">
       <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl">
         Como o Bitcoin pode substituir a Aposentadoria Tradicional?
       </h1>

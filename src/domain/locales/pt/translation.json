@@ -285,7 +285,7 @@
     ]
   },
   "paymentForm": {
-    "creditCard": "Cartão de Crédito",
+    "creditCard": "Cartão de Crédito ou pix",
     "pix": "Pix",
     "cardNamePlaceholder": "Nome do Titular",
     "cardNumberPlaceholder": "Número do Cartão",

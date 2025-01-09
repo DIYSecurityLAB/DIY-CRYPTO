@@ -60,6 +60,9 @@ export function useProducts() {
       Yampi_Product_id: 37615989,
       sku: 'EBJF7U6H7',
       sku_id: 253054601,
+      width: 1,
+      height: 1,
+      weight: 1,
     },
     {
       id: '2',
@@ -83,6 +86,9 @@ export function useProducts() {
       Yampi_Product_id: 37616063,
       sku: 'NE4PUR9NF',
       sku_id: 253055425,
+      width: 1,
+      height: 1,
+      weight: 1,
     },
     {
       id: '10000',
@@ -106,6 +112,9 @@ export function useProducts() {
       Yampi_Product_id: 37809174,
       sku: 'ANVJ5V3FA',
       sku_id: 254405963,
+      width: 1,
+      height: 1,
+      weight: 1,
     },
   ];
 

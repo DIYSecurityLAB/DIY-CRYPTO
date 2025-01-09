@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { GetCheckout, Items } from '../../../domain/entities/payment.entity';
+import { GetCheckout } from '../../../domain/entities/payment.entity';
 import { UseCases } from '../../../domain/usecases/UseCases';
 import { useCartContext } from '../../context/CartContext';
 import { ROUTES } from '../../routes/Routes';
@@ -28,9 +28,13 @@ export function useCheckout() {
     remove: removeCartItem,
   } = useCartContext();
 
+  // Agora, vamos adicionar os items diretamente nos valores padrão do formulário.
   const form = useForm<GetCheckout>({
     mode: 'onChange',
-    defaultValues: JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '{}'),
+    defaultValues: {
+      ...JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '{}'),
+      items, // Incluindo items no estado inicial do formulário
+    },
   });
   const navigate = useNavigate();
 
@@ -105,18 +109,6 @@ export function useCheckout() {
         return;
       }
 
-      const shippingItem: Items = {
-        id: `FRETE - ${shipping.id}`,
-        name: `FRETE - ${shipping.company.name}`,
-        price: Number(shipping.price),
-        quantity: 1,
-        imageUrl: shipping.company.picture,
-        categoryId: 'FRETE',
-        description: 'FRETE DO PRODUTO',
-      };
-
-      const itemsWithShipping = [...items, shippingItem];
-
       const req: GetCheckout = {
         couponCode: data.couponCode,
         identification: data.identification,
@@ -125,7 +117,7 @@ export function useCheckout() {
         method: data.method,
         firstName: data.firstName,
         lastName: data.lastName,
-        items: itemsWithShipping,
+        items,
         phone: data.phone,
         brand: data.brand ?? 'visa',
         cardName: data.cardName ?? '',
@@ -145,7 +137,7 @@ export function useCheckout() {
       const preValidationResult = GetCheckout.safeParse(req);
 
       if (!preValidationResult.success) {
-        alert('PREENCHA TODAS AS INFORMAÇOES ANTES DE ENVIAR');
+        alert('PREENCHA TODAS AS INFORMAÇÕES ANTES DE ENVIAR');
         console.log(preValidationResult.error.errors);
         return;
       }

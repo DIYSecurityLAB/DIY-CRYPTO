@@ -22,6 +22,12 @@ export class PaymentItemsModel {
   price!: number;
   categoryId!: string;
   description!: string;
+  sku?: string;
+  sku_id?: number;
+  Yampi_Product_id?: number;
+  width?: number;
+  height?: number;
+  weight?: number;
 }
 
 class PhoneModel {

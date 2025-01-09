@@ -1,17 +1,18 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { GetCheckout } from '../../../../domain/entities/payment.entity';
+import { GetCheckout, Items } from '../../../../domain/entities/payment.entity';
 import { CalculatedShipping } from '../../../../domain/entities/Shipping.entity';
 import { UseCases } from '../../../../domain/usecases/UseCases';
 
 export function useShippingForm() {
-  const [loading, setLoading] = useState<boolean>();
-  const [shipping, setShipping] = useState<CalculatedShipping[]>();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [shippingOptions, setShippingOptions] = useState<CalculatedShipping[]>(
+    [],
+  );
   const form = useFormContext<GetCheckout>();
 
-  const postalCode = form.getValues('address.zipCode');
-
-  const shippingOptions = form.watch('shipping');
+  const postalCode = form.getValues('address.zipCode') || ''; // Valor padrão vazio
+  const items = form.getValues('items'); // Valor padrão como array vazio
 
   const setShippingOption = useCallback(
     (option: CalculatedShipping) => {
@@ -23,25 +24,54 @@ export function useShippingForm() {
   const calculateShipping = useCallback(async () => {
     setLoading(true);
     try {
-      const { result: CalculatedShipping } =
-        await UseCases.shipping.calculate.execute({ postalCode });
-
-      if (CalculatedShipping.type === 'ERROR') {
-        switch (CalculatedShipping.error.code) {
-          case 'SERIALIZATION':
-            alert('ERRO DE SERIALIZAÇÃO!');
-            return;
-          default:
-            alert('ERRO DESCONHECIDO');
-            return;
-        }
+      if (!postalCode || postalCode.length < 8) {
+        console.error('CEP inválido');
+        return;
+      }
+      console.log(items);
+      if (!Array.isArray(items) || items.length === 0) {
+        console.error('Itens inválidos ou não definidos');
+        return;
       }
 
-      setShipping(CalculatedShipping.data);
+      const skus = items.map((item: Items) => ({
+        price: item.price,
+        quantity: item.quantity,
+        length: item.length || 1,
+        width: item.width || 1,
+        height: item.height || 1,
+        weight: item.weight || 1,
+      }));
+
+      const requestData = {
+        zipcode: postalCode,
+        amount: items.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        ),
+        skus,
+      };
+
+      const { result } = await UseCases.shipping.calculate.execute(requestData);
+
+      if (result.type === 'ERROR') {
+        switch (result.error.code) {
+          case 'SERIALIZATION':
+            alert('ERRO DE SERIALIZAÇÃO!');
+            break;
+          default:
+            alert('ERRO DESCONHECIDO');
+        }
+        return;
+      }
+
+      setShippingOptions(result.data);
+    } catch (error) {
+      console.error('Erro ao calcular frete:', error);
     } finally {
       setLoading(false);
     }
-  }, [postalCode]);
+  }, [postalCode, items]);
 
   useEffect(() => {
     calculateShipping();
@@ -49,9 +79,9 @@ export function useShippingForm() {
 
   return {
     loading,
-    shipping,
-    shippingOptions: {
-      value: shippingOptions,
+    shippingOptions,
+    shipping: {
+      value: form.getValues('shipping'),
       set: setShippingOption,
     },
   };

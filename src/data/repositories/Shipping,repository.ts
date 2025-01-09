@@ -1,17 +1,16 @@
-import { z } from 'zod';
 import { ExceptionHandler } from '../../utils/decorators/ExceptionHandler';
 import { DefaultResultError, Result } from '../../utils/Result';
 import { RemoteDataSource } from '../datasource/Remote.datasource';
 import {
-  CalculatedShippingModel,
   CalculateShippingModel,
+  CalculatedShippingModel,
 } from '../model/Shipping.model';
 
 type CalculateReq = CalculateShippingModel;
 
 type CalculateRes = Promise<
   Result<
-    CalculatedShippingModel[],
+    CalculatedShippingModel,
     { code: 'SERIALIZATION' } | DefaultResultError
   >
 >;
@@ -26,9 +25,9 @@ export class ShippingRepositoryImpl implements ShippingRepository {
   @ExceptionHandler()
   async calculate(req: CalculateReq): CalculateRes {
     const result = await this.api.post({
-      url: `/shipping/calculate`,
-      model: z.array(CalculatedShippingModel),
-      body: req,
+      url: `/kangu/freight`,
+      model: CalculatedShippingModel, // Define o modelo de validação da resposta
+      body: req, // Corpo da requisição enviado no formato esperado
     });
 
     if (!result) {

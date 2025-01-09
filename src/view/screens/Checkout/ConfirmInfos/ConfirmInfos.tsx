@@ -55,9 +55,9 @@ export function ConfirmInfos() {
         )}
         {infos.shipping && (
           <span className="dark:text-white">
-            FRETE - {infos.shipping.name}: R${' '}
+            FRETE - {infos.shipping.service}: R${' '}
             {formatCurrency(infos.shipping.price)}. Entrega em:{' '}
-            {infos.shipping.deliveryTime} dias
+            {infos.shipping.days} dias
           </span>
         )}
         <span className="dark:text-white">

@@ -1,10 +1,10 @@
-import { CalculatedShippingModel } from '../../../data/model/Shipping.model';
-import { ShippingRepository } from '../../../data/repositories/Shipping,repository';
+import { CalculatedShippingModel } from '@/data/model/Shipping.model';
+import { ShippingRepository } from '@/data/repositories/Shipping,repository';
 import { DefaultResultError, Result } from '../../../utils/Result';
 import { UseCase } from '../../../utils/UseCase';
 import {
-  CalculatedShipping,
   CalculateShipping,
+  CalculatedShipping,
 } from '../../entities/Shipping.entity';
 
 export type CalculateReq = CalculateShipping;
@@ -20,9 +20,7 @@ export class CalculateShippingUseCaseImpl implements CalculateShippingUseCase {
 
   async execute(req: CalculateReq): CalculateRes {
     const { result } = await this.repository.calculate(
-      CalculateShipping.toModel({
-        postalCode: req.postalCode,
-      }),
+      CalculateShipping.toModel(req),
     );
 
     if (result.type === 'ERROR') {
@@ -34,37 +32,15 @@ export class CalculateShippingUseCaseImpl implements CalculateShippingUseCase {
       }
     }
 
-    const shippingOptions = result.data.filter(
-      (option) =>
-        !(
-          option.name.toLowerCase() === 'express' &&
-          option.company.name.toLowerCase() === 'loggi'
-        ),
-    );
-
-    const cheapestOption = shippingOptions.reduce((prev, curr) =>
-      parseFloat(curr.price) < parseFloat(prev.price) ? curr : prev,
-    );
-
-    const fastestOption = shippingOptions.reduce((prev, curr) =>
-      curr.deliveryTime < prev.deliveryTime ? curr : prev,
-    );
-
-    const correiosOption = shippingOptions.find(
-      (option) =>
-        option.name.toLowerCase().includes('correios') ||
-        option.name.toLowerCase().includes('sedex'),
-    );
-
-    const filteredOptions = [
-      cheapestOption,
-      fastestOption,
-      correiosOption,
-    ].filter((option, index, self) => option && self.indexOf(option) === index);
+    // Usar todas as cotações retornadas pela API sem filtro
+    const shippingOptions = result.data.quotes;
 
     return Result.Success(
-      filteredOptions
-        .filter((item): item is CalculatedShippingModel => item !== undefined)
+      shippingOptions
+        .filter(
+          (item): item is CalculatedShippingModel['quotes'][number] =>
+            item !== undefined,
+        )
         .map((item) => CalculatedShipping.fromModel(item)),
     );
   }

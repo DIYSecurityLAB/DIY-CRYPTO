@@ -40,6 +40,7 @@ export function ProductPage() {
     }
     return visibleImages;
   };
+
   return (
     <>
       <BackgroundAnimatedProduct />
@@ -156,7 +157,7 @@ export function ProductPage() {
                 <input
                   type="text"
                   placeholder={t(LanguageTexts.shipping.enterZip)}
-                  {...register('postalCode')}
+                  {...register('zipcode')}
                   onChange={(e) => {
                     const onlyNumbers = e.target.value.replace(/\D/g, '');
                     e.target.value = onlyNumbers.slice(0, 8);
@@ -186,8 +187,8 @@ export function ProductPage() {
                     );
 
                     const deliveryTime = foundProduct
-                      ? option.deliveryTime + 15
-                      : option.deliveryTime;
+                      ? option.days + 15
+                      : option.days;
 
                     return (
                       <div
@@ -200,23 +201,21 @@ export function ProductPage() {
                         )}
                       >
                         <img
-                          src={option.company.picture}
-                          alt={`Logo da empresa ${option.name}`}
+                          src={option.logoUrl}
+                          alt={`Logo da empresa ${option.service}`}
                           className="w-10 h-10 object-contain"
                         />
                         <div className="w-full flex flex-col items-start justify-center text-left">
                           <h4 className="text-sm font-semibold text-black">
-                            {option.name}
+                            {option.service}
                           </h4>
-
                           <h5 className="text-sm font-semibold text-black">
                             R${' '}
-                            {parseFloat(option.price).toLocaleString('pt-BR', {
+                            {option.price.toLocaleString('pt-BR', {
                               minimumFractionDigits: 2,
                               maximumFractionDigits: 2,
                             })}
                           </h5>
-
                           <span className="text-sm text-black">
                             {deliveryTime} {t('checkout.days')}
                           </span>

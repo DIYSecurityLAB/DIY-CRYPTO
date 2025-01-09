@@ -45,14 +45,33 @@ export function useProductPage() {
     setProduct(selectedProduct || null);
   }, [id, infos, products]);
 
+  // Função de envio para calcular o frete
   const onSubmit: SubmitHandler<CalculateShipping> = async (data) => {
     setLoading(true);
     try {
-      if (data.postalCode.length < 8) {
+      if (data.zipcode.length < 8) {
+        console.log('CEP inválido'); // Debug: Verifique a validação do CEP
         return;
       }
 
-      const { result } = await UseCases.shipping.calculate.execute(data);
+      // Preparar o formato da requisição para a API de frete
+      const requestData: CalculateShipping = {
+        zipcode: data.zipcode,
+        amount: product?.price || 0, // Valor total do produto
+        skus: [
+          {
+            price: product?.price || 0,
+            quantity: 1,
+            length: product?.width || 1, // Ajustar se necessário
+            width: product?.width || 1,
+            height: product?.height || 1,
+            weight: product?.weight || 1,
+          },
+        ],
+      };
+
+      // Envio da requisição para o cálculo do frete
+      const { result } = await UseCases.shipping.calculate.execute(requestData);
 
       if (result.type === 'ERROR') {
         switch (result.error.code) {
@@ -64,7 +83,11 @@ export function useProductPage() {
             return;
         }
       }
+
       setShippingOptions(result.data);
+      console.log('Opções de frete:', result.data); // Debug: Verifique as opções de frete retornadas
+    } catch (error) {
+      console.error('Erro ao calcular frete:', error); // Debug: Verifique se ocorre algum erro
     } finally {
       setLoading(false);
     }
@@ -72,6 +95,7 @@ export function useProductPage() {
 
   const [quantity, setQuantity] = useState(1);
 
+  // Função para adicionar produto ao carrinho
   const handleAddToCart = () => {
     if (product) {
       const productToAdd: Items = {
@@ -86,7 +110,13 @@ export function useProductPage() {
         Yampi_Product_id: product.Yampi_Product_id,
         sku: product.sku,
         sku_id: product.sku_id,
+        length: product.length,
+        width: product.width,
+        height: product.height,
+        weight: product.weight,
       };
+
+      console.log('Adicionando produto ao carrinho:', productToAdd); // Debug: Verifique os dados do produto
 
       add(productToAdd);
     }
@@ -95,6 +125,7 @@ export function useProductPage() {
     return;
   };
 
+  // Função de compra imediata (vai para o carrinho)
   function BuyNow() {
     handleAddToCart();
 

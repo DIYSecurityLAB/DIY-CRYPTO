@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
@@ -5,7 +6,9 @@ import { FaXTwitter } from 'react-icons/fa6';
 import logoBlack from '../assets/logo/logo-complete-black.png';
 import logoWhite from '../assets/logo/logo-complete-white.png';
 import { BackgroundAnimatedProduct } from '../components/BackgroundAnimatedProduct';
+import { useScaleFactor } from '../hooks/useScaleFactor';
 import { useHeader } from '../layout/Header/useHeader';
+import { useWindowSize } from '../utils/useWindowSize';
 
 export function Support() {
   const { t } = useTranslation();
@@ -57,13 +60,24 @@ export function Support() {
     }
   };
 
+  const { width } = useWindowSize();
+  const { scaleFactor } = useScaleFactor();
+
+  const IS_LARGE_SCREEN = width >= 768;
+  const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
+
   return (
     <>
       {isLoading && (
         <span className="loader border-t-transparent border-4 border-white rounded-full w-6 h-6 animate-spin"></span>
       )}
       <BackgroundAnimatedProduct />
-      <section className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+      <section
+        className={classNames(
+          'min-h-screen flex items-center justify-center',
+          IS_ZOOM_BIGGER_THAN_100 && 'pt-16',
+        )}
+      >
         <div className="w-full max-w-4xl bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <aside className="col-span-full md:col-span-6 flex flex-col items-center">

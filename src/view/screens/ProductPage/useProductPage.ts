@@ -45,24 +45,22 @@ export function useProductPage() {
     setProduct(selectedProduct || null);
   }, [id, infos, products]);
 
-  // Função de envio para calcular o frete
   const onSubmit: SubmitHandler<CalculateShipping> = async (data) => {
     setLoading(true);
     try {
       if (data.zipcode.length < 8) {
-        console.log('CEP inválido'); // Debug: Verifique a validação do CEP
+        console.log('CEP inválido');
         return;
       }
 
-      // Preparar o formato da requisição para a API de frete
       const requestData: CalculateShipping = {
         zipcode: data.zipcode,
-        amount: product?.price || 0, // Valor total do produto
+        amount: product?.price || 0,
         skus: [
           {
             price: product?.price || 0,
             quantity: 1,
-            length: product?.width || 1, // Ajustar se necessário
+            length: product?.width || 1,
             width: product?.width || 1,
             height: product?.height || 1,
             weight: product?.weight || 1,
@@ -70,7 +68,6 @@ export function useProductPage() {
         ],
       };
 
-      // Envio da requisição para o cálculo do frete
       const { result } = await UseCases.shipping.calculate.execute(requestData);
 
       if (result.type === 'ERROR') {
@@ -85,9 +82,9 @@ export function useProductPage() {
       }
 
       setShippingOptions(result.data);
-      console.log('Opções de frete:', result.data); // Debug: Verifique as opções de frete retornadas
+      console.log('Opções de frete:', result.data);
     } catch (error) {
-      console.error('Erro ao calcular frete:', error); // Debug: Verifique se ocorre algum erro
+      console.error('Erro ao calcular frete:', error);
     } finally {
       setLoading(false);
     }
@@ -95,7 +92,6 @@ export function useProductPage() {
 
   const [quantity, setQuantity] = useState(1);
 
-  // Função para adicionar produto ao carrinho
   const handleAddToCart = () => {
     if (product) {
       const productToAdd: Items = {
@@ -116,8 +112,6 @@ export function useProductPage() {
         weight: product.weight,
       };
 
-      console.log('Adicionando produto ao carrinho:', productToAdd); // Debug: Verifique os dados do produto
-
       add(productToAdd);
     }
 
@@ -125,7 +119,6 @@ export function useProductPage() {
     return;
   };
 
-  // Função de compra imediata (vai para o carrinho)
   function BuyNow() {
     handleAddToCart();
 

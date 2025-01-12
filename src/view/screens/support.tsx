@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { ThemeMode } from '../../domain/entities/theme.entity';
 import logoBlack from '../assets/logo/logo-complete-black.png';
 import logoWhite from '../assets/logo/logo-complete-white.png';
 import { BackgroundAnimatedProduct } from '../components/BackgroundAnimatedProduct';
@@ -10,27 +9,21 @@ import { useHeader } from '../layout/Header/useHeader';
 
 export function Support() {
   const { t } = useTranslation();
-  const currentTheme = localStorage.getItem('theme');
   const { theme } = useHeader();
 
-  const [isLoading, setIsLoading] = useState(false); // Estado para o loading
-  const [responseMessage, setResponseMessage] = useState<string | null>(null); // Estado para a mensagem de resposta
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [responseMessage, setResponseMessage] = useState<string | null>(null);
   const [responseType, setResponseType] = useState<'success' | 'error' | null>(
     null,
-  ); // Estado para o tipo da mensagem
-
-  useEffect(() => {
-    document.documentElement.classList.toggle(
-      ThemeMode.dark,
-      currentTheme === ThemeMode.dark,
-    );
-  }, [currentTheme]);
+  );
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
-    setResponseMessage(null); // Limpa mensagens anteriores
+    setResponseMessage(null);
+
     const formData = new FormData(event.currentTarget);
+
     const data = {
       firstName: formData.get('firstName'),
       lastName: formData.get('lastName'),
@@ -60,7 +53,7 @@ export function Support() {
       setResponseType('error');
       setResponseMessage(t('support.errorMessage'));
     } finally {
-      setIsLoading(false); // Finaliza o loading
+      setIsLoading(false);
     }
   };
 
@@ -69,18 +62,14 @@ export function Support() {
       <BackgroundAnimatedProduct />
       <section className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
         <div className="w-full max-w-4xl bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl">
-          {/* Container Central */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-            {/* Redes Sociais */}
             <aside className="col-span-full md:col-span-6 flex flex-col items-center">
-              {/* Logo */}
               <img
                 src={theme.isDarkTheme ? logoWhite : logoBlack}
                 alt="Logo"
                 className="w-[150px] h-auto mb-8"
               />
 
-              {/* Redes Sociais */}
               <div className="flex flex-col gap-6 w-full max-w-[368px]">
                 <a
                   href="https://chat.whatsapp.com/HtFSC2xozFhLEFxaDf5Psx"
@@ -121,7 +110,6 @@ export function Support() {
               </div>
             </aside>
 
-            {/* Formulário */}
             <article className="col-span-full md:col-span-6 flex items-center justify-center">
               <form
                 onSubmit={handleSubmit}

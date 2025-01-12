@@ -138,9 +138,11 @@ export function Support() {
 
                 {responseMessage && (
                   <p
-                    className={`text-center font-medium ${
-                      responseType === 'success' && 'text-green-600'
-                    } ${responseType === 'error' && 'text-red-600'}`}
+                    className={classNames(
+                      'text-center font-medium',
+                      responseType === 'success' && 'text-green-600',
+                      responseType === 'error' && 'text-red-600',
+                    )}
                   >
                     {responseMessage}
                   </p>

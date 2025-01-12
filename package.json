@@ -12,6 +12,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@esbuild/linux-x64": "^0.24.2",
     "@headlessui/react": "^2.1.8",
     "@heroicons/react": "^2.1.5",
     "@mercadopago/sdk-react": "^0.0.19",

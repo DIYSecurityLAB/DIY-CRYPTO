@@ -59,6 +59,9 @@ export function Support() {
 
   return (
     <>
+      {isLoading && (
+        <span className="loader border-t-transparent border-4 border-white rounded-full w-6 h-6 animate-spin"></span>
+      )}
       <BackgroundAnimatedProduct />
       <section className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
         <div className="w-full max-w-4xl bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl">
@@ -122,10 +125,8 @@ export function Support() {
                 {responseMessage && (
                   <p
                     className={`text-center font-medium ${
-                      responseType === 'success'
-                        ? 'text-green-600'
-                        : 'text-red-600'
-                    }`}
+                      responseType === 'success' && 'text-green-600'
+                    } ${responseType === 'error' && 'text-red-600'}`}
                   >
                     {responseMessage}
                   </p>
@@ -166,11 +167,7 @@ export function Support() {
                   className="w-full py-3 rounded-lg font-bold transition bg-black hover:bg-gray-800 text-white dark:bg-gray-900 dark:hover:bg-blue-800 flex items-center justify-center"
                   disabled={isLoading}
                 >
-                  {isLoading ? (
-                    <span className="loader border-t-transparent border-4 border-white rounded-full w-6 h-6 animate-spin"></span>
-                  ) : (
-                    t('support.send')
-                  )}
+                  {t('support.send')}
                 </button>
               </form>
             </article>

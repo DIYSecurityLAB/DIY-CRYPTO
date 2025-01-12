@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Items } from '../../../domain/entities/payment.entity';
+import { Product } from '../../../domain/entities/Product.entity';
 import {
   CalculatedShipping,
   CalculateShipping,
 } from '../../../domain/entities/Shipping.entity';
 import { UseCases } from '../../../domain/usecases/UseCases';
-
-import { Product } from '../../../domain/entities/Product.entity';
 import { useCartContext } from '../../context/CartContext';
 import { ROUTES } from '../../routes/Routes';
 import { useCurrentLang } from '../../utils/useCurrentLang';
@@ -49,7 +50,7 @@ export function useProductPage() {
     setLoading(true);
     try {
       if (data.zipcode.length < 8) {
-        console.log('CEP inválido');
+        toast.error('CEP inválido');
         return;
       }
 
@@ -73,18 +74,16 @@ export function useProductPage() {
       if (result.type === 'ERROR') {
         switch (result.error.code) {
           case 'SERIALIZATION':
-            alert('ERRO DE SERIALIZAÇÃO!');
+            toast.error('ERRO DE SERIALIZAÇÃO!');
             return;
           default:
-            alert('ERRO DESCONHECIDO');
+            toast.error('ERRO DESCONHECIDO');
             return;
         }
       }
 
       setShippingOptions(result.data);
       console.log('Opções de frete:', result.data);
-    } catch (error) {
-      console.error('Erro ao calcular frete:', error);
     } finally {
       setLoading(false);
     }
@@ -115,7 +114,7 @@ export function useProductPage() {
       add(productToAdd);
     }
 
-    alert('PRODUTO ADICIONADO COM SUCESSO!');
+    toast.success('Produto adicionado com sucesso!');
     return;
   };
 

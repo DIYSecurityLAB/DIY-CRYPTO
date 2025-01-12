@@ -32,7 +32,6 @@ export class CalculateShippingUseCaseImpl implements CalculateShippingUseCase {
       }
     }
 
-    // Usar todas as cotações retornadas pela API sem filtro
     const shippingOptions = result.data.quotes;
 
     return Result.Success(

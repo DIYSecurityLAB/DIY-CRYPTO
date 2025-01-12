@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import * as TagManager from 'react-gtm-module';
+import { ToastContainer } from 'react-toastify';
 import './domain/locales/Language';
 import { CartProvider } from './view/context/CartContext';
 import { ThemeProvider } from './view/context/ThemeContext';
@@ -22,5 +23,6 @@ root.render(
         <App />
       </CartProvider>
     </ThemeProvider>
+    <ToastContainer />
   </StrictMode>,
 );

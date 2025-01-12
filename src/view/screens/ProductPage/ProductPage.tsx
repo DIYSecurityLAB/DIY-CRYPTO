@@ -1,3 +1,10 @@
+import { LanguageTexts } from '@/domain/locales/Language';
+import { BackgroundAnimatedProduct } from '@/view/components/BackgroundAnimatedProduct';
+import { Loader } from '@/view/components/Loader';
+import { useCartContext } from '@/view/context/CartContext';
+import { useScaleFactor } from '@/view/hooks/useScaleFactor';
+import { styleLastWord } from '@/view/utils/StyleWord';
+import { useWindowSize } from '@/view/utils/useWindowSize';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { FormProvider } from 'react-hook-form';
@@ -5,12 +12,6 @@ import { MdCheck } from 'react-icons/md';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { LanguageTexts } from '../../../domain/locales/Language';
-import { BackgroundAnimatedProduct } from '../../components/BackgroundAnimatedProduct';
-import { Loader } from '../../components/Loader';
-import { useCartContext } from '../../context/CartContext';
-import { styleLastWord } from '../../utils/StyleWord';
-import { useWindowSize } from '../../utils/useWindowSize';
 import './product-page.css';
 import { useProductPage } from './useProductPage';
 
@@ -19,6 +20,7 @@ export function ProductPage() {
     useProductPage();
   const { items } = useCartContext();
   const { width } = useWindowSize();
+  const { scaleFactor } = useScaleFactor();
 
   const [mainImage, setMainImage] = useState(product?.images[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,10 +42,20 @@ export function ProductPage() {
     }
     return visibleImages;
   };
+
+  const IS_LARGE_SCREEN = width >= 768;
+  const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
+
   return (
     <>
       <BackgroundAnimatedProduct />
-      <section className="min-h-screen px-10 pt-32 sm:grid sm:grid-cols-12 sm:px-8">
+      <section
+        className={classNames(
+          'min-h-screen px-10 sm:grid sm:grid-cols-12 sm:px-8',
+          IS_ZOOM_BIGGER_THAN_100 && 'pt-20',
+          !IS_ZOOM_BIGGER_THAN_100 && 'pt-32',
+        )}
+      >
         <article className="sm:hidden">
           <h2 className="text-2xl leading-9 text-[#1E1E1E] font-bold dark:text-white">
             {product.name}
@@ -83,7 +95,11 @@ export function ProductPage() {
                   key={index}
                   src={image}
                   alt={`Imagem do Produto ${index + 1}`}
-                  className="w-28 cursor-pointer border border-solid border-black rounded-md dark:border-white"
+                  className={classNames(
+                    'cursor-pointer border border-solid border-black rounded-md dark:border-white',
+                    !IS_ZOOM_BIGGER_THAN_100 && 'w-28',
+                    IS_ZOOM_BIGGER_THAN_100 && 'w-20',
+                  )}
                   onClick={() =>
                     handleImageClick(
                       (currentIndex + index) % product.images.length,
@@ -98,6 +114,7 @@ export function ProductPage() {
               className={classNames(
                 'w-[360px]',
                 width > 843 && 'w-[800px] pl-32',
+                IS_ZOOM_BIGGER_THAN_100 && 'w-[600px]',
               )}
             />
           </div>
@@ -156,7 +173,7 @@ export function ProductPage() {
                 <input
                   type="text"
                   placeholder={t(LanguageTexts.shipping.enterZip)}
-                  {...register('postalCode')}
+                  {...register('zipcode')}
                   onChange={(e) => {
                     const onlyNumbers = e.target.value.replace(/\D/g, '');
                     e.target.value = onlyNumbers.slice(0, 8);
@@ -186,8 +203,8 @@ export function ProductPage() {
                     );
 
                     const deliveryTime = foundProduct
-                      ? option.deliveryTime + 15
-                      : option.deliveryTime;
+                      ? option.days + 15
+                      : option.days;
 
                     return (
                       <div
@@ -200,23 +217,21 @@ export function ProductPage() {
                         )}
                       >
                         <img
-                          src={option.company.picture}
-                          alt={`Logo da empresa ${option.name}`}
+                          src={option.logoUrl}
+                          alt={`Logo da empresa ${option.service}`}
                           className="w-10 h-10 object-contain"
                         />
                         <div className="w-full flex flex-col items-start justify-center text-left">
                           <h4 className="text-sm font-semibold text-black">
-                            {option.name}
+                            {option.service}
                           </h4>
-
                           <h5 className="text-sm font-semibold text-black">
                             R${' '}
-                            {parseFloat(option.price).toLocaleString('pt-BR', {
+                            {option.price.toLocaleString('pt-BR', {
                               minimumFractionDigits: 2,
                               maximumFractionDigits: 2,
                             })}
                           </h5>
-
                           <span className="text-sm text-black">
                             {deliveryTime} {t('checkout.days')}
                           </span>

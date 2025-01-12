@@ -1,37 +1,32 @@
 import { z } from 'zod';
 
+// Modelo de entrada esperado pela API
 export class CalculateShippingModel {
-  postalCode!: string;
+  zipcode!: string;
+  amount!: number;
+  skus!: {
+    price: number;
+    quantity: number;
+    length: number;
+    width: number;
+    height: number;
+    weight: number;
+  }[];
 }
 
-const Company = z.object({
-  id: z.number(),
+// Modelo de uma cotação de frete na resposta da API
+const ShippingQuote = z.object({
   name: z.string(),
-  picture: z.string(),
+  service: z.string(),
+  price: z.number(),
+  days: z.number(),
+  logo_url: z.string(),
+  quote_id: z.number(),
 });
 
-const DeliveryRange = z.object({
-  max: z.number(),
-  min: z.number(),
-});
-
-const AdditionalServices = z.object({
-  collect: z.boolean(),
-  ownHand: z.boolean(),
-  receipt: z.boolean(),
-});
-
+// Modelo de saída contendo as cotações de frete
 export const CalculatedShippingModel = z.object({
-  id: z.number().min(1),
-  name: z.string().min(1),
-  price: z.string(),
-  company: Company,
-  discount: z.string(),
-  currency: z.string(),
-  deliveryTime: z.number(),
-  customPrice: z.string(),
-  customDeliveryTime: z.number(),
-  deliveryRange: DeliveryRange,
-  additionalServices: AdditionalServices,
+  quotes: z.array(ShippingQuote),
 });
+
 export type CalculatedShippingModel = z.infer<typeof CalculatedShippingModel>;

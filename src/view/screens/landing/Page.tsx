@@ -1,3 +1,4 @@
+import { config } from '@/utils/config/config';
 import { useEffect } from 'react';
 import { Hero } from './partials/Hero';
 import { PositivePoints } from './partials/PositivePoints';
@@ -7,7 +8,7 @@ import { Statistics } from './partials/Statistics';
 export function Page() {
   useEffect(() => {
     const fetchData = async () => {
-      await fetch(import.meta.env.VITE_API_URL);
+      await fetch(config.API_URL);
     };
 
     fetchData();

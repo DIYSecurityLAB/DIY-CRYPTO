@@ -28,12 +28,11 @@ export function useCheckout() {
     remove: removeCartItem,
   } = useCartContext();
 
-  // Agora, vamos adicionar os items diretamente nos valores padrão do formulário.
   const form = useForm<GetCheckout>({
     mode: 'onChange',
     defaultValues: {
       ...JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '{}'),
-      items, // Incluindo items no estado inicial do formulário
+      items,
     },
   });
   const navigate = useNavigate();

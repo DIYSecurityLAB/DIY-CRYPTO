@@ -1,5 +1,7 @@
+import axios from 'axios';
 import classNames from 'classnames';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -10,44 +12,48 @@ import { useScaleFactor } from '../hooks/useScaleFactor';
 import { useHeader } from '../layout/Header/useHeader';
 import { useWindowSize } from '../utils/useWindowSize';
 
+type FormValues = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+};
+
 export function Support() {
   const { t } = useTranslation();
   const { theme } = useHeader();
+  const { width } = useWindowSize();
+  const { scaleFactor } = useScaleFactor();
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const IS_LARGE_SCREEN = width >= 768;
+  const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
+
+  const [isLoading, setIsLoading] = useState(false);
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
   const [responseType, setResponseType] = useState<'success' | 'error' | null>(
     null,
   );
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const { register, handleSubmit, reset } = useForm<FormValues>();
+
+  const onSubmit = async (data: FormValues) => {
     setIsLoading(true);
     setResponseMessage(null);
 
-    const formData = new FormData(event.currentTarget);
-
-    const data = {
-      firstName: formData.get('firstName'),
-      lastName: formData.get('lastName'),
-      email: formData.get('email'),
-      message: formData.get('message'),
-    };
-
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL + '/support', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/support`,
+        data,
+        {
+          headers: { 'Content-Type': 'application/json' },
+        },
+      );
 
-      const result = await response.json();
-
-      if (response.ok) {
+      if (response.status === 200) {
         setResponseType('success');
         setResponseMessage(t('support.successMessage'));
+        reset();
       } else {
-        console.error('Error:', result.error);
         setResponseType('error');
         setResponseMessage(t('support.errorMessage'));
       }
@@ -59,12 +65,6 @@ export function Support() {
       setIsLoading(false);
     }
   };
-
-  const { width } = useWindowSize();
-  const { scaleFactor } = useScaleFactor();
-
-  const IS_LARGE_SCREEN = width >= 768;
-  const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
 
   return (
     <>
@@ -129,7 +129,7 @@ export function Support() {
 
             <article className="col-span-full md:col-span-6 flex items-center justify-center">
               <form
-                onSubmit={handleSubmit}
+                onSubmit={handleSubmit(onSubmit)}
                 className="w-full max-w-[370px] bg-white dark:bg-gray-800 p-8 rounded-lg flex flex-col gap-y-6"
               >
                 <h3 className="font-bold text-lg md:text-2xl text-center text-gray-900 dark:text-gray-100">
@@ -149,30 +149,26 @@ export function Support() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   <input
                     type="text"
-                    name="firstName"
+                    {...register('firstName', { required: true })}
                     placeholder={t('support.firstName')}
-                    required
                     className="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                   />
                   <input
                     type="text"
-                    name="lastName"
+                    {...register('lastName', { required: true })}
                     placeholder={t('support.lastName')}
-                    required
                     className="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                   />
                 </div>
                 <input
                   type="email"
-                  name="email"
+                  {...register('email', { required: true })}
                   placeholder={t('support.email')}
-                  required
                   className="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                 />
                 <textarea
-                  name="message"
+                  {...register('message', { required: true })}
                   placeholder={t('support.message')}
-                  required
                   className="p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                 ></textarea>
 

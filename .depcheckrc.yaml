@@ -10,5 +10,6 @@ ignores:
     'postcss',
     'tailwindcss',
     'tailwindcss-animated',
+    '@rollup/rollup-linux-x64-gnu',
   ]
 skip-missing: true

@@ -114,7 +114,7 @@ export function ProductPage() {
               className={classNames(
                 'w-[360px]',
                 width > 843 && 'w-[800px] pl-32',
-                IS_ZOOM_BIGGER_THAN_100 && 'w-[600px]',
+                IS_ZOOM_BIGGER_THAN_100 && 'w-[550px]',
               )}
             />
           </div>

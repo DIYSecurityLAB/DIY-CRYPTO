@@ -47,8 +47,9 @@ export function TutorialsPage() {
     },
     {
       id: 5,
-      title: t('tutorials.items.4.title'),
-      file: '/tutorial/como_recuperar_sua_conta_sem_o_dispositivo_krux.pdf',
+      title:
+        '#5 - Como recuperar sua conta sem o dispositivo KRUX (Cold_Wallet)',
+      file: '/tutorial/[BR]_#5_Como_recuperar_sua_conta_sem_o_dispositivo_KRUX_(Cold_Wallet).pdf',
       image: como_recuperar_sua_conta_sem_o_dispositivo_krux,
       description: t('tutorials.items.4.description'),
     },
@@ -64,7 +65,8 @@ export function TutorialsPage() {
       title: '#7 - Como realizar o backup da sua Chave Privada (Stackbit 1248)',
       file: '/tutorial/[BR]_#7_Como_realizar_o_backup_da_sua_Chave_Privada_(Stackbit_1248).pdf',
       image: '',
-      description: '',
+      description:
+        'Aprenda a perfurar placas metálicas com segurança e eficiência, um guia importante para quem trabalha com materiais manuais.',
     },
     {
       id: 8,
@@ -120,18 +122,33 @@ export function TutorialsPage() {
       description: t('tutorials.items.4.description'),
     },
     {
+      id: 6,
+      title: '#6 - How to set up your automatic punching machine',
+      file: '/tutorial/[US]_#6_how_to_set_up_your_automatic_punching_machine.pdf',
+      image: como_recuperar_sua_conta_sem_o_dispositivo_krux,
+      description: t('tutorials.items.6.description'),
+    },
+    {
       id: 7,
       title: '#7 - how to backup your private key (Stackbit 1248)',
       file: '/tutorial/[US]_#7_how_to_backup_your_private_key_(Stackbit_1248).pdf',
       image: '',
-      description: '',
+      description:
+        'Learn how to drill metal plates safely and efficiently, an important guide for anyone who works with manual materials.',
+    },
+    {
+      id: 8,
+      title: '#8 - How to backup your private key (Tiny Seed)',
+      file: '/tutorial/[US]_#8_How_to_backup_your_private_key_(Tiny_Seed).pdf',
+      image: como_realizar_o_backup_da_sua_chave_privada_tiniyseed,
+      description: t('tutorials.items.8.description'),
     },
     {
       id: 9,
       title: t('tutorials.items.8.title'),
       file: '/tutorial/[US]_#9_how_to_backup_your_private_key_(SeedQR).pdf',
       image: como_realizar_o_backup_da_sua_chave_privada_seedqr,
-      description: t('tutorials.items.8.description'),
+      description: t('tutorials.items.9.description'),
     },
   ];
 

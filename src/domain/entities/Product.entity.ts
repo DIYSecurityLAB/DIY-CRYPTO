@@ -16,4 +16,8 @@ export class Product {
   sku?: string;
   sku_id?: number;
   Yampi_Product_id?: number;
+  length?: number;
+  width?: number;
+  height?: number;
+  weight?: number;
 }

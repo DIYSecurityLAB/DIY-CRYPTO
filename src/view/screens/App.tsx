@@ -2,9 +2,10 @@ import { initMercadoPago } from '@mercadopago/sdk-react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
+import { config } from '@/utils/config/config';
 import { BrowserRouter } from '../routes/BrowserRouter';
 
-initMercadoPago(import.meta.env.VITE_MP_PUBLIC_KEY);
+initMercadoPago(config.MP_KEY);
 
 export function App() {
   return (

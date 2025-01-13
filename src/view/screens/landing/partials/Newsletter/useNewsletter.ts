@@ -3,6 +3,7 @@ import { UseCases } from '@/domain/usecases/UseCases';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 export function useNewsletter() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -19,17 +20,17 @@ export function useNewsletter() {
       if (result.type === 'ERROR') {
         switch (result.error.code) {
           case 'SERIALIZATION':
-            alert('ERRO DE SERIALIZAÇÃO!');
+            toast.error('Erro de serialização!', { position: 'top-right' });
             return;
           default:
-            alert('ERRO DESCONHECIDO');
+            toast.error('Erro desconhecido.', { position: 'top-right' });
             return;
         }
       }
 
-      alert('CADASTRADO COM SUCESSO!');
+      toast.success('Cadastrado com sucesso!', { position: 'top-right' });
     } catch {
-      alert('ERRO AO CADASTRAR NEWSLETTER');
+      toast.error('Erro ao cadastrar newsletter.', { position: 'top-right' });
     } finally {
       setLoading(false);
     }

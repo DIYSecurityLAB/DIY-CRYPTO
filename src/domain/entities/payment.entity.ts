@@ -45,6 +45,10 @@ export const Items = z.object({
   sku: z.string().optional(),
   sku_id: z.number().optional(),
   Yampi_Product_id: z.number().optional(),
+  length: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+  weight: z.number().optional(),
 });
 export type Items = z.infer<typeof Items>;
 
@@ -93,15 +97,12 @@ export const GetCheckout = z.object({
   birthday: z.string(),
   paymentOption: z.enum(['creditCard', 'pix', 'BTC', 'YAMPI']),
   shipping: z.object({
-    id: z.number(),
     name: z.string(),
-    price: z.string(),
-    company: z.object({
-      id: z.number(),
-      name: z.string(),
-      picture: z.string(),
-    }),
-    deliveryTime: z.number(),
+    service: z.string(),
+    price: z.number(),
+    days: z.number(),
+    logoUrl: z.string(),
+    quoteId: z.number(),
   }),
   selectedPaymentLabel: z.string(),
   discount: z.number(),

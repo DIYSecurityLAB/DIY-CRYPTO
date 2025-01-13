@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
+import { AcceptedLanguages } from '@/domain/locales/Language';
 import como_acessar_sua_carteira_e_transferir_bitcoins from '../assets/images/tutorial/como_acessar_sua_carteira_e_transferir_bitcoins.png';
 import como_adicionar_uma_senha_passphrase from '../assets/images/tutorial/como_adicionar_uma_senha_passphrase.png';
 import como_montar_seu_puncao_automatico from '../assets/images/tutorial/como_montar_seu_puncao_automatico.png';
@@ -7,74 +8,128 @@ import como_realizar_o_backup_da_sua_chave_privada_seedqr from '../assets/images
 import como_realizar_o_backup_da_sua_chave_privada_tiniyseed from '../assets/images/tutorial/como_realizar_o_backup_da_sua_chave_privada_tiniyseed.png';
 import como_recuperar_sua_conta_sem_o_dispositivo_krux from '../assets/images/tutorial/como_recuperar_sua_conta_sem_o_dispositivo_krux.png';
 import crie_sua_chave_privada_e_guarde_seus_bitcoins from '../assets/images/tutorial/crie_sua_chave_privada_e_guarde_seus_bitcoins.png';
-import image5 from '../assets/images/tutorial/tutorial-5.png';
 import valide_o_codigo_instalado_na_sua_carteira from '../assets/images/tutorial/valide_o_codigo_instalado_na_sua_carteira.png';
 import { BackgroundAnimatedProduct } from '../components/BackgroundAnimatedProduct';
+import { useCurrentLang } from '../utils/useCurrentLang';
 
 export function TutorialsPage() {
   const { t } = useTranslation();
+  const { currentLang } = useCurrentLang();
 
-  const tutorials = [
+  const tutorialsPT = [
     {
-      id: 7,
-      title: t('tutorials.items.7.title'),
-      file: '/tutorial/valide_o_codigo_instalado_na_sua_carteira.pdf',
+      id: 1,
+      title: '#1 - Valide o código instalado na sua carteira',
+      file: '/tutorial/[BR]_#1_Valide_o_código_instalado_na_sua_carteira.pdf',
       image: valide_o_codigo_instalado_na_sua_carteira,
       description: t('tutorials.items.7.description'),
     },
     {
-      id: 1,
-      title: t('tutorials.items.1.title'),
-      file: '/tutorial/crie_sua_chave_privada_e_guarde_seus_bitcoins.pdf',
+      id: 2,
+      title: '#2 - Crie sua Chave Privada e Guarde seus Bitcoins',
+      file: '/tutorial/[BR]_#2_Crie_sua_Chave_Privada_e_Guarde_seus_Bitcoins.pdf',
       image: crie_sua_chave_privada_e_guarde_seus_bitcoins,
       description: t('tutorials.items.1.description'),
     },
     {
-      id: 2,
-      title: t('tutorials.items.2.title'),
-      file: '/tutorial/como_adicionar_uma_senha_passphrase.pdf',
+      id: 3,
+      title: '#3 - Adicione uma senha (passphrase)',
+      file: '/tutorial/[BR]_#3_Adicione_uma_senha_(passphrase).pdf',
       image: como_adicionar_uma_senha_passphrase,
       description: t('tutorials.items.2.description'),
     },
     {
-      id: 3,
-      title: t('tutorials.items.3.title'),
-      file: '/tutorial/como_acessar_sua_carteira_e_transferir_bitcoins.pdf',
+      id: 4,
+      title: '#4 - Como acessar sua carteira e transferir Bitcoins',
+      file: '/tutorial/[BR]_#4_Como_acessar_sua_carteira_e_transferir_Bitcoins.pdf',
       image: como_acessar_sua_carteira_e_transferir_bitcoins,
       description: t('tutorials.items.3.description'),
     },
     {
-      id: 4,
+      id: 5,
       title: t('tutorials.items.4.title'),
       file: '/tutorial/como_recuperar_sua_conta_sem_o_dispositivo_krux.pdf',
       image: como_recuperar_sua_conta_sem_o_dispositivo_krux,
       description: t('tutorials.items.4.description'),
     },
     {
-      id: 5,
-      title: t('tutorials.items.5.title'),
-      file: '/tutorial/5° TUTORIAL - COMO IMPORTAR SUA CARTEIRA NA BLUEWALLET.pdf',
-      image: image5,
-      description: t('tutorials.items.5.description'),
-    },
-    {
       id: 6,
-      title: t('tutorials.items.6.title'),
-      file: '/tutorial/como_montar_seu_puncao_automatico.pdf',
+      title: '#6 - Como montar seu punção automático',
+      file: '/tutorial/[BR]_#6_Como_montar_seu_puncao_automatico.pdf',
       image: como_montar_seu_puncao_automatico,
       description: t('tutorials.items.6.description'),
     },
     {
-      id: 9,
-      title: t('tutorials.items.9.title'),
-      file: '/tutorial/como_realizar_o_backup_da_sua_chave_privada_tiniyseed.pdf',
-      image: como_realizar_o_backup_da_sua_chave_privada_tiniyseed,
-      description: t('tutorials.items.9.description'),
+      id: 7,
+      title: '#7 - Como realizar o backup da sua Chave Privada (Stackbit 1248)',
+      file: '/tutorial/[BR]_#7_Como_realizar_o_backup_da_sua_Chave_Privada_(Stackbit_1248).pdf',
+      image: '',
+      description: '',
     },
     {
       id: 8,
+      title: '#8 - Como realizar o backup da sua Chave Privada (Tiny Seed)',
+      file: '/tutorial/[BR]_#8_Como_realizar_o_backup_da_sua_Chave_Privada_(Tiny_Seed).pdf',
+      image: como_realizar_o_backup_da_sua_chave_privada_tiniyseed,
+      description: t('tutorials.items.8.description'),
+    },
+    {
+      id: 9,
+      title: '#9 - Como realizar o backup da sua Chave Privada (SeedQR)',
+      file: '/tutorial/[BR]_#9_Como_realizar_o_backup_da_sua_Chave_Privada_(SeedQR).pdf',
+      image: como_realizar_o_backup_da_sua_chave_privada_seedqr,
+      description: t('tutorials.items.9.description'),
+    },
+  ];
+
+  const tutorialsUS = [
+    {
+      id: 1,
+      title: '#1 - Validate the code installed on your wallet',
+      file: '/tutorial/[US]_#1_validate_the_code_installed_on_your_wallet.pdf',
+      image: valide_o_codigo_instalado_na_sua_carteira,
+      description: t('tutorials.items.7.description'),
+    },
+    {
+      id: 2,
+      title: '#2 - Create your private key and store your bitcoins',
+      file: '/tutorial/[US]_#2_create_your_private_key_and_store_your_bitcoins.pdf',
+      image: crie_sua_chave_privada_e_guarde_seus_bitcoins,
+      description: t('tutorials.items.1.description'),
+    },
+    {
+      id: 3,
+      title: '#3 - Add a passaword (passphrase)',
+      file: '/tutorial/[US]_#3_add_a_passaword_(passphrase).pdf',
+      image: como_adicionar_uma_senha_passphrase,
+      description: t('tutorials.items.2.description'),
+    },
+    {
+      id: 4,
+      title: t('tutorials.items.3.title'),
+      file: '/tutorial/[US]_#4_how_to_access_your_wallet_and_transfer_bitcoins.pdf',
+      image: como_acessar_sua_carteira_e_transferir_bitcoins,
+      description: t('tutorials.items.3.description'),
+    },
+    {
+      id: 5,
+      title:
+        '#5 - How to recover your account without the KRUX device (Cold Wallet)',
+      file: '/tutorial/[US]_#5_how_to_recover_your_account_without_the_KRUX_device_(Cold_Wallet).pdf',
+      image: como_recuperar_sua_conta_sem_o_dispositivo_krux,
+      description: t('tutorials.items.4.description'),
+    },
+    {
+      id: 7,
+      title: '#7 - how to backup your private key (Stackbit 1248)',
+      file: '/tutorial/[US]_#7_how_to_backup_your_private_key_(Stackbit_1248).pdf',
+      image: '',
+      description: '',
+    },
+    {
+      id: 9,
       title: t('tutorials.items.8.title'),
-      file: '/tutorial/como_realizar_o_backup_da_sua_chave_privada_seedqr.pdf',
+      file: '/tutorial/[US]_#9_how_to_backup_your_private_key_(SeedQR).pdf',
       image: como_realizar_o_backup_da_sua_chave_privada_seedqr,
       description: t('tutorials.items.8.description'),
     },
@@ -93,37 +148,71 @@ export function TutorialsPage() {
           </p>
         </article>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {tutorials.map((tutorial) => (
-            <div
-              key={tutorial.id}
-              className="flex flex-col items-center bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 h-[500px]"
-            >
-              <img
-                src={tutorial.image}
-                alt={`Tutorial ${tutorial.id}`}
-                className="object-cover rounded-lg relative w-full h-[180px]"
-              />
-              <h2 className="text-text-primary-light dark:text-text-primary-dark font-semibold text-lg sm:text-base text-center pt-4">
-                {tutorial.title}
-              </h2>
-              <p
-                className="text-gray-700 dark:text-gray-300 text-sm sm:text-xs text-center font-medium flex-grow pt-4"
-                style={{
-                  fontSize: 'clamp(14px, 4vw, 16px)',
-                }}
+          {(currentLang === AcceptedLanguages.pt ||
+            currentLang === AcceptedLanguages.es) &&
+            tutorialsPT.map((tutorial) => (
+              <div
+                key={tutorial.id}
+                className="flex flex-col items-center bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 h-[500px]"
               >
-                {tutorial.description}
-              </p>
-              <a
-                href={tutorial.file}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full h-10 bg-orange-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-orange-600 transition-colors text-center"
+                <img
+                  src={tutorial.image}
+                  alt={`Tutorial ${tutorial.id}`}
+                  className="object-cover rounded-lg relative w-full h-[180px]"
+                />
+                <h2 className="text-text-primary-light dark:text-text-primary-dark font-semibold text-lg sm:text-base text-center pt-4">
+                  {tutorial.title}
+                </h2>
+                <p
+                  className="text-gray-700 dark:text-gray-300 text-sm sm:text-xs text-center font-medium flex-grow pt-4"
+                  style={{
+                    fontSize: 'clamp(14px, 4vw, 16px)',
+                  }}
+                >
+                  {tutorial.description}
+                </p>
+                <a
+                  href={tutorial.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-10 bg-orange-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-orange-600 transition-colors text-center"
+                >
+                  {t('tutorials.downloadButton')}
+                </a>
+              </div>
+            ))}
+          {currentLang === AcceptedLanguages.en &&
+            tutorialsUS.map((tutorial) => (
+              <div
+                key={tutorial.id}
+                className="flex flex-col items-center bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 h-[500px]"
               >
-                {t('tutorials.downloadButton')}
-              </a>
-            </div>
-          ))}
+                <img
+                  src={tutorial.image}
+                  alt={`Tutorial ${tutorial.id}`}
+                  className="object-cover rounded-lg relative w-full h-[180px]"
+                />
+                <h2 className="text-text-primary-light dark:text-text-primary-dark font-semibold text-lg sm:text-base text-center pt-4">
+                  {tutorial.title}
+                </h2>
+                <p
+                  className="text-gray-700 dark:text-gray-300 text-sm sm:text-xs text-center font-medium flex-grow pt-4"
+                  style={{
+                    fontSize: 'clamp(14px, 4vw, 16px)',
+                  }}
+                >
+                  {tutorial.description}
+                </p>
+                <a
+                  href={tutorial.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-10 bg-orange-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-orange-600 transition-colors text-center"
+                >
+                  {t('tutorials.downloadButton')}
+                </a>
+              </div>
+            ))}
         </div>
       </div>
     </>

@@ -13,13 +13,6 @@ import { About } from '../screens/About/About';
 import { Blog } from '../screens/Blog/Blog';
 import { BlogPost } from '../screens/BlogPost/BlogPost';
 import { Blogs } from '../screens/Blogs/Blogs';
-import { AboutBuyBitcoin } from '../screens/BuyBitcoin/AboutBuyBitcoin';
-import BuyBitcoin from '../screens/BuyBitcoin/BuyBitcoin';
-import BuyCheckout from '../screens/BuyBitcoin/BuyCheckout';
-import { PaymentAlfredFailure } from '../screens/BuyBitcoin/pageFailure';
-import { PaymentAlfredSuccess } from '../screens/BuyBitcoin/pageSucces';
-import { Fees } from '../screens/BuyBitcoin/RateBitcoin';
-import { TermsOfUse } from '../screens/BuyBitcoin/TermsUse';
 import { BitcoinPayment } from '../screens/Checkout/BitcoinPayment';
 import { PixPayment } from '../screens/Checkout/PixPayment';
 import { Page } from '../screens/landing/Page';
@@ -101,22 +94,6 @@ export function BrowserRouter() {
               element={<PaymentFailure />}
             />
             <Route path={ROUTES.cart.checkout.path} element={<Checkout />} />
-            <Route path={ROUTES.buyBitcoin.path} element={<BuyBitcoin />} />
-            <Route path={ROUTES.fee.path} element={<Fees />} />
-            <Route path={ROUTES.buyCheckout.path} element={<BuyCheckout />} />
-            <Route
-              path={ROUTES.paymentAlfredStatus.success.path}
-              element={<PaymentAlfredSuccess />}
-            />
-            <Route
-              path={ROUTES.paymentAlfredStatus.failure.path}
-              element={<PaymentAlfredFailure />}
-            />
-            <Route
-              path={ROUTES.aboutBitcoin.path}
-              element={<AboutBuyBitcoin />}
-            />
-            <Route path={ROUTES.term.path} element={<TermsOfUse />} />
             <Route
               path={ROUTES.cart.pixPayment.path}
               element={<PixPayment />}

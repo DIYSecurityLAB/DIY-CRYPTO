@@ -268,6 +268,7 @@ export function ProductPage() {
                 Comprar Agora
               </button>
               <button
+                type="button"
                 onClick={cart.add}
                 className=" text-white p-2 rounded-md text-sm h-14 bg-[#242F3F] dark:bg-[#4A5568]"
               >

@@ -212,7 +212,7 @@
     "options": "Shipping Options",
     "noOptions": "No shipping options available.",
     "enterZip": "Enter your ZIP code:",
-    "loading": "Loading shipping options...",
+    "loading": "Loading...",
     "calculate": "Calculate",
     "deliveryIn": "Delivery in"
   },

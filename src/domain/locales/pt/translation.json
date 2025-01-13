@@ -212,7 +212,7 @@
     "options": "Opções de Frete",
     "noOptions": "Nenhuma opção de frete disponível.",
     "enterZip": "Digite seu CEP:",
-    "loading": "Carregando opções de frete...",
+    "loading": "Carregando...",
     "calculate": "Calcular",
     "deliveryIn": "Entrega em"
   },

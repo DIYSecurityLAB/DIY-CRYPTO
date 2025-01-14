@@ -161,12 +161,20 @@
     }
   },
   "footer": {
-    "links": ["Sobre", "Política de Privacidade", "Contato"],
+    "links": [
+      "Sobre",
+      "Política de Privacidade",
+      "Contato"
+    ],
     "allRightsReserved": "Todos os direitos reservados."
   },
   "about": {
     "title": "Manifesto DIY Security Lab",
     "subtitle": "Bitcoin, Liberdade e Soberania",
+    "descriptionTitle": "O que é a DIY Security Lab?",
+    "description": "A DIY Security Lab é uma empresa focada em soluções que promovem a adoção do Bitcoin, removendo intermediários e empoderando o usuário final. Criamos o BITKIT, o método mais seguro e simples de armazenar Bitcoins, e o Alfred P2P, uma plataforma para compra descentralizada e anônima. Nossa missão é garantir que todos possam controlar seus próprios ativos de forma segura e independente, contribuindo para um futuro financeiro mais livre e descentralizado.",
+    "foundersTitle": "Fundadores",
+    "founders": "A DIY Security Lab foi fundada em 2024 por três engenheiros apaixonados por finanças descentralizadas, que iniciaram seus estudos no mercado cripto em 2017. Leonardo Maximiliano, CEO, é fascinado por macroeconomia e pelos impactos sociais que o Bitcoin pode gerar em diferentes estruturas sociais. Guilherme, com seu foco em gestão de negócios e empreendedorismo, busca constantemente inovações disruptivas. Giovanni, o 'nerd da tecnologia', transforma ideias em soluções técnicas avançadas. Juntos, eles se complementam para criar soluções que promovem a adoção do Bitcoin, empoderando o usuário final e eliminando intermediários.",
     "signature": "Atenciosamente, equipe DIY Security Lab"
   },
   "support": {
@@ -258,6 +266,21 @@
       }
     },
     "downloadButton": "PDF gratuito"
+  },
+  "videos": {
+    "title": "Vídeos",
+    "description": "Assista aqui vídeos gratuitos que preparamos especialmente para você que está iniciando.",
+    "items": {
+      "1": {
+        "title": "Crie suas chaves off-line e carteira somente visualização",
+        "videoSrc": "https://www.youtube.com/embed/M13-eb8TQJ8?si=mR5YlXyol4cm1LIC"
+      },
+      "2": {
+        "id": 2,
+        "title": "Como atualizar sua Krux Wallet",
+        "videoSrc": "https://www.youtube.com/embed/Ir8ieF6WLu4?si=DWEObyAClBqtVqEG"
+      }
+    }
   },
   "post": {
     "notFound": "Post Não Encontrado!"

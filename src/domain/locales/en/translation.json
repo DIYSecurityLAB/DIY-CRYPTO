@@ -161,12 +161,20 @@
     }
   },
   "footer": {
-    "links": ["About", "Privacy Policy", "Contact"],
+    "links": [
+      "About",
+      "Privacy Policy",
+      "Contact"
+    ],
     "allRightsReserved": "All Rights Reserved."
   },
   "about": {
     "title": "DIY Security Lab Manifesto",
     "subtitle": "Bitcoin, Freedom, and Sovereignty",
+    "descriptionTitle": "What is DIY Security Lab?",
+    "description": "DIY Security Lab is a company focused on solutions that promote Bitcoin adoption by removing intermediaries and empowering end users. We created BITKIT, the safest and simplest method to store Bitcoins, and Alfred P2P, a platform for decentralized and anonymous purchasing. Our mission is to ensure that everyone can control their own assets securely and independently, contributing to a freer and more decentralized financial future.",
+    "foundersTitle": "Founders",
+    "founders": "DIY Security Lab was founded in 2024 by three engineers passionate about decentralized finance who began studying the crypto market in 2017. Leonardo Maximiliano, CEO, is fascinated by macroeconomics and the social impacts Bitcoin can generate in different social structures. Guilherme, with his focus on business management and entrepreneurship, constantly seeks disruptive innovations. Giovanni, the 'tech nerd,' turns ideas into advanced technical solutions. Together, they complement each other to create solutions that promote Bitcoin adoption, empowering end users and eliminating intermediaries.",
     "signature": "Sincerely, DIY Security Lab Team"
   },
   "support": {
@@ -258,6 +266,22 @@
       }
     },
     "downloadButton": "Free PDF"
+  },
+  "videos": {
+    "title": "Videos",
+    "description": "Watch free videos we have prepared especially for you who are just starting out.",
+    "items": {
+      "1": {
+        "id": 1,
+        "title": "Create your offline keys and watch-only wallet",
+        "videoSrc": "https://www.youtube.com/embed/M13-eb8TQJ8?si=mR5YlXyol4cm1LIC"
+      },
+      "2": {
+        "id": 2,
+        "title": "How to update your Krux Wallet",
+        "videoSrc": "https://www.youtube.com/embed/Ir8ieF6WLu4?si=DWEObyAClBqtVqEG"
+      }
+    }
   },
   "post": {
     "notFound": "Post Not Found!"

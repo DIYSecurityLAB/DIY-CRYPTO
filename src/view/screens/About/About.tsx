@@ -61,14 +61,12 @@ export function About() {
               pagination={{ clickable: true }}
               loop
               className="relative rounded-lg shadow-lg"
-              style={
-                {
-                  '--swiper-navigation-color': '#999',
-                  '--swiper-navigation-size': '20px',
-                  '--swiper-pagination-bullet-color': '#ccc',
-                  '--swiper-pagination-bullet-opacity': '0.6',
-                } as React.CSSProperties
-              }
+              style={{
+                '--swiper-navigation-color': '#999',
+                '--swiper-navigation-size': '20px',
+                '--swiper-pagination-bullet-color': '#ccc',
+                '--swiper-pagination-bullet-opacity': '0.6',
+              } as React.CSSProperties}
             >
               {images.map((image, idx) => (
                 <SwiperSlide key={idx}>
@@ -90,7 +88,7 @@ export function About() {
                 IS_ZOOM_BIGGER_THAN_100 && 'text-xl',
               )}
             >
-              O que é a DIY Security Lab?
+              {t(LanguageTexts.about.descriptionTitle)}
             </h2>
             <p
               className={classNames(
@@ -98,14 +96,7 @@ export function About() {
                 IS_ZOOM_BIGGER_THAN_100 && 'text-sm',
               )}
             >
-              A DIY Security Lab é uma empresa focada em soluções que promovem a
-              adoção do Bitcoin, removendo intermediários e empoderando o
-              usuário final. Criamos o BITKIT, o método mais seguro e simples de
-              armazenar Bitcoins, e o Alfred P2P, uma plataforma para compra
-              descentralizada e anônima. Nossa missão é garantir que todos
-              possam controlar seus próprios ativos de forma segura e
-              independente, contribuindo para um futuro financeiro mais livre e
-              descentralizado.
+              {t(LanguageTexts.about.description)}
             </p>
 
             <h2
@@ -114,7 +105,7 @@ export function About() {
                 IS_ZOOM_BIGGER_THAN_100 && 'text-xl',
               )}
             >
-              Fundadores
+              {t(LanguageTexts.about.foundersTitle)}
             </h2>
             <p
               className={classNames(
@@ -122,17 +113,7 @@ export function About() {
                 !IS_ZOOM_BIGGER_THAN_100 && 'pb-6',
               )}
             >
-              A DIY Security Lab foi fundada em 2024 por três engenheiros
-              apaixonados por finanças descentralizadas, que iniciaram seus
-              estudos no mercado cripto em 2017. Leonardo Maximiliano, CEO, é
-              fascinado por macroeconomia e pelos impactos sociais que o Bitcoin
-              pode gerar em diferentes estruturas sociais. Guilherme, com seu
-              foco em gestão de negócios e empreendedorismo, busca
-              constantemente inovações disruptivas. Giovanni, o "nerd da
-              tecnologia", transforma ideias em soluções técnicas avançadas.
-              Juntos, eles se complementam para criar soluções que promovem a
-              adoção do Bitcoin, empoderando o usuário final e eliminando
-              intermediários.
+              {t(LanguageTexts.about.founders)}
             </p>
           </div>
           <p

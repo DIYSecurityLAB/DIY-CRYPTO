@@ -30,6 +30,7 @@ type NavLinksProps = {
   closeButton?: ReactNode;
   isLargeScreen: boolean;
   LinkCallBack?: () => void;
+  closeMenu: () => void;
 };
 
 export function NavLinks({
@@ -39,6 +40,7 @@ export function NavLinks({
   isVisible,
   isLargeScreen,
   LinkCallBack,
+  closeMenu,
 }: NavLinksProps) {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -57,6 +59,7 @@ export function NavLinks({
       callback();
     }
     navigate(path);
+    closeMenu();
   };
 
   const { width } = useWindowSize();

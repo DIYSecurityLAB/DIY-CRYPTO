@@ -84,8 +84,8 @@ export function ProductPage() {
             width > 843 ? 'sm:justify-center' : 'sm:justify-around',
           )}
         >
-          <div className="flex">
-            <div className="flex flex-col h-full justify-between">
+          <div className="flex justify-around">
+            <div className="flex flex-col h-4/5 justify-between">
               {getVisibleImages().map((image, index) => (
                 <img
                   key={index}
@@ -104,29 +104,29 @@ export function ProductPage() {
                 />
               ))}
             </div>
-            <img
-              src={mainImage ?? product.images[0]}
-              alt={`Imagem do Produto Principal`}
-              className={classNames(
-                'w-[360px]',
-                width > 843 && 'w-[800px] pl-32',
-                IS_ZOOM_BIGGER_THAN_100 && 'w-[550px]',
-              )}
-            />
-          </div>
-
-          <div className="flex justify-center mt-4">
-            {product.images.map((_, index) => (
-              <button
-                key={index}
+            <div>
+              <img
+                src={mainImage ?? product.images[0]}
+                alt={`Imagem do Produto Principal`}
                 className={classNames(
-                  'w-3 h-3 mx-2 rounded-full bg-slate-300 dark:bg-gray-500',
-                  currentIndex === index && 'bg-slate-500 dark:bg-white',
+                  IS_ZOOM_BIGGER_THAN_100 && 'w-[550px]',
+                  !IS_ZOOM_BIGGER_THAN_100 && 'w-[800px]',
                 )}
-                onClick={() => handleImageClick(index)}
-                aria-label={`Imagem ${index + 1}`}
               />
-            ))}
+              <div className="flex justify-center mt-4">
+                {product.images.map((_, index) => (
+                  <button
+                    key={index}
+                    className={classNames(
+                      'w-3 h-3 mx-2 rounded-full bg-slate-300 dark:bg-gray-500',
+                      currentIndex === index && 'bg-slate-500 dark:bg-white',
+                    )}
+                    onClick={() => handleImageClick(index)}
+                    aria-label={`Imagem ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </article>
 

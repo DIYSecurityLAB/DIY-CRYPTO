@@ -2,11 +2,9 @@ import classNames from 'classnames';
 import { t } from 'i18next';
 import { useState } from 'react';
 import { Loader } from '../../../components/Loader';
-import { useCartContext } from '../../../context/CartContext';
 import { useShippingForm } from './useShippingForm';
 
 export function ShippingForm() {
-  const { items } = useCartContext();
   const { loading, shippingOptions, shipping } = useShippingForm();
 
   // Estado para controlar o botão selecionado, agora tipado como string | number | null
@@ -23,10 +21,6 @@ export function ShippingForm() {
       {loading && <Loader />}
       <div className="w-full flex flex-col justify-center items-center gap-y-6">
         {shippingOptions.map((option) => {
-          const foundProduct = items.find((produto) => produto.id !== '1');
-          const deliveryTime = foundProduct ? option.days + 15 : option.days;
-
-          // Verifica se a opção foi selecionada
           const isSelected = selectedOption === option.quoteId;
 
           return (
@@ -37,13 +31,13 @@ export function ShippingForm() {
                 'w-full flex items-center justify-around rounded-md border border-solid border-gray-400 px-4 py-2',
                 'transition-colors duration-300 ease-in-out hover:bg-orange-500 dark:bg-gray-100 dark:border-black',
                 isSelected &&
-                  'bg-orange-primary dark:bg-orange-primary dark:hover:bg-orange-600',
+                'bg-orange-primary dark:bg-orange-primary dark:hover:bg-orange-600',
                 'md:w-3/4',
                 'lg:w-full',
               )}
               onClick={() => {
-                setSelectedOption(option.quoteId); // Atualiza o botão selecionado com quoteId como number
-                shipping.set(option); // Atualiza o estado de shipping com a opção escolhida
+                setSelectedOption(option.quoteId);
+                shipping.set(option);
               }}
             >
               <img
@@ -63,7 +57,7 @@ export function ShippingForm() {
                   })}
                 </h5>
                 <span className="text-base font-semibold">
-                  {deliveryTime} {t('checkout.days')}
+                  {option.days} {t('checkout.days')}
                 </span>
               </div>
             </button>

@@ -33,19 +33,21 @@ export function ConfirmInfos() {
           +55 ({infos.phone.areaCode}) {infos.phone.number}
         </span>
       </div>
-      <div className="flex flex-col border-b border-solid border-black dark:border-white py-4">
-        <span className="dark:text-white">
-          Endereço: {infos.address.street}, {infos.address.number} -{' '}
-          {infos.address.complement}
-        </span>
-        <span className="dark:text-white">CEP: {infos.address.zipCode}</span>
-        <span className="dark:text-white">
-          Estado: {infos.address.state}, {infos.address.uf}
-        </span>
-        <span className="dark:text-white">
-          Bairro: {infos.address.neighborhood}
-        </span>
-      </div>
+      {form.getValues('paymentOption') !== 'YAMPI' && (
+        <div className="flex flex-col border-b border-solid border-black dark:border-white py-4">
+          <span className="dark:text-white">
+            Endereço: {infos.address.street}, {infos.address.number} -{' '}
+            {infos.address.complement}
+          </span>
+          <span className="dark:text-white">CEP: {infos.address.zipCode}</span>
+          <span className="dark:text-white">
+            Estado: {infos.address.state}, {infos.address.uf}
+          </span>
+          <span className="dark:text-white">
+            Bairro: {infos.address.neighborhood}
+          </span>
+        </div>
+      )}
       <div className="flex flex-col border-b border-solid border-black dark:border-white py-4">
         {infos.shipping && (
           <span className="dark:text-white">

@@ -65,39 +65,56 @@ export function Checkout() {
                   icon: <MdPerson size={18} className="text-white" />,
                 },
                 {
-                  icon: <MdHome size={18} className="text-white" />,
+                  icon: <MdCreditCard size={18} className="text-white" />,
                 },
                 {
-                  icon: <MdCreditCard size={18} className="text-white" />,
+                  icon: <MdHome size={18} className="text-white" />,
                 },
               ]}
             />
           </div>
         </article>
         <article className="col-span-12 lg:col-span-6">
-          <h3 className="text-xl border-b border-solid border-black leading-9 dark:text-white dark:border-white">
-            {steps.current === 1 && t('checkout.stepInfos')}
+          <h3 className="text-xl border-b border-solid border-black leading-9 dark:text-white dark:border-white py-2">
+            {/* {steps.current === 1 && t('checkout.stepInfos')}
             {steps.current === 2 && t('checkout.stepAddress')}
             {steps.current === 3 && t('checkout.stepShipping')}
             {steps.current === 4 && t('checkout.choosePaymentMethod')}
             {steps.current === 5 && t('checkout.stepPayment')}
+            {steps.current === 6 && t('checkout.confirmInfos')} */}
+            {steps.current === 1 && t('checkout.stepInfos')}
+            {steps.current === 2 && t('checkout.choosePaymentMethod')}
+            {steps.current === 3 && t('checkout.stepPayment')}
+            {steps.current === 4 && t('checkout.stepAddress')}
+            {steps.current === 5 && t('checkout.stepShipping')}
             {steps.current === 6 && t('checkout.confirmInfos')}
           </h3>
           <FormProvider {...form}>
             <form onSubmit={onsubmit}>
               <div className="flex flex-col gap-y-2 pt-4">
-                {steps.current === 1 && <PersonForm />}
+                {/* {steps.current === 1 && <PersonForm />}
                 {steps.current === 2 && <AddressForm />}
                 {steps.current === 3 && <ShippingForm />}
                 {steps.current === 4 && <PaymentOptions />}
                 {steps.current === 5 && <PaymentForm />}
+                {steps.current === 6 && <ConfirmInfos />} */}
+                {steps.current === 1 && <PersonForm />}
+                {steps.current === 2 && <PaymentOptions />}
+                {steps.current === 3 && <PaymentForm />}
+                {steps.current === 4 && <AddressForm />}
+                {steps.current === 5 && <ShippingForm />}
                 {steps.current === 6 && <ConfirmInfos />}
               </div>
               <div className="w-full flex justify-between py-4 gap-x-2">
                 {steps.current > 1 && (
                   <button
                     type="button"
-                    onClick={steps.prev}
+                    onClick={
+                      steps.current === 6 &&
+                      form.getValues('paymentOption') === 'YAMPI'
+                        ? steps.paymentOption
+                        : steps.prev
+                    }
                     className="w-48 bg-gray-500 text-white p-2 rounded-md font-semibold dark:bg-gray-700 dark:hover:bg-gray-600"
                   >
                     {t('checkout.prev')}
@@ -106,10 +123,15 @@ export function Checkout() {
                 {steps.current < 6 && (
                   <button
                     type="button"
-                    onClick={steps.next}
+                    onClick={
+                      steps.current === 3 &&
+                      form.getValues('paymentOption') === 'YAMPI'
+                        ? steps.lastStep
+                        : steps.next
+                    }
                     className="w-full bg-orange-primary text-white p-2 rounded-md font-semibold hover:bg-orange-500 transition-colors "
                     disabled={
-                      steps.current === 2 &&
+                      steps.current === 4 &&
                       form.getValues('address.zipCode')?.length !== 8
                     }
                   >

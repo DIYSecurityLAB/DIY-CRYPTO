@@ -232,6 +232,8 @@ export function useCheckout() {
       current: currentStep,
       next: () => setCurrentStep(currentStep + 1),
       prev: () => setCurrentStep(currentStep - 1),
+      lastStep: () => setCurrentStep(6),
+      paymentOption: () => setCurrentStep(3),
     },
   };
 }

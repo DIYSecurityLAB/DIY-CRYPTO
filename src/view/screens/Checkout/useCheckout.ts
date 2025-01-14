@@ -64,21 +64,26 @@ export function useCheckout() {
     setSubtotal(
       items.reduce((total, item) => total + item.price * item.quantity, 0),
     );
-
+  
     const recalculateDiscount = async () => {
       const couponCode = form.getValues('couponCode');
       const shipping = form.getValues('shipping');
-
+  
+      
+      if (!shipping) {
+        return;  
+      }
+  
       if (couponCode) {
         const { result } = await UseCases.coupon.validate.execute({
           code: couponCode,
         });
-
+  
         if (result.type === 'SUCCESS') {
           const minPurchaseValue = result.data.minPurchaseValue ?? 0;
           const maxDiscountValue = result.data.maxDiscountValue ?? Infinity;
           const discountValue = result.data.discountValue ?? 0;
-
+  
           if (subtotal >= minPurchaseValue) {
             const recalculatedDiscount =
               result.data.discountType === 'percentage'
@@ -87,7 +92,7 @@ export function useCheckout() {
                     maxDiscountValue,
                   )
                 : Math.min(discountValue, maxDiscountValue);
-
+  
             form.setValue('discount', recalculatedDiscount);
           } else {
             form.setValue('discount', 0);
@@ -95,19 +100,35 @@ export function useCheckout() {
         }
       }
     };
-
+  
     recalculateDiscount();
   }, [items, form, subtotal]);
+  
 
   async function onSubmit(data: GetCheckout) {
     setLoading(true);
     const shipping = form.getValues('shipping');
+  
     try {
-      if (Number(shipping.price) === 0) {
+      if (data.method !== 'YAMPI' && (shipping && Number(shipping.price) === 0)) {
         alert('ESCOLHA UMA OPÇÃO DE FRETE');
         return;
       }
+  
 
+      if (data.method === 'YAMPI' && !data.address) {
+        data.address = {
+          city: 'Cidade Fictícia',
+          number: '123',
+          state: 'Estado Fictício',
+          street: 'Rua Fictícia',
+          zipCode: '01310000',
+          uf: 'SP',
+          neighborhood: 'Bairro Fictício',
+          complement: 'Complemento Fictício',
+        };
+      }
+  
       const req: GetCheckout = {
         couponCode: data.couponCode,
         identification: data.identification,
@@ -129,13 +150,13 @@ export function useCheckout() {
         birthday: data.birthday,
         paymentOption: data.paymentOption,
         selectedPaymentLabel: data.selectedPaymentLabel,
-        shipping: data.shipping,
+        shipping: data.method === 'YAMPI' ? undefined : data.shipping,
         discount: data.discount ?? 0,
       };
-
+  
       const preValidationResult = GetCheckout.safeParse(req);
-
-      if (!preValidationResult.success) {
+  
+      if (data.method !== 'YAMPI' && !preValidationResult.success) {
         alert('PREENCHA TODAS AS INFORMAÇÕES ANTES DE ENVIAR');
         console.log(preValidationResult.error.errors);
         return;
@@ -144,13 +165,14 @@ export function useCheckout() {
       if (data.method === 'OTHER' && data.paymentOption === 'creditCard') {
         redirectToWhatsAppCreditCard(
           { ...data, items },
-          Number(shipping.price),
+          Number(shipping?.price ?? 0),
           form.getValues('total'),
         );
         return;
       }
+  
       const { result } = await UseCases.payment.create.execute(req);
-
+  
       if (result.type === 'ERROR') {
         switch (result.error.code) {
           case 'SERIALIZATION':
@@ -158,7 +180,7 @@ export function useCheckout() {
             if (import.meta.env.VITE_NODE_ENV !== 'development') {
               redirectToWhatsAppError(
                 { ...data, items },
-                Number(shipping.price),
+                Number(shipping?.price ?? 0),
                 form.getValues('total'),
               );
             }
@@ -168,31 +190,32 @@ export function useCheckout() {
             if (import.meta.env.VITE_NODE_ENV !== 'development') {
               redirectToWhatsAppError(
                 { ...data, items },
-                Number(shipping.price),
+                Number(shipping?.price ?? 0),
                 form.getValues('total'),
               );
             }
             return;
         }
       }
-
+  
+      // Lógica de redirecionamento dependendo do método de pagamento
       if (req.method === 'YAMPI' && 'reorder_url' in result.data) {
         const yampiData = result.data as { reorder_url: string };
         window.location.href = yampiData.reorder_url;
         return;
       }
-
+  
       if ('paymentLink' in result.data) {
         window.location.href = result.data.paymentLink;
         return;
       }
-
+  
       if ('checkoutLink' in result.data) {
         const linkToRedirect = result.data.checkoutLink;
         window.location.href = linkToRedirect;
         return;
       }
-
+  
       if ('location' in result.data) {
         navigate(ROUTES.cart.pixPayment.call(currentLang), {
           state: {
@@ -205,7 +228,7 @@ export function useCheckout() {
         });
         return;
       }
-
+  
       if (result.data.data.status === 'approved') {
         clearCart();
         navigate(ROUTES.paymentStatus.success.call(currentLang));
@@ -216,6 +239,7 @@ export function useCheckout() {
       setLoading(false);
     }
   }
+  
 
   return {
     t,

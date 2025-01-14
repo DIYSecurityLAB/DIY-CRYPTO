@@ -134,18 +134,25 @@ export function ProductPage() {
           <h2 className="hidden sm:block text-2xl leading-9 text-[#1E1E1E] font-bold dark:text-white">
             {product.name}
           </h2>
-          <div className="pt-12 sm:pt-4 flex items-start">
-            <span className="text-xl leading-5 dark:text-white">R$</span>
-            <h2 className="text-4xl font-bold leading-5 dark:text-white">
-              {product.price.toFixed(2)}
-            </h2>
+          <div className="pt-12 sm:pt-4 flex flex-col items-start">
+            {product.originalPrice && (
+              <span className="text-xl text-gray-500 line-through dark:text-gray-400">
+                R$ {product.originalPrice.toFixed(2)}
+              </span>
+            )}
+            <div className="flex items-baseline">
+              <span className="text-xl leading-5 dark:text-white">R$</span>
+              <h2 className="text-4xl font-bold leading-5 dark:text-white">
+                {product.price.toFixed(2)}
+              </h2>
+            </div>
           </div>
           <div className="flex flex-col gap-y-2 pt-2">
             <span className="text-sm dark:text-white">
               Disponível para parcelamento
             </span>
             <span className="text-[#4133FF] text-sm dark:text-[#dad9e6]">
-              Ver os métodos de pagamento
+              métodos de pagamento: Bitcoin | Crédito | PIX
             </span>
           </div>
         </article>

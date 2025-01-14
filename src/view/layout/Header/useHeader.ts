@@ -51,6 +51,11 @@ export function useHeader() {
       href: ROUTES.cart.product.call(currentLang, 'BITKIT', '2'),
       icon: MdTouchApp,
     },
+    {
+      name: 'BITKIT X',
+      href: ROUTES.cart.product.call(currentLang, 'BITKIT', '3'),
+      icon: MdTouchApp,
+    },
   ];
 
   const supportlink = [

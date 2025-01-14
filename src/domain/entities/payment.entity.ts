@@ -96,17 +96,27 @@ export const GetCheckout = z.object({
   total: z.number(),
   birthday: z.string(),
   paymentOption: z.enum(['creditCard', 'pix', 'BTC', 'YAMPI']),
-  shipping: z.object({
-    name: z.string(),
-    service: z.string(),
-    price: z.number(),
-    days: z.number(),
-    logoUrl: z.string(),
-    quoteId: z.number(),
-  }),
+
+  shipping: z
+    .object({
+      name: z.string(),
+      service: z.string(),
+      price: z.number(),
+      days: z.number(),
+      logoUrl: z.string(),
+      quoteId: z.number(),
+    })
+    .optional()
+    .refine((data) => {
+      return data === undefined || data.price > 0;
+    }, {
+      message: 'Shipping information should be omitted if payment option is YAMPI.',
+    }),
+
   selectedPaymentLabel: z.string(),
   discount: z.number(),
 });
+
 export type GetCheckout = z.infer<typeof GetCheckout>;
 
 export class CreatedCheckout {

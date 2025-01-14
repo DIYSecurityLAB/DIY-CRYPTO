@@ -1,4 +1,4 @@
-import { AiOutlineWhatsApp } from 'react-icons/ai';
+import {  AiOutlineWhatsApp, AiOutlineYoutube } from 'react-icons/ai';
 import { FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
@@ -129,6 +129,23 @@ export function Footer() {
               </a>
               <span className="absolute -top-14 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-sm font-bold text-white bg-gray-900 rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">
                 LinkedIn
+              </span>
+            </div>
+            <div className="group relative inline-block">
+              <a
+                href="https://www.youtube.com/@DIYSecurityLab"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus:outline-none"
+                title="LinkedIn - DIY SEC LAB"
+              >
+                <AiOutlineYoutube
+                  className="transform transition-transform duration-300 hover:scale-125 text-gray-700 dark:text-white hover:text-[#F6911D]"
+                  size={47}
+                />
+              </a>
+              <span className="absolute -top-14 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-sm font-bold text-white bg-gray-900 rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">
+                Youtube
               </span>
             </div>
           </div>

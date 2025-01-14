@@ -66,6 +66,10 @@ export const LanguageTexts = {
     title: 'about.title',
     subtitle: 'about.subtitle',
     signature: 'about.signature',
+    descriptionTitle: 'about.descriptionTitle',
+    description: 'about.description',
+    foundersTitle: 'about.foundersTitle',
+    founders: 'about.founders',
   },
   post: {
     notFound: 'post.notFound',

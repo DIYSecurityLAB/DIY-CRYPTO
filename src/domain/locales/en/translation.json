@@ -133,7 +133,7 @@
       },
       {
         "name": "BITKIT X",
-        "title": "BITKIT X",
+        "title": "Mobility and Security Anywhere!",
         "description": "For those seeking the highest level of protection in their financial transactions.",
         "items": [
           {
@@ -210,7 +210,11 @@
     }
   },
   "footer": {
-    "links": ["About", "Privacy Policy", "Contact"],
+    "links": [
+      "About",
+      "Privacy Policy",
+      "Contact"
+    ],
     "allRightsReserved": "All Rights Reserved."
   },
   "about": {

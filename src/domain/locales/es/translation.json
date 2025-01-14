@@ -133,7 +133,7 @@
       },
       {
         "name": "BITKIT X",
-        "title": "BITKIT X",
+        "title": "Movilidad y Seguridad en Cualquier Lugar!",
         "description": "Para aquellos que buscan el más alto nivel de protección en sus transacciones financieras.",
         "items": [
           {
@@ -229,7 +229,11 @@
     "errorMessage": "Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
   },
   "footer": {
-    "links": ["Acerca de", "Política de Privacidad", "Contacto"],
+    "links": [
+      "Acerca de",
+      "Política de Privacidad",
+      "Contacto"
+    ],
     "allRightsReserved": "Reservados todos los derechos."
   },
   "personForm": {

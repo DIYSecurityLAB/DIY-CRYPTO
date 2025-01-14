@@ -145,37 +145,39 @@ export function PaymentForm() {
             {paymentOption === 'creditCard' && t('paymentForm.creditCard')}
             {paymentOption === 'pix' && 'PIX'}
             {paymentOption === 'BTC' && 'Bitcoin'}
+            {paymentOption === 'YAMPI' && 'Crédito ou PIX'}
           </b>
         </h2>
       )}
 
-      <div className="py-4">
-        <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-          {t('checkout.couponCode')}
-        </label>
-        <div className="flex gap-x-2 mt-2">
-          <input
-            type="text"
-            {...form.register('couponCode')}
-            disabled={form.getValues('discount') ? true : false}
-            className="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
-          />
-          <button
-            type="button"
-            onClick={applyCoupon}
-            disabled={form.getValues('discount') ? true : false}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
-          >
-            {t('checkout.apply')}
-          </button>
+      {paymentOption === 'BTC' && (
+        <div className="py-4">
+          <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            {t('checkout.couponCode')}
+          </label>
+          <div className="flex gap-x-2 mt-2">
+            <input
+              type="text"
+              {...form.register('couponCode')}
+              disabled={form.getValues('discount') ? true : false}
+              className="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
+            />
+            <button
+              type="button"
+              onClick={applyCoupon}
+              disabled={form.getValues('discount') ? true : false}
+              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
+            >
+              {t('checkout.apply')}
+            </button>
+          </div>
+          {form.formState.errors.couponCode && (
+            <span className="text-red-500 text-sm mt-1">
+              {form.formState.errors.couponCode.message}
+            </span>
+          )}
         </div>
-        {form.formState.errors.couponCode && (
-          <span className="text-red-500 text-sm mt-1">
-            {form.formState.errors.couponCode.message}
-          </span>
-        )}
-      </div>
-
+      )}
       <article className="flex lg:hidden lg:pl-32">
         <aside className="w-full p-4 bg-gray-50 dark:bg-gray-800 rounded-md shadow-lg">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">

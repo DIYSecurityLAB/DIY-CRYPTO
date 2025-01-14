@@ -130,6 +130,55 @@
           "Placa de metal",
           "Compatibilidade com Sparrow Wallet, Specter Desktop, Nunchuk e BlueWallet"
         ]
+      },
+      {
+        "name": "BITKIT X",
+        "title": "BITKIT X",
+        "description": "Para aqueles que buscam o mais alto nível de proteção em suas transações financeiras.",
+        "items": [
+          {
+            "quantity": 1,
+            "description": "Cold Wallet Krux"
+          },
+          {
+            "quantity": 1,
+            "description": "Placa metálica tamanho cartão de crédito padrão Stackbit 1248"
+          },
+          {
+            "quantity": 1,
+            "description": "Tiny Seed"
+          },
+          {
+            "quantity": 1,
+            "description": "Punção Automático"
+          },
+          {
+            "quantity": 2,
+            "description": "Paper Seed 12 ao 24"
+          },
+          {
+            "quantity": 2,
+            "description": "SeedQR 12 e 24"
+          }
+        ],
+        "resources": [
+          "Bateria recarregável",
+          "Open Source",
+          "Câmera para transações totalmente air-gapped",
+          "Dispositivo Amnésico",
+          "Conexão USB",
+          "Passphrase",
+          "Endereços Multisig",
+          "Suporte a PSBT",
+          "Criação de Mnemônico com Entropia Manual",
+          "6 métodos de Backup de Mnemônico",
+          "Tela sensível ao toque LCD de 2,0 polegadas",
+          "Compatibilidade com Bip39",
+          "Papel para anotação das 12 ou 24 palavras",
+          "Punção automática para marcação em placa de metal",
+          "Placa de metal",
+          "Compatibilidade com Sparrow Wallet, Specter Desktop, Nunchuk e BlueWallet"
+        ]
       }
     ],
     "resourcesTitle": "Recursos Básicos e Avançados em um só ",
@@ -161,11 +210,7 @@
     }
   },
   "footer": {
-    "links": [
-      "Sobre",
-      "Política de Privacidade",
-      "Contato"
-    ],
+    "links": ["Sobre", "Política de Privacidade", "Contato"],
     "allRightsReserved": "Todos os direitos reservados."
   },
   "about": {

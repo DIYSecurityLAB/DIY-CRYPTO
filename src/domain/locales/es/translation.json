@@ -130,6 +130,55 @@
           "Placa de Metal",
           "Compatibilidad con Sparrow Wallet, Specter Desktop, Nunchuk y BlueWallet"
         ]
+      },
+      {
+        "name": "BITKIT X",
+        "title": "BITKIT X",
+        "description": "Para aquellos que buscan el más alto nivel de protección en sus transacciones financieras.",
+        "items": [
+          {
+            "quantity": 1,
+            "description": "Cold Wallet Krux"
+          },
+          {
+            "quantity": 1,
+            "description": "Placa metálica tamaño tarjeta de crédito estándar Stackbit 1248"
+          },
+          {
+            "quantity": 1,
+            "description": "Tiny Seed"
+          },
+          {
+            "quantity": 1,
+            "description": "Punzón Automático"
+          },
+          {
+            "quantity": 2,
+            "description": "Paper Seed 12 a 24"
+          },
+          {
+            "quantity": 2,
+            "description": "SeedQR 12 y 24"
+          }
+        ],
+        "resources": [
+          "Batería recargable",
+          "Código Abierto",
+          "Cámara para transacciones completamente desconectadas",
+          "Dispositivo Amnésico",
+          "Conexión USB",
+          "Frase de Contraseña (Passphrase)",
+          "Direcciones Multisig",
+          "Compatibilidad con PSBT",
+          "Creación de Mnemotécnico con Entropía Manual",
+          "6 métodos de Respaldo de Mnemotécnico",
+          "Pantalla Táctil LCD de 2.0 pulgadas",
+          "Compatibilidad con Bip39",
+          "Papel para anotar las 12 o 24 palabras",
+          "Punzonadora automática para marcar en placa de metal",
+          "Placa de Metal",
+          "Compatibilidad con Sparrow Wallet, Specter Desktop, Nunchuk y BlueWallet"
+        ]
       }
     ],
     "resourcesTitle": "Recursos Básicos y Avanzados en un Solo Kit",
@@ -180,11 +229,7 @@
     "errorMessage": "Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
   },
   "footer": {
-    "links": [
-      "Acerca de",
-      "Política de Privacidad",
-      "Contacto"
-    ],
+    "links": ["Acerca de", "Política de Privacidad", "Contacto"],
     "allRightsReserved": "Reservados todos los derechos."
   },
   "personForm": {

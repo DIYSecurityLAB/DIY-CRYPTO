@@ -130,6 +130,55 @@
           "Metal Plate",
           "Compatibility with Sparrow Wallet, Specter Desktop, Nunchuk, and BlueWallet"
         ]
+      },
+      {
+        "name": "BITKIT X",
+        "title": "BITKIT X",
+        "description": "For those seeking the highest level of protection in their financial transactions.",
+        "items": [
+          {
+            "quantity": 1,
+            "description": "Cold Wallet Krux"
+          },
+          {
+            "quantity": 1,
+            "description": "Credit card-sized metal plate, Stackbit standard 1248"
+          },
+          {
+            "quantity": 1,
+            "description": "Tiny Seed"
+          },
+          {
+            "quantity": 1,
+            "description": "Automatic Punch"
+          },
+          {
+            "quantity": 2,
+            "description": "Paper Seed 12 to 24"
+          },
+          {
+            "quantity": 2,
+            "description": "SeedQR 12 and 24"
+          }
+        ],
+        "resources": [
+          "Rechargeable battery",
+          "Open Source",
+          "Camera for fully air-gapped transactions",
+          "Amnesic Device",
+          "USB Connection",
+          "Passphrase",
+          "Multisig Addresses",
+          "PSBT Support",
+          "Mnemonic Creation with Manual Entropy",
+          "6 Mnemonic Backup Methods",
+          "2.0-inch Touchscreen LCD",
+          "Bip39 Compatibility",
+          "Paper for noting down 12 or 24 words",
+          "Automatic Punch for marking on metal plate",
+          "Metal Plate",
+          "Compatibility with Sparrow Wallet, Specter Desktop, Nunchuk, and BlueWallet"
+        ]
       }
     ],
     "resourcesTitle": "Basic and Advanced Resources in One Kit",
@@ -161,11 +210,7 @@
     }
   },
   "footer": {
-    "links": [
-      "About",
-      "Privacy Policy",
-      "Contact"
-    ],
+    "links": ["About", "Privacy Policy", "Contact"],
     "allRightsReserved": "All Rights Reserved."
   },
   "about": {

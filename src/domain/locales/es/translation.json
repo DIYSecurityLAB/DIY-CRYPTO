@@ -176,7 +176,11 @@
     "errorMessage": "Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
   },
   "footer": {
-    "links": ["Acerca de", "Política de Privacidad", "Contacto"],
+    "links": [
+      "Acerca de",
+      "Política de Privacidad",
+      "Contacto"
+    ],
     "allRightsReserved": "Reservados todos los derechos."
   },
   "personForm": {
@@ -258,6 +262,22 @@
       }
     },
     "downloadButton": "PDF gratuito"
+  },
+  "videos": {
+    "title": "Videos",
+    "description": "Mira aquí videos gratuitos que hemos preparado especialmente para ti que estás comenzando.",
+    "items": {
+      "1": {
+        "id": 1,
+        "title": "Crea tus claves offline y monedero de solo visualización",
+        "videoSrc": "https://www.youtube.com/embed/M13-eb8TQJ8?si=mR5YlXyol4cm1LIC"
+      },
+      "2": {
+        "id": 2,
+        "title": "Cómo actualizar tu Krux Wallet",
+        "videoSrc": "https://www.youtube.com/embed/Ir8ieF6WLu4?si=DWEObyAClBqtVqEG"
+      }
+    }
   },
   "post": {
     "notFound": "Publicación no encontrada!"

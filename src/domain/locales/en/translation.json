@@ -161,7 +161,11 @@
     }
   },
   "footer": {
-    "links": ["About", "Privacy Policy", "Contact"],
+    "links": [
+      "About",
+      "Privacy Policy",
+      "Contact"
+    ],
     "allRightsReserved": "All Rights Reserved."
   },
   "about": {
@@ -258,6 +262,22 @@
       }
     },
     "downloadButton": "Free PDF"
+  },
+  "videos": {
+    "title": "Videos",
+    "description": "Watch free videos we have prepared especially for you who are just starting out.",
+    "items": {
+      "1": {
+        "id": 1,
+        "title": "Create your offline keys and watch-only wallet",
+        "videoSrc": "https://www.youtube.com/embed/M13-eb8TQJ8?si=mR5YlXyol4cm1LIC"
+      },
+      "2": {
+        "id": 2,
+        "title": "How to update your Krux Wallet",
+        "videoSrc": "https://www.youtube.com/embed/Ir8ieF6WLu4?si=DWEObyAClBqtVqEG"
+      }
+    }
   },
   "post": {
     "notFound": "Post Not Found!"

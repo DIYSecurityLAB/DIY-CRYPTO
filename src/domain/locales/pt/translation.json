@@ -161,7 +161,11 @@
     }
   },
   "footer": {
-    "links": ["Sobre", "Política de Privacidade", "Contato"],
+    "links": [
+      "Sobre",
+      "Política de Privacidade",
+      "Contato"
+    ],
     "allRightsReserved": "Todos os direitos reservados."
   },
   "about": {
@@ -258,6 +262,21 @@
       }
     },
     "downloadButton": "PDF gratuito"
+  },
+  "videos": {
+    "title": "Vídeos",
+    "description": "Assista aqui vídeos gratuitos que preparamos especialmente para você que está iniciando.",
+    "items": {
+      "1": {
+        "title": "Crie suas chaves off-line e carteira somente visualização",
+        "videoSrc": "https://www.youtube.com/embed/M13-eb8TQJ8?si=mR5YlXyol4cm1LIC"
+      },
+      "2": {
+        "id": 2,
+        "title": "Como atualizar sua Krux Wallet",
+        "videoSrc": "https://www.youtube.com/embed/Ir8ieF6WLu4?si=DWEObyAClBqtVqEG"
+      }
+    }
   },
   "post": {
     "notFound": "Post Não Encontrado!"

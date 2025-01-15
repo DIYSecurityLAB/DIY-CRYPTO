@@ -41,6 +41,7 @@ export function ProductPage() {
 
   const IS_LARGE_SCREEN = width >= 768;
   const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
+  const isAvailable = product.available;
 
   return (
     <>
@@ -99,8 +100,7 @@ export function ProductPage() {
                   onClick={() =>
                     handleImageClick(
                       (currentIndex + index) % product.images.length,
-                    )
-                  }
+                    )}
                 />
               ))}
             </div>
@@ -134,28 +134,48 @@ export function ProductPage() {
           <h2 className="hidden sm:block text-2xl leading-9 text-[#1E1E1E] font-bold dark:text-white">
             {product.name}
           </h2>
-          <div className="pt-12 sm:pt-4 flex flex-col items-start">
-            {product.originalPrice && (
-              <span className="text-xl text-gray-500 line-through dark:text-gray-400">
-                R$ {product.originalPrice.toFixed(2)}
-              </span>
-            )}
-            <div className="flex items-baseline">
-              <span className="text-xl leading-5 dark:text-white">R$</span>
-              <h2 className="text-4xl font-bold leading-5 dark:text-white">
-                {product.price.toFixed(2)}
+          {product.available ? (
+            <>
+              <div className="pt-12 sm:pt-4 flex flex-col items-start">
+                {product.originalPrice && (
+                  <span className="text-xl text-gray-500 line-through dark:text-gray-400">
+                    R$ {product.originalPrice.toFixed(2)}
+                  </span>
+                )}
+                <div className="flex items-baseline">
+                  <span className="text-xl leading-5 dark:text-white">R$</span>
+                  <h2 className="text-4xl font-bold leading-5 dark:text-white">
+                    {product.price.toFixed(2)}
+                  </h2>
+                </div>
+              </div>
+              <div className="flex flex-col gap-y-2 pt-2">
+                <span className="text-sm dark:text-white">
+                  Disponível para parcelamento
+                </span>
+                <span className="text-[#4133FF] text-sm dark:text-[#dad9e6]">
+                  métodos de pagamento: Bitcoin | Crédito | PIX
+                </span>
+              </div>
+            </>
+          ) : (
+            <div className="flex flex-col items-center gap-y-4 text-center mt-8">
+              <h2 className="text-2xl font-bold text-red-600 dark:text-red-400">
+                Produto Esgotado
               </h2>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Este produto está temporariamente indisponível. Confira outros produtos incríveis em nosso catálogo!
+              </p>
+              <a
+                href="/products"
+                className="mt-4 px-6 py-3 text-white bg-orange-primary rounded-md hover:bg-orange-600 transition duration-300"
+              >
+                Ver Mais Produtos
+              </a>
             </div>
-          </div>
-          <div className="flex flex-col gap-y-2 pt-2">
-            <span className="text-sm dark:text-white">
-              Disponível para parcelamento
-            </span>
-            <span className="text-[#4133FF] text-sm dark:text-[#dad9e6]">
-              métodos de pagamento: Bitcoin | Crédito | PIX
-            </span>
-          </div>
+          )}
         </article>
+
 
         <form className="flex flex-col gap-y-2 pt-6 col-span-4">
           <div className="flex items-center bg-[#D9D9D9] h-12 px-2 py-5 rounded-md gap-x-1 dark:bg-[#242F3F] dark:text-white">
@@ -169,6 +189,7 @@ export function ProductPage() {
               className="bg-transparent text-sm outline-none dark:bg-[#242F3F] dark:text-white dark:border-white"
               onChange={(e) => quantity.set(Number(e.target.value))}
               min={1}
+              disabled={!isAvailable}
             />
           </div>
 
@@ -177,13 +198,15 @@ export function ProductPage() {
               onClick={cart.buy}
               type="button"
               className="bg-orange-primary text-white p-2 rounded-md text-sm w-36 sm:w-full sm:gap-y-4 h-14"
+              disabled={!isAvailable}
             >
               Comprar Agora
             </button>
             <button
               type="button"
               onClick={cart.add}
-              className=" text-white p-2 rounded-md text-sm h-14 bg-[#242F3F] dark:bg-[#4A5568]"
+              className="text-white p-2 rounded-md text-sm h-14 bg-[#242F3F] dark:bg-[#4A5568]"
+              disabled={!isAvailable}
             >
               {t(LanguageTexts.products.addToCartButton)}
             </button>

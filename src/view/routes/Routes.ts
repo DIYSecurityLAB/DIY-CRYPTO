@@ -86,6 +86,10 @@ export const ROUTES = {
         call: (currentLang: string, id: string = '2') =>
           `/${currentLang}/produto/${id}`,
       },
+      BITKITX: {
+        call: (currentLang: string, id: string = '3') =>
+          `/${currentLang}/produto/${id}`,
+      },
     },
   },
   products: {

@@ -8,14 +8,13 @@ import { LanguageTexts } from '../../../domain/locales/Language';
 import { ROUTES } from '../../routes/Routes';
 import { useCurrentLang } from '../../utils/useCurrentLang';
 import { useWindowSize } from '../../utils/useWindowSize';
+import { useProducts } from '@/view/utils/useProduct'; // Importando useProducts
 
 export function useHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { currentTheme, toggleTheme } = useTheme();
   const { width } = useWindowSize();
-  const [isDarkTheme, setIsDarkTheme] = useState(
-    currentTheme === ThemeMode.dark,
-  );
+  const [isDarkTheme, setIsDarkTheme] = useState(currentTheme === ThemeMode.dark);
   const { t } = useTranslation();
   const { currentLang } = useCurrentLang();
 
@@ -33,31 +32,27 @@ export function useHeader() {
   useEffect(() => {
     document.documentElement.classList.toggle(
       ThemeMode.dark,
-      currentTheme === ThemeMode.dark,
+      currentTheme === ThemeMode.dark
     );
     setIsDarkTheme(currentTheme === ThemeMode.dark);
   }, [currentTheme]);
 
   const isLargeScreen = width > 1024;
 
-  const products = [
-    {
-      name: 'SEEDKIT',
-      href: ROUTES.cart.product.call(currentLang, 'SEEDKIT', '1'),
-      icon: MdTouchApp,
-    },
-    {
-      name: 'BITKIT',
-      href: ROUTES.cart.product.call(currentLang, 'BITKIT', '2'),
-      icon: MdTouchApp,
-    },
-    {
-      name: 'BITKIT X',
-      href: ROUTES.cart.product.call(currentLang, 'BITKIT', '3'),
-      icon: MdTouchApp,
-    },
-  ];
+ 
+ 
+const { products } = useProducts();
 
+ 
+const productsMenu = products
+  .filter((product) => product.id !== '10000')  
+  .map((product) => ({
+    name: product.name,
+    href: ROUTES.cart.product.call(currentLang, product.name, product.id),
+    icon: MdTouchApp,  
+  }));
+
+  // Links de suporte
   const supportlink = [
     {
       name: t(LanguageTexts.header.links[4]),
@@ -91,7 +86,7 @@ export function useHeader() {
       toggle: toggleTheme,
       isDarkTheme,
     },
-    products,
+    productsMenu,  
     supportlink,
     isLargeScreen,
     isScrolled,

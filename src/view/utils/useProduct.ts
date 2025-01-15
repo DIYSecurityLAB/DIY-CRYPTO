@@ -4,7 +4,7 @@ import { Item, Product } from '../../domain/entities/Product.entity';
 import { LanguageTexts } from '../../domain/locales/Language';
 import Bitkit1 from '../assets/BitkitPhotos/1.png';
 import Bitkit2 from '../assets/BitkitPhotos/2.png';
-import Bitkit3 from '../assets/BitkitPhotos/3.png';
+// import Bitkit3 from '../assets/BitkitPhotos/3.png';
 import Bitkit4 from '../assets/BitkitPhotos/4.png';
 import Bitkit5 from '../assets/BitkitPhotos/5.png';
 import Bitkit6 from '../assets/BitkitPhotos/6.png';
@@ -64,6 +64,7 @@ export function useProducts() {
       height: 16,
       length: 11,
       weight: 0.5,
+      available: true,
     },
     {
       id: '2',
@@ -90,8 +91,9 @@ export function useProducts() {
       height: 16,
       length: 11,
       weight: 0.5,
+      available: true,
     },
-    {
+   /*  {
       id: '3',
       title: infos[2].title,
       name: infos[2].name,
@@ -116,7 +118,8 @@ export function useProducts() {
       height: 16,
       length: 11,
       weight: 0.5,
-    },
+      available: false,
+    }, */
     {
       id: '10000',
       title: infos[0].title,
@@ -143,6 +146,7 @@ export function useProducts() {
       height: 16,
       length: 11,
       weight: 0.5,
+      available: true,
     },
   ];
 

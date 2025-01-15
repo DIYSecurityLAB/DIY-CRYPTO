@@ -16,7 +16,7 @@ import { NavLinks } from './NavLinks';
 import { useHeader } from './useHeader';
 
 export default function Header() {
-  const { isLargeScreen, menu, theme, products, isScrolled, supportlink } =
+  const { isLargeScreen, menu, theme, productsMenu, isScrolled, supportlink } =
     useHeader();
 
   const navigate = useNavigate();
@@ -105,7 +105,7 @@ export default function Header() {
         </div>
 
         <NavLinks
-          products={products}
+          products={productsMenu}
           supportlink={supportlink}
           isVisible={isLargeScreen}
           isLargeScreen={isLargeScreen}
@@ -168,7 +168,7 @@ export default function Header() {
               </div>
               <div className="w-full h-3/4 flex flex-col justify-center items-center">
                 <NavLinks
-                  products={products}
+                  products={productsMenu}
                   supportlink={supportlink}
                   isVisible
                   isLargeScreen={isLargeScreen}

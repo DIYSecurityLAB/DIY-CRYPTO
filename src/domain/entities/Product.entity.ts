@@ -20,4 +20,5 @@ export class Product {
   width?: number;
   height?: number;
   weight?: number;
+  available?: boolean;
 }

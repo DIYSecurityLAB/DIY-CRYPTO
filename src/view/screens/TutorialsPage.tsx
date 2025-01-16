@@ -5,6 +5,7 @@ import como_acessar_sua_carteira_e_transferir_bitcoins from '../assets/images/tu
 import como_adicionar_uma_senha_passphrase from '../assets/images/tutorial/como_adicionar_uma_senha_passphrase.png';
 import como_montar_seu_puncao_automatico from '../assets/images/tutorial/como_montar_seu_puncao_automatico.png';
 import como_realizar_o_backup_da_sua_chave_privada_seedqr from '../assets/images/tutorial/como_realizar_o_backup_da_sua_chave_privada_seedqr.png';
+import como_realizar_o_backup_da_sua_chave_privada_stackbit from '../assets/images/tutorial/tutorial_7.png';
 import como_realizar_o_backup_da_sua_chave_privada_tiniyseed from '../assets/images/tutorial/como_realizar_o_backup_da_sua_chave_privada_tiniyseed.png';
 import como_recuperar_sua_conta_sem_o_dispositivo_krux from '../assets/images/tutorial/como_recuperar_sua_conta_sem_o_dispositivo_krux.png';
 import crie_sua_chave_privada_e_guarde_seus_bitcoins from '../assets/images/tutorial/crie_sua_chave_privada_e_guarde_seus_bitcoins.png';
@@ -20,7 +21,7 @@ export function TutorialsPage() {
     {
       id: 1,
       title: '#1 - Valide o código instalado na sua carteira',
-      file: '/tutorial/BR_1_Valide_o_código_instalado_na_sua_carteira.pdf',
+      file: '/tutorial/BR_1_Valide_o_codigo_instalado_na_sua_carteira.pdf',
       image: valide_o_codigo_instalado_na_sua_carteira,
       description: t('tutorials.items.7.description'),
     },
@@ -64,7 +65,7 @@ export function TutorialsPage() {
       id: 7,
       title: '#7 - Como realizar o backup da sua Chave Privada (Stackbit 1248)',
       file: '/tutorial/BR_7_Como_realizar_o_backup_da_sua_Chave_Privada_(Stackbit_1248).pdf',
-      image: '',
+      image: como_realizar_o_backup_da_sua_chave_privada_stackbit,
       description:
         'Aprenda a perfurar placas metálicas com segurança e eficiência, um guia importante para quem trabalha com materiais manuais.',
     },
@@ -132,7 +133,7 @@ export function TutorialsPage() {
       id: 7,
       title: '#7 - how to backup your private key (Stackbit 1248)',
       file: '/tutorial/US_7_how_to_backup_your_private_key_(Stackbit_1248).pdf',
-      image: '',
+      image: como_realizar_o_backup_da_sua_chave_privada_stackbit,
       description:
         'Learn how to drill metal plates safely and efficiently, an important guide for anyone who works with manual materials.',
     },

@@ -72,10 +72,8 @@ export function ConfirmInfos() {
         </span>
         {/* Mensagem para YAMPI */}
         {infos.paymentOption === 'YAMPI' && (
-          <span className="text-red-500 font-semibold mt-2">
-            Atenção: Por favor, preencha os mesmos dados inseridos em nosso site
-            na plataforma de pagamento. Você será redirecionado para concluir o
-            pagamento com maior segurança e controle.
+          <span className="text-blue-500 font-semibold mt-2">
+            Atenção: Caso tenha, inserir seu cupom no checkout de pagamentos.
           </span>
         )}
       </div>

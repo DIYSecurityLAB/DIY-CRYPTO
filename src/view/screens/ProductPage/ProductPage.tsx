@@ -1,4 +1,4 @@
-import { LanguageTexts } from '@/domain/locales/Language';
+import { AcceptedLanguages, LanguageTexts, useLanguage } from '@/domain/locales/Language';
 import { BackgroundAnimatedProduct } from '@/view/components/BackgroundAnimatedProduct';
 import { Loader } from '@/view/components/Loader';
 import { useScaleFactor } from '@/view/hooks/useScaleFactor';
@@ -12,11 +12,14 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import './product-page.css';
 import { useProductPage } from './useProductPage';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '@/view/routes/Routes';
 
 export function ProductPage() {
   const { t, cart, product, quantity } = useProductPage();
   const { width } = useWindowSize();
   const { scaleFactor } = useScaleFactor();
+  const { currentLang } = useLanguage();
 
   const [mainImage, setMainImage] = useState(product?.images[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,6 +45,10 @@ export function ProductPage() {
   const IS_LARGE_SCREEN = width >= 768;
   const IS_ZOOM_BIGGER_THAN_100 = scaleFactor > 1 && IS_LARGE_SCREEN;
   const isAvailable = product.available;
+
+  const discountPercentage = product.originalPrice
+    ? ((product.originalPrice - product.price) / product.originalPrice) * 100
+    : 0;
 
   return (
     <>
@@ -138,16 +145,23 @@ export function ProductPage() {
             <>
               <div className="pt-12 sm:pt-4 flex flex-col items-start">
                 {product.originalPrice && (
-                  <span className="text-xl text-gray-500 line-through dark:text-gray-400">
-                    R$ {product.originalPrice.toFixed(2)}
-                  </span>
+                  <>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl text-gray-500 line-through dark:text-gray-400">
+                        R$ {product.originalPrice.toFixed(2)}
+                      </span>
+                      <div className="bg-red-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-lg">
+                        {discountPercentage.toFixed(0)}% OFF
+                      </div>
+                    </div>
+                    <div className="flex items-baseline mt-4">
+                      <span className="text-xl leading-5 dark:text-white">R$</span>
+                      <h2 className="text-4xl font-bold leading-5 dark:text-white">
+                        {product.price.toFixed(2)}
+                      </h2>
+                    </div>
+                  </>
                 )}
-                <div className="flex items-baseline">
-                  <span className="text-xl leading-5 dark:text-white">R$</span>
-                  <h2 className="text-4xl font-bold leading-5 dark:text-white">
-                    {product.price.toFixed(2)}
-                  </h2>
-                </div>
               </div>
               <div className="flex flex-col gap-y-2 pt-2">
                 <span className="text-sm dark:text-white">
@@ -166,12 +180,16 @@ export function ProductPage() {
               <p className="text-sm text-gray-600 dark:text-gray-300">
                 Este produto está temporariamente indisponível. Confira outros produtos incríveis em nosso catálogo!
               </p>
-              <a
-                href="/products"
-                className="mt-4 px-6 py-3 text-white bg-orange-primary rounded-md hover:bg-orange-600 transition duration-300"
+              <Link
+                to={ROUTES.products.call(currentLang || AcceptedLanguages.pt)}
+                className={classNames(
+                  'w-full bg-orange-primary text-white text-center font-semibold rounded-sm transition-colors duration-300 hover:bg-orange-600 shadow-md',
+                  IS_ZOOM_BIGGER_THAN_100 && 'py-2 flex items-center justify-center',
+                  !IS_ZOOM_BIGGER_THAN_100 && 'py-4'
+                )}
               >
                 Ver Mais Produtos
-              </a>
+              </Link>
             </div>
           )}
         </article>

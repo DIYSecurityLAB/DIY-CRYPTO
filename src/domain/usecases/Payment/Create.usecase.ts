@@ -15,10 +15,11 @@ export type CreateReq = GetCheckout;
 
 export type CreateRes = Promise<
   Result<
-    CreatedCheckout | PaymentApiResponse | ChargedPIX | ChargedBTC,
+    CreatedCheckout | PaymentApiResponse | ChargedPIX | ChargedBTC | { payUrl: string } | { reorder_url: string },
     { code: 'SERIALIZATION' } | DefaultResultError
   >
 >;
+
 
 export type CreatePaymentUseCase = UseCase<CreateReq, CreateRes>;
 
@@ -51,6 +52,14 @@ export class CreatePaymentUseCaseImpl implements CreatePaymentUseCase {
 
     const parsedBirthday = format(parsedDate, 'yyyy-MM-dd');
 
+    const shipping = Array.isArray(parsedResult.shipping) 
+    ? parsedResult.shipping.map(item => ({
+        ...item,
+        logo_url: item.logoUrl, // Aqui fazemos a correção
+      }))
+    : [{ ...parsedResult.shipping, logo_url: parsedResult.shipping.logoUrl }];
+  
+
     const { result } = await this.repository.create(
       {
         address: parsedResult.address,
@@ -72,6 +81,7 @@ export class CreatePaymentUseCaseImpl implements CreatePaymentUseCase {
         expirationYear: fullExpirationYear,
         birthday: parsedBirthday,
         paymentOption: parsedResult.paymentOption,
+        shipping: shipping,
       },
       req.method,
     );
@@ -91,6 +101,14 @@ export class CreatePaymentUseCaseImpl implements CreatePaymentUseCase {
 
     if ('checkoutLink' in result.data) {
       return Result.Success(ChargedBTC.fromModel(result.data));
+    }
+
+    if ('payUrl' in result.data) {  
+      return Result.Success({ payUrl: result.data.payUrl });
+    }
+  
+    if ('reorder_url' in result.data) {  
+      return Result.Success({ reorder_url: result.data.reorder_url });
     }
 
     return Result.Success(result.data);

@@ -1,5 +1,4 @@
 import { z } from 'zod';
-
 class Address {
   street!: string;
   number!: string;
@@ -30,6 +29,15 @@ export class PaymentItemsModel {
   weight?: number;
 }
 
+class ShippingQuote {
+  name!: string;
+  service!: string;
+  price!: number;
+  days!: number;
+  logo_url!: string;
+  quote_id?: number;
+};
+
 class PhoneModel {
   areaCode!: string;
   number!: string;
@@ -48,6 +56,7 @@ export class GetCheckoutModel {
   cardNumber!: string;
   expirationMonth!: string;
   expirationYear!: string;
+  shipping!: ShippingQuote[];
   cvv!: string;
   brand!:
     | 'elo'
@@ -61,7 +70,7 @@ export class GetCheckoutModel {
   selectInstallments!: string;
   total!: number;
   birthday!: string;
-  paymentOption!: 'creditCard' | 'pix' | 'BTC' | 'YAMPI';
+  paymentOption!: 'creditCard' | 'pix' | 'BTC' | 'YAMPI' | "PAGBANK";
 }
 
 export const CreatedCheckoutModel = z.object({

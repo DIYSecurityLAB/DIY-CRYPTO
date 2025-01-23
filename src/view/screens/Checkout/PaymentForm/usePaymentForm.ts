@@ -26,7 +26,9 @@ export function usePaymentForm() {
     setSubtotal(
       items.reduce((total, item) => total + item.price * item.quantity, 0),
     );
-  }, [items]);
+
+     form.setValue('shipping.price', 0);
+  }, [items, form]);
 
   const handleExpiryDateChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {

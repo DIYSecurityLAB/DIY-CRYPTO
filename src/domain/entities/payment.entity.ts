@@ -52,7 +52,7 @@ export const Items = z.object({
 });
 export type Items = z.infer<typeof Items>;
 
-export const PaymentMethod = z.enum(['MP', 'EFI', 'BTC', 'OTHER', 'YAMPI']);
+export const PaymentMethod = z.enum(['MP', 'EFI', 'BTC', 'OTHER', 'YAMPI', 'PAGBANK']);
 export type PaymentMethod = z.infer<typeof PaymentMethod>;
 
 export const Brand = z.enum([
@@ -95,8 +95,7 @@ export const GetCheckout = z.object({
   selectInstallments: z.string(),
   total: z.number(),
   birthday: z.string(),
-  paymentOption: z.enum(['creditCard', 'pix', 'BTC', 'YAMPI']),
-
+  paymentOption: z.enum(['creditCard', 'pix', 'BTC', 'YAMPI', 'PAGBANK']),
   shipping: z
     .object({
       name: z.string(),
@@ -105,14 +104,7 @@ export const GetCheckout = z.object({
       days: z.number(),
       logoUrl: z.string(),
       quoteId: z.number(),
-    })
-    .optional()
-    .refine((data) => {
-      return data === undefined || data.price > 0;
-    }, {
-      message: 'Shipping information should be omitted if payment option is YAMPI.',
     }),
-
   selectedPaymentLabel: z.string(),
   discount: z.number(),
 });

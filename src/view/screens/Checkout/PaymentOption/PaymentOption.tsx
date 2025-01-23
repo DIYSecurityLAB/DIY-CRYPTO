@@ -6,7 +6,7 @@ import { usePaymentOptions } from './usePaymentOptions';
 
 type Option = {
   label: string;
-  value: 'MP' | 'EFI' | 'BTC' | 'YAMPI' | 'OTHER';
+  value: 'MP' | 'EFI' | 'BTC' | 'YAMPI' | 'PAGBANK' | 'OTHER';
   icon: ReactNode;
 };
 
@@ -26,9 +26,15 @@ const options: Option[] = [
     value: 'BTC',
     icon: <FaBitcoin size={32} />,
   },
+  //{
+  // label: `${t('paymentForm.creditCard')}`,
+  //  value: 'YAMPI',
+  //   icon: <FaRegCreditCard size={32} />,
+  // },
+
   {
     label: `${t('paymentForm.creditCard')}`,
-    value: 'YAMPI',
+    value: 'PAGBANK',
     icon: <FaRegCreditCard size={32} />,
   },
 ];
@@ -52,7 +58,7 @@ export function PaymentOptions() {
               'border-gray-400 dark:border-gray-600',
               'bg-white hover:bg-orange-primary dark:hover:bg-orange-500',
               selectedPaymentLabel === methodOption.label &&
-                'bg-orange-primary dark:bg-orange-primary',
+              'bg-orange-primary dark:bg-orange-primary',
               'md:w-3/4',
               'lg:w-full',
             )}

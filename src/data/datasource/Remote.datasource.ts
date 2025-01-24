@@ -43,10 +43,11 @@ export class RemoteDataSource {
   constructor(baseURL?: string) {
     this.api = axios.create({
       baseURL: baseURL,
-      headers: {},
+      headers: {
+        Authorization:`${import.meta.env.VITE_API_TOKEN}`// Header Authorization configurado diretamente
+      },
     });
   }
-
   public setBaseURL(baseURL: string): void {
     this.api.defaults.baseURL = baseURL;
   }
@@ -56,7 +57,7 @@ export class RemoteDataSource {
   }
 
   setToken(token: string) {
-    this.api.defaults.headers.authorization = `Bearer ${token}`;
+    this.api.defaults.headers.authorization = `${token}`;
   }
 
   public async get<Response extends SerializeSchemas>({

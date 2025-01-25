@@ -12,5 +12,7 @@ ignores:
     'tailwindcss-animated',
     '@rollup/rollup-linux-x64-gnu',
     '@esbuild/linux-x64',
+    'esbuild',
+    'rollup',
   ]
 skip-missing: true

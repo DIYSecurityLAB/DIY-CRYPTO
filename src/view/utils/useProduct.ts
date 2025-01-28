@@ -4,7 +4,7 @@ import { Item, Product } from '../../domain/entities/Product.entity';
 import { LanguageTexts } from '../../domain/locales/Language';
 import Bitkit1 from '../assets/BitkitPhotos/1.png';
 import Bitkit2 from '../assets/BitkitPhotos/2.png';
-// import Bitkit3 from '../assets/BitkitPhotos/3.png';
+import Bitkit3 from '../assets/BitkitPhotos/3.png';
 import Bitkit4 from '../assets/BitkitPhotos/4.png';
 import Bitkit5 from '../assets/BitkitPhotos/5.png';
 import Bitkit6 from '../assets/BitkitPhotos/6.png';
@@ -73,15 +73,7 @@ export function useProducts() {
       originalPrice: 1000,
       price: 900,
       description: infos[1].description,
-      images: [
-        Bitkit1,
-        Bitkit2,
-        Bitkit4,
-        Bitkit5,
-        Bitkit6,
-        Bitkit7,
-        Bitkit8,
-      ],
+      images: [Bitkit1, Bitkit2, Bitkit4, Bitkit5, Bitkit6, Bitkit7, Bitkit8],
       items: infos[1].items,
       resources: infos[1].resources,
       Yampi_Product_id: 37616063,
@@ -93,22 +85,14 @@ export function useProducts() {
       weight: 0.5,
       available: true,
     },
-   /*  {
+    {
       id: '3',
       title: infos[2].title,
       name: infos[2].name,
       originalPrice: 1500,
       price: 1350,
       description: infos[2].description,
-      images: [
-        Bitkit3,
-        Bitkit2,
-        Bitkit4,
-        Bitkit5,
-        Bitkit6,
-        Bitkit7,
-        Bitkit8,
-      ],
+      images: [Bitkit3, Bitkit2, Bitkit4, Bitkit5, Bitkit6, Bitkit7, Bitkit8],
       items: infos[2].items,
       resources: infos[2].resources,
       Yampi_Product_id: 38150983,
@@ -119,7 +103,7 @@ export function useProducts() {
       length: 11,
       weight: 0.5,
       available: false,
-    }, */
+    },
     {
       id: '10000',
       title: infos[0].title,

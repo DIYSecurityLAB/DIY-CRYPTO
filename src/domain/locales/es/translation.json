@@ -54,7 +54,7 @@
       {
         "name": "SEEDKIT",
         "title": "¡Tu Kit Completo para el Mundo del Bitcoin!",
-        "description": "Tenga todo lo que necesita en un solo paquete para maximizar sus inversiones en Bitcoin.",
+        "description": "Ten todo lo que necesitas en un solo paquete para maximizar tus inversiones en Bitcoin.",
         "items": [
           {
             "quantity": 2,
@@ -66,7 +66,7 @@
           },
           {
             "quantity": 1,
-            "description": "Punzón Automático"
+            "description": "Punzonadora Automática"
           },
           {
             "quantity": 2,
@@ -78,19 +78,21 @@
           }
         ],
         "resources": [
-          "Papel para anotar las 12 o 24 palabras",
-          "Punzonadora automática para marcar en placa de metal",
-          "Placa de Metal"
+          "2 placas metálicas Stackbit 1248",
+          "1 tiny seed",
+          "2 paper seeds",
+          "2 Seed QR",
+          "1 Punzonadora automática"
         ]
       },
       {
         "name": "BITKIT",
-        "title": "¡Seguridad Elevada para Tus Inversiones!",
+        "title": "¡Seguridad Elevada para tus Inversiones!",
         "description": "Para aquellos que buscan el más alto nivel de protección en sus transacciones financieras.",
         "items": [
           {
             "quantity": 1,
-            "description": "Cold Wallet Krux"
+            "description": "Cold Wallet (software Krux)"
           },
           {
             "quantity": 1,
@@ -102,7 +104,7 @@
           },
           {
             "quantity": 1,
-            "description": "Punzón Automático"
+            "description": "Punzonadora Automática"
           },
           {
             "quantity": 2,
@@ -114,31 +116,23 @@
           }
         ],
         "resources": [
-          "Código Abierto",
-          "Cámara para transacciones completamente desconectadas",
-          "Dispositivo Amnésico",
-          "Conexión USB",
-          "Frase de Contraseña (Passphrase)",
-          "Direcciones Multisig",
-          "Compatibilidad con PSBT",
-          "Creación de Mnemotécnico con Entropía Manual",
-          "6 métodos de Respaldo de Mnemotécnico",
-          "Pantalla Táctil LCD de 2.0 pulgadas",
-          "Compatibilidad con Bip39",
-          "Papel para anotar las 12 o 24 palabras",
-          "Punzonadora automática para marcar en placa de metal",
-          "Placa de Metal",
-          "Compatibilidad con Sparrow Wallet, Specter Desktop, Nunchuk y BlueWallet"
+          "1 Cold Wallet (software Krux)",
+          "Cupón para comprar en Alfred P2P 4% vitalicio",
+          "1 placa metálica Stackbit 1248",
+          "1 tiny seed",
+          "2 paper seeds",
+          "2 Seed QR",
+          "1 Punzonadora automática"
         ]
       },
       {
         "name": "BITKIT X",
-        "title": "Movilidad y Seguridad en Cualquier Lugar!",
+        "title": "¡Movilidad y Seguridad en Cualquier Lugar!",
         "description": "Para aquellos que buscan el más alto nivel de protección en sus transacciones financieras.",
         "items": [
           {
             "quantity": 1,
-            "description": "Cold Wallet Krux"
+            "description": "Cold Wallet con batería (software Krux)"
           },
           {
             "quantity": 1,
@@ -150,7 +144,7 @@
           },
           {
             "quantity": 1,
-            "description": "Punzón Automático"
+            "description": "Punzonadora Automática"
           },
           {
             "quantity": 2,
@@ -162,30 +156,21 @@
           }
         ],
         "resources": [
-          "Batería recargable",
-          "Código Abierto",
-          "Cámara para transacciones completamente desconectadas",
-          "Dispositivo Amnésico",
-          "Conexión USB",
-          "Frase de Contraseña (Passphrase)",
-          "Direcciones Multisig",
-          "Compatibilidad con PSBT",
-          "Creación de Mnemotécnico con Entropía Manual",
-          "6 métodos de Respaldo de Mnemotécnico",
-          "Pantalla Táctil LCD de 2.0 pulgadas",
-          "Compatibilidad con Bip39",
-          "Papel para anotar las 12 o 24 palabras",
-          "Punzonadora automática para marcar en placa de metal",
-          "Placa de Metal",
-          "Compatibilidad con Sparrow Wallet, Specter Desktop, Nunchuk y BlueWallet"
+          "1 Cold Wallet con batería (software Krux)",
+          "Cupón para comprar en Alfred P2P 3% vitalicio",
+          "1 placa metálica Stackbit 1248",
+          "1 tiny seed",
+          "2 paper seeds",
+          "2 Seed QR",
+          "1 Punzonadora automática"
         ]
       }
     ],
-    "resourcesTitle": "Recursos Básicos y Avanzados en un Solo Kit",
-    "buyNowButton": "Comprar ahora",
-    "addToCartButton": "Añadir al carrito",
+    "resourcesTitle": "Recursos Básicos y Avanzados en un solo",
+    "buyNowButton": "Comprar Ahora",
+    "addToCartButton": "Agregar al Carrito",
     "quantity": "Cantidad",
-    "goToCart": "Ir al carrito"
+    "goToCart": "Ir al Carrito"
   },
   "cart": {
     "title": "Carrito de Compras",
@@ -318,17 +303,27 @@
   },
   "videos": {
     "title": "Videos",
-    "description": "Mira aquí videos gratuitos que hemos preparado especialmente para ti que estás comenzando.",
+    "description": "Mira aquí los videos gratuitos que preparamos especialmente para ti, que estás comenzando.",
     "items": {
       "1": {
         "id": 1,
-        "title": "Crea tus claves offline y monedero de solo visualización",
-        "videoSrc": "https://www.youtube.com/embed/M13-eb8TQJ8?si=mR5YlXyol4cm1LIC"
+        "title": "Krux - Crea tus claves y billetera solo de vista",
+        "videoSrc": "https://www.youtube.com/embed/5Mpo0NbYrU8?si=oqp8wcoDg3fguLfh"
       },
       "2": {
         "id": 2,
-        "title": "Cómo actualizar tu Krux Wallet",
-        "videoSrc": "https://www.youtube.com/embed/Ir8ieF6WLu4?si=DWEObyAClBqtVqEG"
+        "title": "Krux - Cómo actualizar tu billetera",
+        "videoSrc": "https://www.youtube.com/embed/T_bdnAY1-84?si=DVsKm4irUX9IPU9V"
+      },
+      "3": {
+        "id": 3,
+        "title": "Krux - Transacciones y recepción",
+        "videoSrc": "https://www.youtube.com/embed/fxD_LCU9uRA?si=Tlq_6xF9yV84iXxC"
+      },
+      "4": {
+        "id": 4,
+        "title": "Krux - Passphrase y billetera trampa",
+        "videoSrc": "https://www.youtube.com/embed/eF7h_V78LpY?si=qwpixNzzBjx4LSE2"
       }
     }
   },

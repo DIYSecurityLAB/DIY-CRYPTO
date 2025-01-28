@@ -102,7 +102,7 @@ export function useProducts() {
       height: 16,
       length: 11,
       weight: 0.5,
-      available: false,
+      available: true,
     },
     {
       id: '10000',

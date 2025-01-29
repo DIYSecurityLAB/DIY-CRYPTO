@@ -5,6 +5,7 @@ export function PersonForm() {
     t,
     form,
     whatsappLink,
+    isValidCPF,
     birthdayMask: handleBirthdayChange,
   } = usePersonForm();
 
@@ -115,12 +116,16 @@ export function PersonForm() {
         </label>
         <input
           type="text"
-          {...form.register('identification.number', { required: true })}
+          {...form.register('identification.number', {
+            required: true,
+            validate: (value) =>
+              isValidCPF(value) || t('personForm.invalidCPF'),
+          })}
           className="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
         />
         {form.formState.errors.identification?.number && (
           <span className="text-red-500 text-sm">
-            {t('personForm.requiredField')}
+            {form.formState.errors.identification.number.message}
           </span>
         )}
       </div>

@@ -53,12 +53,12 @@
     "infos": [
       {
         "name": "SEEDKIT",
-        "title": "Your Complete Kit for the World of Bitcoin!",
-        "description": "Have everything you need in one package to maximize your investments in Bitcoin.",
+        "title": "Your Complete Kit for the Bitcoin World!",
+        "description": "Get everything you need in one package to maximize your Bitcoin investments.",
         "items": [
           {
             "quantity": 2,
-            "description": "Credit card-sized metal plates, Stackbit standard 1248"
+            "description": "Metal plates the size of a standard Stackbit 1248 credit card"
           },
           {
             "quantity": 1,
@@ -78,23 +78,25 @@
           }
         ],
         "resources": [
-          "Paper for noting down 12 or 24 words",
-          "Automatic Punch for marking on metal plate",
-          "Metal Plate"
+          "2 Stackbit 1248 metal plates",
+          "1 tiny seed",
+          "2 paper seeds",
+          "2 Seed QR",
+          "1 Automatic punch"
         ]
       },
       {
         "name": "BITKIT",
-        "title": "Enhanced Security for Your Investments!",
-        "description": "For those seeking the highest level of protection in their financial transactions.",
+        "title": "High Security for Your Investments!",
+        "description": "For those looking for the highest level of protection in their financial transactions.",
         "items": [
           {
             "quantity": 1,
-            "description": "Cold Wallet Krux"
+            "description": "Cold Wallet (Krux software)"
           },
           {
             "quantity": 1,
-            "description": "Credit card-sized metal plate, Stackbit standard 1248"
+            "description": "Metal plate the size of a standard Stackbit 1248 credit card"
           },
           {
             "quantity": 1,
@@ -114,35 +116,27 @@
           }
         ],
         "resources": [
-          "Open Source",
-          "Camera for fully air-gapped transactions",
-          "Amnesic Device",
-          "USB Connection",
-          "Passphrase",
-          "Multisig Addresses",
-          "PSBT Support",
-          "Mnemonic Creation with Manual Entropy",
-          "6 Mnemonic Backup Methods",
-          "2.0-inch Touchscreen LCD",
-          "Bip39 Compatibility",
-          "Paper for noting down 12 or 24 words",
-          "Automatic Punch for marking on metal plate",
-          "Metal Plate",
-          "Compatibility with Sparrow Wallet, Specter Desktop, Nunchuk, and BlueWallet"
+          "1 Cold Wallet (Krux software)",
+          "Coupon for purchasing on Alfred P2P 4% lifetime",
+          "1 Stackbit 1248 metal plate",
+          "1 tiny seed",
+          "2 paper seeds",
+          "2 Seed QR",
+          "1 Automatic punch"
         ]
       },
       {
         "name": "BITKIT X",
         "title": "Mobility and Security Anywhere!",
-        "description": "For those seeking the highest level of protection in their financial transactions.",
+        "description": "For those looking for the highest level of protection in their financial transactions.",
         "items": [
           {
             "quantity": 1,
-            "description": "Cold Wallet Krux"
+            "description": "Cold Wallet with battery (Krux software)"
           },
           {
             "quantity": 1,
-            "description": "Credit card-sized metal plate, Stackbit standard 1248"
+            "description": "Metal plate the size of a standard Stackbit 1248 credit card"
           },
           {
             "quantity": 1,
@@ -162,26 +156,17 @@
           }
         ],
         "resources": [
-          "Rechargeable battery",
-          "Open Source",
-          "Camera for fully air-gapped transactions",
-          "Amnesic Device",
-          "USB Connection",
-          "Passphrase",
-          "Multisig Addresses",
-          "PSBT Support",
-          "Mnemonic Creation with Manual Entropy",
-          "6 Mnemonic Backup Methods",
-          "2.0-inch Touchscreen LCD",
-          "Bip39 Compatibility",
-          "Paper for noting down 12 or 24 words",
-          "Automatic Punch for marking on metal plate",
-          "Metal Plate",
-          "Compatibility with Sparrow Wallet, Specter Desktop, Nunchuk, and BlueWallet"
+          "1 Cold Wallet with battery (Krux software)",
+          "Coupon for purchasing on Alfred P2P 3% lifetime",
+          "1 Stackbit 1248 metal plate",
+          "1 tiny seed",
+          "2 paper seeds",
+          "2 Seed QR",
+          "1 Automatic punch"
         ]
       }
     ],
-    "resourcesTitle": "Basic and Advanced Resources in One Kit",
+    "resourcesTitle": "Basic and Advanced Resources in One",
     "buyNowButton": "Buy Now",
     "addToCartButton": "Add to Cart",
     "quantity": "Quantity",
@@ -318,17 +303,27 @@
   },
   "videos": {
     "title": "Videos",
-    "description": "Watch free videos we have prepared especially for you who are just starting out.",
+    "description": "Watch free videos here that we specially prepared for you who are just getting started.",
     "items": {
       "1": {
         "id": 1,
-        "title": "Create your offline keys and watch-only wallet",
-        "videoSrc": "https://www.youtube.com/embed/M13-eb8TQJ8?si=mR5YlXyol4cm1LIC"
+        "title": "Krux - Create your keys and view-only wallet",
+        "videoSrc": "https://www.youtube.com/embed/5Mpo0NbYrU8?si=oqp8wcoDg3fguLfh"
       },
       "2": {
         "id": 2,
-        "title": "How to update your Krux Wallet",
-        "videoSrc": "https://www.youtube.com/embed/Ir8ieF6WLu4?si=DWEObyAClBqtVqEG"
+        "title": "Krux - How to update your wallet",
+        "videoSrc": "https://www.youtube.com/embed/T_bdnAY1-84?si=DVsKm4irUX9IPU9V"
+      },
+      "3": {
+        "id": 3,
+        "title": "Krux - Transactions and receiving",
+        "videoSrc": "https://www.youtube.com/embed/fxD_LCU9uRA?si=Tlq_6xF9yV84iXxC"
+      },
+      "4": {
+        "id": 4,
+        "title": "Krux - Passphrase and decoy wallet",
+        "videoSrc": "https://www.youtube.com/embed/eF7h_V78LpY?si=qwpixNzzBjx4LSE2"
       }
     }
   },

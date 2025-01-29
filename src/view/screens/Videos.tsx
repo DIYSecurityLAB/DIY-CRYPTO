@@ -8,12 +8,22 @@ export function VideosPage() {
     {
       id: 1,
       title: t('videos.items.1.title'),
-      videoSrc: 'https://www.youtube.com/embed/M13-eb8TQJ8?si=mR5YlXyol4cm1LIC',
+      videoSrc: t('videos.items.1.videoSrc'),
     },
     {
       id: 2,
       title: t('videos.items.2.title'),
-      videoSrc: 'https://www.youtube.com/embed/Ir8ieF6WLu4?si=DWEObyAClBqtVqEG',
+      videoSrc: t('videos.items.2.videoSrc'),
+    },
+    {
+      id: 3,
+      title: t('videos.items.3.title'),
+      videoSrc: t('videos.items.3.videoSrc'),
+    },
+    {
+      id: 4,
+      title: t('videos.items.4.title'),
+      videoSrc: t('videos.items.4.videoSrc'),
     },
   ];
 

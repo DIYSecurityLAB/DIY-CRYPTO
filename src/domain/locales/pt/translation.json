@@ -78,9 +78,11 @@
           }
         ],
         "resources": [
-          "Papel para anotação das 12 ou 24 palavras",
-          "Punção automática para marcação em placa de metal",
-          "Placa de metal"
+          "2 placas metálicas Stackbit 1248",
+          "1 tiny seed",
+          "2 paper seeds",
+          "2 Seed QR",
+          "1 Punção automático"
         ]
       },
       {
@@ -90,7 +92,7 @@
         "items": [
           {
             "quantity": 1,
-            "description": "Cold Wallet Krux"
+            "description": "Cold Wallet (software Krux)"
           },
           {
             "quantity": 1,
@@ -114,21 +116,13 @@
           }
         ],
         "resources": [
-          "Open Source",
-          "Câmera para transações totalmente air-gapped",
-          "Dispositivo Amnésico",
-          "Conexão USB",
-          "Passphrase",
-          "Endereços Multisig",
-          "Suporte a PSBT",
-          "Criação de Mnemônico com Entropia Manual",
-          "6 métodos de Backup de Mnemônico",
-          "Tela sensível ao toque LCD de 2,0 polegadas",
-          "Compatibilidade com Bip39",
-          "Papel para anotação das 12 ou 24 palavras",
-          "Punção automática para marcação em placa de metal",
-          "Placa de metal",
-          "Compatibilidade com Sparrow Wallet, Specter Desktop, Nunchuk e BlueWallet"
+          "1 Cold Wallet (software Krux)",
+          "Cupom para comprar no Alfred P2P 4% vitalício",
+          "1 placa metálica Stackbit 1248",
+          "1 tiny seed",
+          "2 paper seeds",
+          "2 Seed QR",
+          "1 Punção automático"
         ]
       },
       {
@@ -138,7 +132,7 @@
         "items": [
           {
             "quantity": 1,
-            "description": "Cold Wallet Krux"
+            "description": "Cold Wallet com bateria (software Krux)"
           },
           {
             "quantity": 1,
@@ -162,26 +156,17 @@
           }
         ],
         "resources": [
-          "Bateria recarregável",
-          "Open Source",
-          "Câmera para transações totalmente air-gapped",
-          "Dispositivo Amnésico",
-          "Conexão USB",
-          "Passphrase",
-          "Endereços Multisig",
-          "Suporte a PSBT",
-          "Criação de Mnemônico com Entropia Manual",
-          "6 métodos de Backup de Mnemônico",
-          "Tela sensível ao toque LCD de 2,0 polegadas",
-          "Compatibilidade com Bip39",
-          "Papel para anotação das 12 ou 24 palavras",
-          "Punção automática para marcação em placa de metal",
-          "Placa de metal",
-          "Compatibilidade com Sparrow Wallet, Specter Desktop, Nunchuk e BlueWallet"
+          "1 Cold Wallet com bateria (software Krux)",
+          "Cupom para comprar no Alfred P2P 3% vitalício",
+          "1 placa metálica Stackbit 1248",
+          "1 tiny seed",
+          "2 paper seeds",
+          "2 Seed QR",
+          "1 Punção automático"
         ]
       }
     ],
-    "resourcesTitle": "Recursos Básicos e Avançados em um só ",
+    "resourcesTitle": "Recursos Básicos e Avançados em um só",
     "buyNowButton": "Comprar Agora",
     "addToCartButton": "Adicionar ao Carrinho",
     "quantity": "Quantidade",
@@ -321,13 +306,24 @@
     "description": "Assista aqui vídeos gratuitos que preparamos especialmente para você que está iniciando.",
     "items": {
       "1": {
-        "title": "Crie suas chaves off-line e carteira somente visualização",
-        "videoSrc": "https://www.youtube.com/embed/M13-eb8TQJ8?si=mR5YlXyol4cm1LIC"
+        "id": 1,
+        "title": "Krux - Crie suas chaves e carteira view only",
+        "videoSrc": "https://www.youtube.com/embed/5Mpo0NbYrU8?si=oqp8wcoDg3fguLfh"
       },
       "2": {
         "id": 2,
-        "title": "Como atualizar sua Krux Wallet",
-        "videoSrc": "https://www.youtube.com/embed/Ir8ieF6WLu4?si=DWEObyAClBqtVqEG"
+        "title": "Krux - Como atualizar sua carteira",
+        "videoSrc": "https://www.youtube.com/embed/T_bdnAY1-84?si=DVsKm4irUX9IPU9V"
+      },
+      "3": {
+        "id": 3,
+        "title": "Krux - Transações e recebimentos",
+        "videoSrc": "https://www.youtube.com/embed/fxD_LCU9uRA?si=Tlq_6xF9yV84iXxC"
+      },
+      "4": {
+        "id": 4,
+        "title": "Krux - Passphrase e carteira isca",
+        "videoSrc": "https://www.youtube.com/embed/eF7h_V78LpY?si=qwpixNzzBjx4LSE2"
       }
     }
   },

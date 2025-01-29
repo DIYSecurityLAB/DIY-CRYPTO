@@ -2,11 +2,10 @@ import { AcceptedLanguages, LanguageTexts, useLanguage } from '@/domain/locales/
 import { BackgroundAnimatedProduct } from '@/view/components/BackgroundAnimatedProduct';
 import { Loader } from '@/view/components/Loader';
 import { useScaleFactor } from '@/view/hooks/useScaleFactor';
-import { styleLastWord } from '@/view/utils/StyleWord';
 import { useWindowSize } from '@/view/utils/useWindowSize';
 import classNames from 'classnames';
 import { useState } from 'react';
-import { MdCheck } from 'react-icons/md';
+import { MdCheck, MdExpandMore, MdExpandLess } from 'react-icons/md';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -23,6 +22,7 @@ export function ProductPage() {
 
   const [mainImage, setMainImage] = useState(product?.images[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false); // Estado para controlar a expansão da caixa de recursos
 
   if (!product) {
     return <Loader />;
@@ -49,6 +49,25 @@ export function ProductPage() {
   const discountPercentage = product.originalPrice
     ? ((product.originalPrice - product.price) / product.originalPrice) * 100
     : 0;
+
+  const replaceAlfredP2P = (text: string) => {
+    return text.split('Alfred P2P').map((part, index) => (
+      index === 1 ? (
+        <>
+          <a
+            href="https://www.alfredp2p.io/pt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-700"
+          >
+            Alfred P2P
+          </a>
+          {part}
+        </>
+      ) : part
+    ));
+  };
+
 
   return (
     <>
@@ -171,6 +190,44 @@ export function ProductPage() {
                   métodos de pagamento: Bitcoin | Crédito | PIX
                 </span>
               </div>
+              <div
+                className={classNames(
+                  'mt-6 p-4 border rounded-md transition-all ease-in-out duration-300 relative',
+                  width < 768 && 'cursor-pointer',
+
+                  'bg-gray-900 dark:bg-[#1A202C] dark:border-gray-700',
+                  'bg-white dark:bg-[#2D3748] border-gray-300 dark:border-gray-600'
+                )}
+                onClick={() => width < 768 && setIsExpanded(!isExpanded)}
+              >
+                <h3 className={classNames('text-xl font-semibold', currentLang === AcceptedLanguages.pt && 'text-black dark:text-white')}>
+                  O que vem em nosso produto:
+                </h3>
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsExpanded(!isExpanded);
+                  }}
+                  className={classNames(
+                    'absolute right-4 top-2 text-5xl',
+                    isExpanded ? 'text-blue-500' : 'text-black',
+                    currentLang === AcceptedLanguages.pt && 'text-black dark:text-white'
+                  )}
+                >
+                  {isExpanded ? <MdExpandLess /> : <MdExpandMore />}
+                </button>
+
+                <ul className={classNames('mt-3 space-y-2', !isExpanded && 'hidden')}>
+                  {product.resources.map((resource, index) => (
+                    <li key={index} className="flex items-center gap-2 text-sm">
+                      <MdCheck size={20} className="text-green-700" />
+                      {replaceAlfredP2P(resource)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
             </>
           ) : (
             <div className="flex flex-col items-center gap-y-4 text-center mt-8">
@@ -193,7 +250,6 @@ export function ProductPage() {
             </div>
           )}
         </article>
-
 
         <form className="flex flex-col gap-y-2 pt-6 col-span-4">
           <div className="flex items-center bg-[#D9D9D9] h-12 px-2 py-5 rounded-md gap-x-1 dark:bg-[#242F3F] dark:text-white">
@@ -230,31 +286,6 @@ export function ProductPage() {
             </button>
           </div>
         </form>
-
-        <div className="py-16 flex flex-col gap-y-6 sm:col-span-12 sm:row-span-12 dark:text-white">
-          <h2 className="text-3xl font-bold text-center dark:text-white">
-            {styleLastWord(t(LanguageTexts.products.resourcesTitle))}
-            <span className="text-orange-primary">{product.name}</span>
-          </h2>
-          <div className="grid grid-cols-12 gap-6">
-            {product.resources.map((resource: string, index: number) => (
-              <ul
-                key={index}
-                className={classNames(
-                  'list-none col-span-12',
-                  width > 843 && 'sm:flex sm:flex-col sm:items-center',
-                )}
-              >
-                <li className="flex items-center gap-x-4">
-                  <MdCheck size={32} className="text-green-700 flex-shrink-0" />
-                  <span className="font-medium text-sm dark:text-white">
-                    {resource}
-                  </span>
-                </li>
-              </ul>
-            ))}
-          </div>
-        </div>
       </section>
     </>
   );

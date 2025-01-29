@@ -46,10 +46,10 @@ export function Products() {
         <h2 className="text-4xl text-center font-bold dark:text-white">
           {styleFirstWord(t(LanguageTexts.products.title))}
         </h2>
-        <article className="flex flex-col sm:flex-row items-center justify-around gap-16 gap-y-4">
-          {products.map((product, idx) => (
-            <>
-              {Number(product.id) !== 10000 && (
+        <article className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 w-full">
+          {products.map(
+            (product, idx) =>
+              Number(product.id) !== 10000 && (
                 <div
                   key={product.id}
                   className="bg-primary-light dark:bg-slate-700 p-8 rounded-lg shadow-xl flex flex-col justify-between"
@@ -71,7 +71,7 @@ export function Products() {
                     <img
                       src={product.images[currentImageIndexes[idx]]}
                       alt={product.name}
-                      className="w-96 h-72 object-contain rounded-md"
+                      className="w-full max-w-[300px] h-auto object-contain rounded-md"
                     />
 
                     <button
@@ -95,9 +95,8 @@ export function Products() {
                     {t(LanguageTexts.products.buyNowButton)}
                   </Link>
                 </div>
-              )}
-            </>
-          ))}
+              ),
+          )}
         </article>
       </section>
     </>

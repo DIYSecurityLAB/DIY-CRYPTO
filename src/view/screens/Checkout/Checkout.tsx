@@ -129,10 +129,11 @@ export function Checkout() {
                         ? steps.lastStep
                         : steps.next
                     }
-                    className="w-full bg-orange-primary text-white p-2 rounded-md font-semibold hover:bg-orange-500 transition-colors "
+                    className="w-full bg-orange-primary text-white p-2 rounded-md font-semibold hover:bg-orange-500 transition-colors"
                     disabled={
-                      steps.current === 4 &&
-                      form.getValues('address.zipCode')?.length !== 8
+                      (steps.current === 4 &&
+                        form.getValues('address.zipCode')?.length !== 8) ||
+                      !!form.formState.errors.identification?.number
                     }
                   >
                     {t('checkout.next')}

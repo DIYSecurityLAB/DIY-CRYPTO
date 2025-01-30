@@ -24,10 +24,25 @@ export class ShippingRepositoryImpl implements ShippingRepository {
 
   @ExceptionHandler()
   async calculate(req: CalculateReq): CalculateRes {
+    if (req.amount >= 1000) {
+      return Result.Success({
+        quotes: [
+          {
+            name: 'Frete Grátis',
+            service: 'Frete Grátis',
+            price: 0.0,
+            days: 10,
+            logo_url: 'https://i.imgur.com/QD6DckW.png',
+            quote_id: 0,
+          },
+        ],
+      });
+    }
+
     const result = await this.api.post({
       url: `/kangu/freight`,
-      model: CalculatedShippingModel, // Define o modelo de validação da resposta
-      body: req, // Corpo da requisição enviado no formato esperado
+      model: CalculatedShippingModel,
+      body: req,
     });
 
     if (!result) {

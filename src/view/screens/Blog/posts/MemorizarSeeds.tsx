@@ -4,12 +4,15 @@ import image2 from '@/view/assets/images/Blogs/MemorizarSeeds/image2.png';
 export function MemorizarSeeds() {
   return (
     <main className="pt-24 pb-16 px-6 sm:px-12 md:px-24 lg:px-48 flex flex-col gap-y-4">
-      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl">
-        Como memorizar suas Seeds de forma segura?
+      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl text-center mb-8">
+        {' '}
+        Como o Bitcoin pode substituir a Aposentadoria Tradicional? Como
+        memorizar suas Seeds de forma segura?
       </h1>
       <img
         src={image1}
         alt="Exemplo de Border Wallet com imagens associativas"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
       />
       <p className="text-justify">
         Situações inesperadas podem acontecer a qualquer momento. Imagine um
@@ -46,7 +49,11 @@ export function MemorizarSeeds() {
       <h2 className="text-2xl font-bold leading-tight lg:text-3xl">
         Como memorizar a sua seed de forma prática e fácil?
       </h2>
-      <img src={image2} alt="Processo de criação de uma Border Wallet" />
+      <img
+        src={image2}
+        alt="Processo de criação de uma Border Wallet"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <h3 className="text-xl font-semibold leading-tight lg:text-2xl">
         1. Crie uma História ou Lógica
       </h3>

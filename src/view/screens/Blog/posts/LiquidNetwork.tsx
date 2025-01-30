@@ -5,10 +5,16 @@ import image3 from '@/view/assets/images/Blogs/LiquidNetwork/image3.jpg';
 export function LiquidNetwork() {
   return (
     <main className="pt-24 pb-16 px-6 sm:px-12 md:px-24 lg:px-48 flex flex-col gap-y-4">
-      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl">
-        O que é a Liquid Network?
+      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl text-center mb-8">
+        {' '}
+        Como o Bitcoin pode substituir a Aposentadoria Tradicional? O que é a
+        Liquid Network?
       </h1>
-      <img src={image1} alt="Imagem ilustrativa sobre a Liquid Network" />
+      <img
+        src={image1}
+        alt="Imagem ilustrativa sobre a Liquid Network"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         O impacto do Bitcoin vai além da criação de uma nova forma de moeda; ele
         abriu portas para a possibilidade de um sistema financeiro alternativo
@@ -30,7 +36,11 @@ export function LiquidNetwork() {
         tornasse mais escalável e pudesse atender às necessidades financeiras
         globais.
       </p>
-      <img src={image2} alt="Gráfico explicativo sobre a Liquid Network" />
+      <img
+        src={image2}
+        alt="Gráfico explicativo sobre a Liquid Network"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         No entanto, a camada principal (camada um), onde os registros de
         blockchain são feitos e distribuídos, não oferece escalabilidade
@@ -81,7 +91,11 @@ export function LiquidNetwork() {
         possuem paridade de 1:1 com o BTC, garantindo uma quantidade equivalente
         entre as duas redes.
       </p>
-      <img src={image3} alt="Representação da governança na Liquid Network" />
+      <img
+        src={image3}
+        alt="Representação da governança na Liquid Network"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <h2 className="text-2xl font-bold leading-tight lg:text-3xl">
         Mas e a Liquid Federation?
       </h2>

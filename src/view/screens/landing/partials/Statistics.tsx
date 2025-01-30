@@ -83,7 +83,7 @@ export function Statistics() {
         <img
           src={StatisticsImage}
           alt="Estatísticas"
-          className="w-2/3 lg:w-1/3 object-cover relative z-20"
+          className="w-2/3 lg:w-1/3 object-cover relative z-20 top-15"
         />
       </div>
     </div>

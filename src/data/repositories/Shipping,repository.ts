@@ -25,18 +25,20 @@ export class ShippingRepositoryImpl implements ShippingRepository {
   @ExceptionHandler()
   async calculate(req: CalculateReq): CalculateRes {
     if (req.amount >= 1000) {
-      return Result.Success({
+      const result: CalculatedShippingModel = {
         quotes: [
           {
             name: 'Frete Grátis',
             service: 'Frete Grátis',
-            price: 0.0,
+            price: 0.01,
             days: 10,
             logo_url: 'https://i.imgur.com/QD6DckW.png',
             quote_id: 0,
           },
         ],
-      });
+      };
+
+      return Result.Success(result);
     }
 
     const result = await this.api.post({
@@ -48,6 +50,8 @@ export class ShippingRepositoryImpl implements ShippingRepository {
     if (!result) {
       return Result.Error({ code: 'SERIALIZATION' });
     }
+
+    console.log(result);
 
     return Result.Success(result);
   }

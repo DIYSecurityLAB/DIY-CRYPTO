@@ -70,6 +70,8 @@ export const LanguageTexts = {
     description: 'about.description',
     foundersTitle: 'about.foundersTitle',
     founders: 'about.founders',
+    manifestTitle: 'about.manifestTitle',
+    manifest: 'about.manifest',
   },
   post: {
     notFound: 'post.notFound',

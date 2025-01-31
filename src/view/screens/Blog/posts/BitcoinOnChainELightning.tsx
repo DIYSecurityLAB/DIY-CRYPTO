@@ -3,12 +3,15 @@ import image2 from '@/view/assets/images/Blogs/BitcoinOnChainLightning/image2.jp
 export function BitcoinOnChainELightning() {
   return (
     <main className="pt-24 pb-16 px-6 sm:px-12 md:px-24 lg:px-48 flex flex-col gap-y-4">
-      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl">
-        Bitcoin on-chain e Lightning: Qual escolher?
+      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl text-center mb-8">
+        {' '}
+        Como o Bitcoin pode substituir a Aposentadoria Tradicional? Bitcoin
+        on-chain e Lightning: Qual escolher?
       </h1>
       <img
         src={image1}
         alt="Imagem ilustrativa sobre Bitcoin on-chain e Lightning"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
       />
       <p className="text-justify">
         O Bitcoin é estruturado em camadas, e uma forma simples de entender isso
@@ -37,6 +40,7 @@ export function BitcoinOnChainELightning() {
       <img
         src={image2}
         alt="Imagem ilustrativa sobre Bitcoin on-chain e Lightning"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
       />
       <p className="text-justify">
         Além disso, a camada On-Chain do Bitcoin preserva os princípios

@@ -5,10 +5,16 @@ import image3 from '@/view/assets/images/Blogs/RendaFixaOuBitcoin/image3.png'; /
 export function RendaFixaOuBitcoin() {
   return (
     <main className="pt-24 pb-16 px-6 sm:px-12 md:px-24 lg:px-48 flex flex-col gap-y-4">
-      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl">
-        Renda Fixa ou Bitcoin, qual é o melhor investimento?
+      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl text-center mb-8">
+        {' '}
+        Como o Bitcoin pode substituir a Aposentadoria Tradicional? Renda Fixa
+        ou Bitcoin, qual é o melhor investimento?
       </h1>
-      <img src={image1} alt="Imagem ilustrativa sobre Bitcoin" />
+      <img
+        src={image1}
+        alt="Imagem ilustrativa sobre Bitcoin"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         Investimentos em renda fixa, como CDBs, Tesouro Direto e Letras de
         Crédito, têm frequentemente superado o desempenho do Ibovespa ao longo
@@ -63,7 +69,11 @@ export function RendaFixaOuBitcoin() {
       <h2 className="text-2xl font-bold leading-tight lg:text-3xl">
         Renda fixa atualmente
       </h2>
-      <img src={image2} alt="Gráfico sobre renda fixa" />
+      <img
+        src={image2}
+        alt="Gráfico sobre renda fixa"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         Geralmente, a renda variável costuma superar a renda fixa pelo simples
         motivo: quanto maior o risco, maior deveria ser o prêmio. Mas, por aqui,
@@ -84,7 +94,11 @@ export function RendaFixaOuBitcoin() {
         A inflação de preços é o quanto os preços subiram na economia,
         geralmente medida pelo IPCA.
       </h2>
-      <img src={image3} alt="Imagem ilustrativa sobre Bitcoin" />
+      <img
+        src={image3}
+        alt="Imagem ilustrativa sobre Bitcoin"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         Desde 2014, o IPCA, que mede a inflação de preços, tem ficado
         consistentemente abaixo do M2, que representa a oferta monetária — ou

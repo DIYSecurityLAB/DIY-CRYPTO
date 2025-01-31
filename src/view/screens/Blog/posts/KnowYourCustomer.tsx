@@ -3,10 +3,16 @@ import image1 from '@/view/assets/images/Blogs/KnowYourCustomer/image1.jpg';
 export function KnowYourCustomer() {
   return (
     <main className="pt-24 pb-16 px-6 sm:px-12 md:px-24 lg:px-48 flex flex-col gap-y-4">
-      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl">
-        O que é Know Your Customer (KYC)?
+      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl text-center mb-8">
+        {' '}
+        Como o Bitcoin pode substituir a Aposentadoria Tradicional? O que é Know
+        Your Customer (KYC)?
       </h1>
-      <img src={image1} alt="Descrição da imagem" />
+      <img
+        src={image1}
+        alt="Descrição da imagem"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         O processo de KYC (Know Your Customer) visa identificar e autenticar a
         identidade dos usuários em uma plataforma. Ele é frequentemente

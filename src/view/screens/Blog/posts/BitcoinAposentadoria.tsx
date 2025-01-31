@@ -8,10 +8,15 @@ import image4 from '@/view/assets/images/Blogs/BitcoinAposentadoria/image4.png';
 export function BitcoinAposentadoria() {
   return (
     <main className="pt-24 pb-16 px-6 sm:px-12 md:px-24 lg:px-48 flex flex-col gap-y-4">
-      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl">
+      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl text-center mb-8">
+        {' '}
         Como o Bitcoin pode substituir a Aposentadoria Tradicional?
       </h1>
-      <img src={image1} alt="Imagem Bitcoin" />
+      <img
+        src={image1}
+        alt="Imagem Bitcoin"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         Bitcoin: uma solução para o fim da aposentadoria tradicional, oferecendo
         uma alternativa à inflação e às falhas dos sistemas previdenciários.
@@ -48,7 +53,11 @@ export function BitcoinAposentadoria() {
       <h2 className="text-2xl font-bold leading-tight lg:text-3xl">
         Mudanças demográficas
       </h2>
-      <img src={image2} alt="Infográfico" />
+      <img
+        src={image2}
+        alt="Infográfico"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         Desde 1980, o Brasil passou por grandes mudanças no perfil demográfico
         de sua população. Naquela época, havia cerca de 9,2 pessoas em idade
@@ -97,7 +106,11 @@ export function BitcoinAposentadoria() {
       <h2 className="text-2xl font-bold leading-tight lg:text-3xl">
         Qual é a melhor alternativa para aposentadoria?
       </h2>
-      <img src={image1} alt="Bitcoin" />
+      <img
+        src={image1}
+        alt="Bitcoin"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         Ao contrário das moedas tradicionais, o Bitcoin é escasso: não é
         possível criar mais moedas além do já programado em seu código.
@@ -137,7 +150,11 @@ export function BitcoinAposentadoria() {
         Assim, como você pode ver, o único ativo que conseguiu superar ambos foi
         justamente o Bitcoin.
       </p>
-      <img src={image3} alt="Gráfico" />
+      <img
+        src={image3}
+        alt="Gráfico"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         Nos últimos 5 anos, o Bitcoin teve um retorno médio impressionante de
         155% ao ano, enquanto o ouro, um ativo tradicionalmente visto como
@@ -182,7 +199,11 @@ export function BitcoinAposentadoria() {
         destaca como essa nova forma de dinheiro está ganhando espaço, mesmo
         entre os que antes se opunham ou ignoravam seu impacto.
       </p>
-      <img src={image4} alt="Banco do Brasil" />
+      <img
+        src={image4}
+        alt="Banco do Brasil"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         E isso não está ocorrendo só no Brasil, no Japão, o maior fundo de
         pensão do mundo também está explorando como inserir o Bitcoin aos seus

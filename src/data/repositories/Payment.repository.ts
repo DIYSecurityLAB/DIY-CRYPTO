@@ -25,7 +25,7 @@ export type CreateRes = Promise<
     | PaymentAPIResponse
     | ChargedPIXModel
     | ChargedBTCModel
-    | { reorder_url: string }, // Adicionado o tipo de resposta YAMPI
+    | { reorder_url: string },
     { code: 'SERIALIZATION' } | DefaultResultError
   >
 >;
@@ -80,6 +80,8 @@ export class PaymentRepositoryImpl implements PaymentRepository {
     }
 
     const modelToValidate = this.getModelToValidate(method, req.paymentOption);
+
+    this.api.setHeaders('Authorization', import.meta.env.VITE_API_TOKEN);
 
     const result = await this.api.post({
       url: `/create-payment/${method}`,

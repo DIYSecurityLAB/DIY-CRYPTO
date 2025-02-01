@@ -114,7 +114,7 @@ export function usePaymentForm() {
         const calculatedDiscount =
           result.data.discountType === 'percentage'
             ? Math.min(
-                (subtotal + Number(shipping.price)) * (discountValue / 100),
+                (subtotal + Number(shipping?.price)) * (discountValue / 100),
                 maxDiscountValue,
               )
             : Math.min(discountValue, maxDiscountValue);

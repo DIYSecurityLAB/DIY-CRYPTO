@@ -18,6 +18,8 @@ export class AddressRepositoryImpl implements AddressRepository {
 
   @ExceptionHandler()
   async list(req: ListReq): ValidateRes {
+    this.api.setHeaders('Authorization', import.meta.env.VITE_API_TOKEN);
+
     const result = await this.api.post({
       url: `/address/list`,
       model: ListedAddressModel,

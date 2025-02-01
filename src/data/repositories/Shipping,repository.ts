@@ -41,6 +41,8 @@ export class ShippingRepositoryImpl implements ShippingRepository {
       return Result.Success(result);
     }
 
+    this.api.setHeaders('Authorization', import.meta.env.VITE_API_TOKEN);
+
     const result = await this.api.post({
       url: `/kangu/freight`,
       model: CalculatedShippingModel,

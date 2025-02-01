@@ -45,11 +45,14 @@ export function Support() {
         `${import.meta.env.VITE_API_URL}/support`,
         data,
         {
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            Authorization: import.meta.env.VITE_API_TOKEN,
+            'Content-Type': 'application/json',
+          },
         },
       );
 
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 201) {
         setResponseType('success');
         setResponseMessage(t('support.successMessage'));
         reset();

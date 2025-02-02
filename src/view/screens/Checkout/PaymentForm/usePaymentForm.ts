@@ -76,8 +76,6 @@ export function usePaymentForm() {
       0,
     );
 
-    const shipping = form.getValues('shipping');
-
     setLoading(true);
     try {
       const COUPON = {
@@ -113,10 +111,7 @@ export function usePaymentForm() {
       if (isActive && subtotal >= minPurchaseValue) {
         const calculatedDiscount =
           result.data.discountType === 'percentage'
-            ? Math.min(
-                (subtotal + Number(shipping?.price)) * (discountValue / 100),
-                maxDiscountValue,
-              )
+            ? Math.min(subtotal * (discountValue / 100), maxDiscountValue)
             : Math.min(discountValue, maxDiscountValue);
 
         form.setValue('discount', calculatedDiscount);

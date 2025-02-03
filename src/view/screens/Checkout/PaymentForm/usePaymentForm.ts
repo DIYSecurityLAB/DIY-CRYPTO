@@ -56,10 +56,10 @@ export function usePaymentForm() {
       if (result.type === 'ERROR') {
         switch (result.error.code) {
           case 'VALUE_TOO_LOW':
-            alert('VALOR MUITO BAIXO');
+            toast.error('VALOR MUITO BAIXO');
             return;
           default:
-            alert('ERRO AO BUSCAR PARCELAS');
+            toast.error('ERRO AO BUSCAR PARCELAS');
             return;
         }
       }
@@ -99,7 +99,7 @@ export function usePaymentForm() {
       if (result.type === 'ERROR') {
         switch (result.error.code) {
           case 'SERIALIZATION':
-            alert('ERRO DE SERIALIZAÇÃO, POR FAVOR ENTRAR EM CONTATO');
+            toast.error('ERRO DE SERIALIZAÇÃO, POR FAVOR ENTRAR EM CONTATO');
             return;
           case 'NOT_FOUND':
             form.setError('couponCode', {
@@ -108,7 +108,7 @@ export function usePaymentForm() {
             });
             return;
           default:
-            alert('ERRO AO PROCESSAR CUPOM. ENTRE EM CONTATO.');
+            toast.error('ERRO AO PROCESSAR CUPOM. ENTRE EM CONTATO.');
             return;
         }
       }
@@ -139,12 +139,12 @@ export function usePaymentForm() {
         });
 
         if (result.type === 'ERROR') {
-          alert('Erro ao identificar bandeira');
+          toast.error('Erro ao identificar bandeira');
           return;
         }
 
         if (result.data === 'unsupported') {
-          alert('Cartão inválido ou não suportado.');
+          toast.error('Cartão inválido ou não suportado.');
           setBrand('unsupported');
           return;
         }

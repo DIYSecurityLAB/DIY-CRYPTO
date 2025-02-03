@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import {
   Brand,
   GetCheckout,
@@ -71,6 +72,15 @@ export function usePaymentForm() {
   }, [brand, total, form, paymentOption]);
 
   const applyCoupon = async () => {
+    const restrictedItem = items.find((item) => item.id === '3');
+
+    if (restrictedItem) {
+      toast.warning(
+        `Não é possível adicionar cupom para ${restrictedItem.name}, pois o desconto já está direto no produto.`,
+      );
+      return;
+    }
+
     const subtotal = items.reduce(
       (total, item) => total + item.price * item.quantity,
       0,
@@ -113,7 +123,6 @@ export function usePaymentForm() {
           result.data.discountType === 'percentage'
             ? Math.min(subtotal * (discountValue / 100), maxDiscountValue)
             : Math.min(discountValue, maxDiscountValue);
-
         form.setValue('discount', calculatedDiscount);
       }
     } finally {

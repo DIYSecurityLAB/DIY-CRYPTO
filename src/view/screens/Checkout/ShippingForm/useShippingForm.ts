@@ -28,7 +28,6 @@ export function useShippingForm() {
         console.error('CEP inválido');
         return;
       }
-      console.log(items);
       if (!Array.isArray(items) || items.length === 0) {
         console.error('Itens inválidos ou não definidos');
         return;

@@ -3,6 +3,7 @@ import { t } from 'i18next';
 import { FaClipboard } from 'react-icons/fa';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import GenericQR from '../../assets/qr-generic.svg';
 import { BackgroundAnimatedProduct } from '../../components/BackgroundAnimatedProduct';
 import { LanguageSwitcher } from '../../components/LanguageSwitcher/LanguageSwitcher';
@@ -24,9 +25,9 @@ export function PixPayment() {
       navigator.clipboard
         .writeText(pixCopyAndPaste)
         .then(() => {
-          alert('Código copiado para a área de transferência!');
+          toast.success('Código copiado para a área de transferência!');
         })
-        .catch(() => alert('Erro ao copiar código!'));
+        .catch(() => toast.error('Erro ao copiar código!'));
     }
   };
 

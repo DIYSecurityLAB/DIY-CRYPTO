@@ -90,7 +90,7 @@ export function useProducts() {
       title: infos[2].title,
       name: infos[2].name,
       originalPrice: 1500,
-      price: 1350,
+      price: 1125,
       description: infos[2].description,
       images: [Bitkit3, Bitkit2, Bitkit4, Bitkit5, Bitkit6, Bitkit7, Bitkit8],
       items: infos[2].items,

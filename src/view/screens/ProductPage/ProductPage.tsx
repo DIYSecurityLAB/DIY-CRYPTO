@@ -26,7 +26,7 @@ export function ProductPage() {
 
   const [mainImage, setMainImage] = useState(product?.images[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isExpanded, setIsExpanded] = useState(false); // Estado para controlar a expansão da caixa de recursos
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (!product) {
     return <Loader />;
@@ -79,12 +79,12 @@ export function ProductPage() {
       <BackgroundAnimatedProduct />
       <section
         className={classNames(
-          'min-h-screen px-10 sm:grid sm:grid-cols-12 sm:px-8',
+          'min-h-screen px-10 lg:grid lg:grid-cols-12 lg:px-8',
           IS_ZOOM_BIGGER_THAN_100 && 'pt-20',
-          !IS_ZOOM_BIGGER_THAN_100 && 'pt-32',
+          !IS_ZOOM_BIGGER_THAN_100 && 'pt-28',
         )}
       >
-        <article className="sm:hidden">
+        <article className="lg:hidden">
           <h2 className="text-2xl leading-9 text-[#1E1E1E] font-bold dark:text-white">
             {product.name}
           </h2>
@@ -112,12 +112,12 @@ export function ProductPage() {
 
         <article
           className={classNames(
-            'hidden sm:col-span-8 sm:row-span-2 sm:flex sm:flex-col',
-            width > 843 ? 'sm:justify-center' : 'sm:justify-around',
+            'hidden lg:col-span-8 lg:row-span-2 lg:flex lg:flex-col',
+            width > 843 ? 'lg:justify-center' : 'lg:justify-around',
           )}
         >
           <div className="flex justify-around">
-            <div className="flex flex-col h-4/5 justify-between">
+            <div className="flex flex-col h-full xl:h-4/5 justify-between">
               {getVisibleImages().map((image, index) => (
                 <img
                   key={index}
@@ -125,7 +125,8 @@ export function ProductPage() {
                   alt={`Imagem do Produto ${index + 1}`}
                   className={classNames(
                     'cursor-pointer border border-solid border-black rounded-md dark:border-white',
-                    !IS_ZOOM_BIGGER_THAN_100 ? 'w-28' : 'w-20',
+                    !IS_ZOOM_BIGGER_THAN_100 && 'w-20 xl:w-28',
+                    IS_ZOOM_BIGGER_THAN_100 && 'w-20',
                   )}
                   onClick={() =>
                     handleImageClick(
@@ -140,9 +141,8 @@ export function ProductPage() {
                 src={mainImage ?? product.images[0]}
                 alt={`Imagem do Produto Principal`}
                 className={classNames(
-                  IS_ZOOM_BIGGER_THAN_100
-                    ? 'w-[400px] md:w-[500px] lg:w-[550px]'
-                    : 'w-[600px] md:w-[700px] lg:w-[800px]',
+                  IS_ZOOM_BIGGER_THAN_100 && 'w-[550px]',
+                  !IS_ZOOM_BIGGER_THAN_100 && 'w-[400px] xl:w-[800px]',
                 )}
               />
               <div className="flex justify-center mt-4">
@@ -162,13 +162,13 @@ export function ProductPage() {
           </div>
         </article>
 
-        <article className="flex flex-col gap-y-2 sm:col-span-4">
-          <h2 className="hidden sm:block text-2xl leading-9 text-[#1E1E1E] font-bold dark:text-white">
+        <article className="flex flex-col justify-center gap-y-2 lg:col-span-4">
+          <h2 className="hidden lg:block text-2xl leading-9 text-[#1E1E1E] font-bold dark:text-white">
             {product.name}
           </h2>
           {product.available ? (
             <>
-              <div className="pt-12 sm:pt-4 flex flex-col items-start">
+              <div className="pt-12 lg:pt-4 flex flex-col items-start">
                 {product.originalPrice && (
                   <>
                     <div className="flex items-center gap-2">
@@ -233,12 +233,7 @@ export function ProductPage() {
                   {isExpanded ? <MdExpandLess /> : <MdExpandMore />}
                 </button>
 
-                <ul
-                  className={classNames(
-                    'mt-3 space-y-2',
-                    !isExpanded && 'hidden',
-                  )}
-                >
+                <ul className={classNames('pt-2', !isExpanded && 'hidden')}>
                   {product.resources.map((resource, index) => (
                     <li key={index} className="flex items-center gap-2 text-sm">
                       <MdCheck size={20} className="text-green-700" />
@@ -288,11 +283,11 @@ export function ProductPage() {
             />
           </div>
 
-          <div className="pt-4 flex gap-x-4 justify-between sm:flex-col sm:h-32 sm:gap-y-2">
+          <div className="pt-4 flex gap-x-4 justify-between lg:flex-col lg:h-32 lg:gap-y-2">
             <button
               onClick={cart.buy}
               type="button"
-              className="bg-orange-primary text-white p-2 rounded-md text-sm w-36 sm:w-full sm:gap-y-4 h-14"
+              className="bg-orange-primary text-white p-2 rounded-md text-sm w-36 lg:w-full lg:gap-y-4 h-14"
               disabled={!isAvailable}
             >
               Comprar Agora

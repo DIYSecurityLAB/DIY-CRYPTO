@@ -14,6 +14,9 @@ export default {
         'orange-primary': '#F6911D',
         success: '#28A745',
       },
+      top: {
+        15: '60px', // Adiciona a classe top-15 para 60px de top
+      },
     },
   },
   plugins: [],

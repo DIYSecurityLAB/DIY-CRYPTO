@@ -195,21 +195,19 @@
     }
   },
   "footer": {
-    "links": [
-      "Sobre",
-      "Política de Privacidade",
-      "Contato"
-    ],
+    "links": ["Sobre", "Política de Privacidade", "Contato"],
     "allRightsReserved": "Todos os direitos reservados."
   },
   "about": {
-    "title": "Manifesto DIY Security Lab",
+    "title": "DIY Security Lab",
     "subtitle": "Bitcoin, Liberdade e Soberania",
     "descriptionTitle": "O que é a DIY Security Lab?",
     "description": "A DIY Security Lab é uma empresa focada em soluções que promovem a adoção do Bitcoin, removendo intermediários e empoderando o usuário final. Criamos o BITKIT, o método mais seguro e simples de armazenar Bitcoins, e o Alfred P2P, uma plataforma para compra descentralizada e anônima. Nossa missão é garantir que todos possam controlar seus próprios ativos de forma segura e independente, contribuindo para um futuro financeiro mais livre e descentralizado.",
     "foundersTitle": "Fundadores",
     "founders": "A DIY Security Lab foi fundada em 2024 por três engenheiros apaixonados por finanças descentralizadas, que iniciaram seus estudos no mercado cripto em 2017. Leonardo Maximiliano, CEO, é fascinado por macroeconomia e pelos impactos sociais que o Bitcoin pode gerar em diferentes estruturas sociais. Guilherme, com seu foco em gestão de negócios e empreendedorismo, busca constantemente inovações disruptivas. Giovanni, o 'nerd da tecnologia', transforma ideias em soluções técnicas avançadas. Juntos, eles se complementam para criar soluções que promovem a adoção do Bitcoin, empoderando o usuário final e eliminando intermediários.",
-    "signature": "Atenciosamente, equipe DIY Security Lab"
+    "signature": "Atenciosamente, equipe DIY Security Lab",
+    "manifestTitle": "Manifesto DIY Security Lab: Bitcoin, Liberdade e Soberania",
+    "manifest": "Na DIY Sec Lab, acreditamos profundamente no Bitcoin como uma ferramenta de emancipação individual. Ele não é apenas uma moeda digital, mas um símbolo de liberdade e soberania, permitindo que cada pessoa tome o controle de seu próprio destino, sem depender de intermediários ou instituições centralizadas. Sabemos que a verdadeira liberdade só é possível com segurança. É por isso que defendemos o armazenamento offline das criptomoedas, onde o usuário é o único guardião de seus ativos. Nosso compromisso é facilitar esse processo, tornando acessível a todos a possibilidade de proteger seus fundos de forma independente e segura, longe das ameaças digitais. O Bitcoin abre caminho para um futuro onde o poder volta às mãos das pessoas. Na DIY Sec Lab, nossa missão é apoiar essa jornada, oferecendo as ferramentas e o conhecimento necessários para que cada indivíduo possa viver essa soberania com confiança, simplicidade e responsabilidade. Acreditamos que o Bitcoin é a chave para a verdadeira autonomia, e estamos aqui para ajudar a abrir essa porta."
   },
   "support": {
     "sendMessage": "Envie uma mensagem",

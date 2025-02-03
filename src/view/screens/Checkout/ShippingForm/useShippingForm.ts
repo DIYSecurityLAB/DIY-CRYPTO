@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { GetCheckout, Items } from '../../../../domain/entities/payment.entity';
 import { CalculatedShipping } from '../../../../domain/entities/Shipping.entity';
 import { UseCases } from '../../../../domain/usecases/UseCases';
@@ -28,7 +29,6 @@ export function useShippingForm() {
         console.error('CEP inválido');
         return;
       }
-      console.log(items);
       if (!Array.isArray(items) || items.length === 0) {
         console.error('Itens inválidos ou não definidos');
         return;
@@ -57,10 +57,10 @@ export function useShippingForm() {
       if (result.type === 'ERROR') {
         switch (result.error.code) {
           case 'SERIALIZATION':
-            alert('ERRO DE SERIALIZAÇÃO!');
+            toast.error('ERRO DE SERIALIZAÇÃO!');
             break;
           default:
-            alert('ERRO DESCONHECIDO');
+            toast.error('ERRO DESCONHECIDO');
         }
         return;
       }

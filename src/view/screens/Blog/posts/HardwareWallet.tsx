@@ -4,11 +4,16 @@ import image3 from '@/view/assets/images/Statistics/Statistics.jpg';
 export function HardwareWallet() {
   return (
     <main className="pt-24 pb-16 px-6 sm:px-12 md:px-24 lg:px-48 flex flex-col gap-y-4">
-      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl">
-        Hardware Wallet: O que é e quais são as melhores opções para armazenar
-        Bitcoin?
+      <h1 className="text-3xl font-extrabold leading-tight lg:text-4xl text-center mb-8">
+        {' '}
+        Como o Bitcoin pode substituir a Aposentadoria Tradicional? Hardware
+        Wallet: O que é e quais são as melhores opções para armazenar Bitcoin?
       </h1>
-      <img src={image1} alt="Imagem ilustrativa sobre hardware wallets" />
+      <img
+        src={image1}
+        alt="Imagem ilustrativa sobre hardware wallets"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         Uma das principais preocupações de quem possui Bitcoin é como
         armazená-lo de forma segura. Para isso, existem carteiras de hardware,
@@ -77,6 +82,7 @@ export function HardwareWallet() {
       <img
         src={image2}
         alt="Gráfico explicativo sobre como funciona uma hardware wallet"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
       />
       <p className="text-justify">
         Hardware wallets são carteiras físicas específicas para gerar e
@@ -129,7 +135,11 @@ export function HardwareWallet() {
       <h2 className="text-2xl font-bold leading-tight lg:text-3xl">
         Softwares para carteiras de hardware
       </h2>
-      <img src={image3} alt="Imagem ilustrativa sobre hardware wallets" />
+      <img
+        src={image3}
+        alt="Imagem ilustrativa sobre hardware wallets"
+        className="max-w-[1000px] max-h-[800px] w-full h-auto mx-auto"
+      />
       <p className="text-justify">
         Os softwares para carteiras de hardware de Bitcoin são programas que
         permitem aos usuários interagir de forma prática e segura com seus

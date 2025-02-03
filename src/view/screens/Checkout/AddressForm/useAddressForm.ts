@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import { GetCheckout } from '../../../../domain/entities/payment.entity';
 import { UseCases } from '../../../../domain/usecases/UseCases';
 
@@ -22,11 +23,11 @@ export function useAddressForm() {
         if (ListedAddress.type === 'ERROR') {
           switch (ListedAddress.error.code) {
             case 'SERIALIZATION':
-              alert('ERRO DE SERIALIZAÇÃO!');
+              toast.error('ERRO DE SERIALIZAÇÃO!');
               console.log(ListedAddress.error.payload);
               return;
             default:
-              alert('ERRO DESCONHECIDO');
+              toast.error('ERRO DESCONHECIDO');
               return;
           }
         }

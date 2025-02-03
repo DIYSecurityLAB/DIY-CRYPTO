@@ -61,12 +61,14 @@ export function About() {
               pagination={{ clickable: true }}
               loop
               className="relative rounded-lg shadow-lg"
-              style={{
-                '--swiper-navigation-color': '#999',
-                '--swiper-navigation-size': '20px',
-                '--swiper-pagination-bullet-color': '#ccc',
-                '--swiper-pagination-bullet-opacity': '0.6',
-              } as React.CSSProperties}
+              style={
+                {
+                  '--swiper-navigation-color': '#999',
+                  '--swiper-navigation-size': '20px',
+                  '--swiper-pagination-bullet-color': '#ccc',
+                  '--swiper-pagination-bullet-opacity': '0.6',
+                } as React.CSSProperties
+              }
             >
               {images.map((image, idx) => (
                 <SwiperSlide key={idx}>
@@ -123,6 +125,28 @@ export function About() {
             )}
           >
             {t(LanguageTexts.about.signature)}
+          </p>
+        </article>
+        <article
+          className={classNames(
+            'h-full col-span-full md:col-span-6 flex flex-col gap-y-6 items-center md:items-start  px-12 md:px-0',
+          )}
+        >
+          <h2
+            className={classNames(
+              'text-center md:text-left font-semibold text-base md:text-lg top-15',
+              IS_ZOOM_BIGGER_THAN_100 && 'text-xl',
+            )}
+          >
+            {t(LanguageTexts.about.manifestTitle)}
+          </h2>
+          <p
+            className={classNames(
+              'text-center md:text-left text-base md:text-sm',
+              !IS_ZOOM_BIGGER_THAN_100 && 'text-xl',
+            )}
+          >
+            {t(LanguageTexts.about.manifest)}
           </p>
         </article>
       </section>

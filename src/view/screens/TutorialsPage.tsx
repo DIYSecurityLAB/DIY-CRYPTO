@@ -5,10 +5,10 @@ import como_acessar_sua_carteira_e_transferir_bitcoins from '../assets/images/tu
 import como_adicionar_uma_senha_passphrase from '../assets/images/tutorial/como_adicionar_uma_senha_passphrase.png';
 import como_montar_seu_puncao_automatico from '../assets/images/tutorial/como_montar_seu_puncao_automatico.png';
 import como_realizar_o_backup_da_sua_chave_privada_seedqr from '../assets/images/tutorial/como_realizar_o_backup_da_sua_chave_privada_seedqr.png';
-import como_realizar_o_backup_da_sua_chave_privada_stackbit from '../assets/images/tutorial/tutorial_7.png';
 import como_realizar_o_backup_da_sua_chave_privada_tiniyseed from '../assets/images/tutorial/como_realizar_o_backup_da_sua_chave_privada_tiniyseed.png';
 import como_recuperar_sua_conta_sem_o_dispositivo_krux from '../assets/images/tutorial/como_recuperar_sua_conta_sem_o_dispositivo_krux.png';
 import crie_sua_chave_privada_e_guarde_seus_bitcoins from '../assets/images/tutorial/crie_sua_chave_privada_e_guarde_seus_bitcoins.png';
+import como_realizar_o_backup_da_sua_chave_privada_stackbit from '../assets/images/tutorial/tutorial_7.png';
 import valide_o_codigo_instalado_na_sua_carteira from '../assets/images/tutorial/valide_o_codigo_instalado_na_sua_carteira.png';
 import { BackgroundAnimatedProduct } from '../components/BackgroundAnimatedProduct';
 import { useCurrentLang } from '../utils/useCurrentLang';
@@ -83,6 +83,20 @@ export function TutorialsPage() {
       image: como_realizar_o_backup_da_sua_chave_privada_seedqr,
       description: t('tutorials.items.9.description'),
     },
+    {
+      id: 10,
+      title: 'Modelo Stackbit 1 a 12',
+      file: '/templates/Stackbit_1_a_12_DIY.png',
+      image: '/templates/Stackbit_1_a_12_DIY.png',
+      description: 'Stackbit 1 a 12 Template',
+    },
+    {
+      id: 11,
+      title: 'Modelo Stackbit 13 a 24',
+      file: '/templates/Stackbit_13_a_24_DIY.png',
+      image: '/templates/Stackbit_13_a_24_DIY.png',
+      description: 'Stackbit 13 a 24 Template',
+    },
   ];
 
   const tutorialsUS = [
@@ -150,6 +164,20 @@ export function TutorialsPage() {
       file: '/tutorial/US_9_how_to_backup_your_private_key_(SeedQR).pdf',
       image: como_realizar_o_backup_da_sua_chave_privada_seedqr,
       description: t('tutorials.items.9.description'),
+    },
+    {
+      id: 10,
+      title: 'Stackbit model 1 to 12',
+      file: '/templates/Stackbit_1_a_12_DIY.png',
+      image: '/templates/Stackbit_1_a_12_DIY.png',
+      description: 'Stackbit 1 a 12 Template',
+    },
+    {
+      id: 11,
+      title: 'Stackbit model 13 to 24',
+      file: '/templates/Stackbit_13_a_24_DIY.png',
+      image: '/templates/Stackbit_13_a_24_DIY.png',
+      description: 'Stackbit 13 a 24 Template',
     },
   ];
 

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import {
   Brand,
   GetCheckout,
@@ -55,10 +56,10 @@ export function usePaymentForm() {
       if (result.type === 'ERROR') {
         switch (result.error.code) {
           case 'VALUE_TOO_LOW':
-            alert('VALOR MUITO BAIXO');
+            toast.error('VALOR MUITO BAIXO');
             return;
           default:
-            alert('ERRO AO BUSCAR PARCELAS');
+            toast.error('ERRO AO BUSCAR PARCELAS');
             return;
         }
       }
@@ -71,12 +72,19 @@ export function usePaymentForm() {
   }, [brand, total, form, paymentOption]);
 
   const applyCoupon = async () => {
+    const restrictedItem = items.find((item) => item.id === '3');
+
+    if (restrictedItem) {
+      toast.warning(
+        `Não é possível adicionar cupom para ${restrictedItem.name}, pois o desconto já está direto no produto.`,
+      );
+      return;
+    }
+
     const subtotal = items.reduce(
       (total, item) => total + item.price * item.quantity,
       0,
     );
-
-    const shipping = form.getValues('shipping');
 
     setLoading(true);
     try {
@@ -91,7 +99,7 @@ export function usePaymentForm() {
       if (result.type === 'ERROR') {
         switch (result.error.code) {
           case 'SERIALIZATION':
-            alert('ERRO DE SERIALIZAÇÃO, POR FAVOR ENTRAR EM CONTATO');
+            toast.error('ERRO DE SERIALIZAÇÃO, POR FAVOR ENTRAR EM CONTATO');
             return;
           case 'NOT_FOUND':
             form.setError('couponCode', {
@@ -100,7 +108,7 @@ export function usePaymentForm() {
             });
             return;
           default:
-            alert('ERRO AO PROCESSAR CUPOM. ENTRE EM CONTATO.');
+            toast.error('ERRO AO PROCESSAR CUPOM. ENTRE EM CONTATO.');
             return;
         }
       }
@@ -113,12 +121,8 @@ export function usePaymentForm() {
       if (isActive && subtotal >= minPurchaseValue) {
         const calculatedDiscount =
           result.data.discountType === 'percentage'
-            ? Math.min(
-                (subtotal + Number(shipping.price)) * (discountValue / 100),
-                maxDiscountValue,
-              )
+            ? Math.min(subtotal * (discountValue / 100), maxDiscountValue)
             : Math.min(discountValue, maxDiscountValue);
-
         form.setValue('discount', calculatedDiscount);
       }
     } finally {
@@ -135,12 +139,12 @@ export function usePaymentForm() {
         });
 
         if (result.type === 'ERROR') {
-          alert('Erro ao identificar bandeira');
+          toast.error('Erro ao identificar bandeira');
           return;
         }
 
         if (result.data === 'unsupported') {
-          alert('Cartão inválido ou não suportado.');
+          toast.error('Cartão inválido ou não suportado.');
           setBrand('unsupported');
           return;
         }

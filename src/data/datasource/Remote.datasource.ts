@@ -1,10 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios, {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestHeaders,
-  HttpStatusCode,
-} from 'axios';
+import axios, { AxiosError, AxiosInstance, HttpStatusCode } from 'axios';
 import { z } from 'zod';
 import { Result } from '../../utils/Result';
 
@@ -51,8 +46,8 @@ export class RemoteDataSource {
     this.api.defaults.baseURL = baseURL;
   }
 
-  public setHeaders(type: HeaderValues, headers: AxiosRequestHeaders): void {
-    this.api.defaults.headers.common[type] = headers;
+  public setHeaders(type: HeaderValues, value: string): void {
+    this.api.defaults.headers.common[type] = value;
   }
 
   setToken(token: string) {
@@ -86,8 +81,6 @@ export class RemoteDataSource {
     });
 
     const serialized = model.safeParse(data);
-
-    console.log(serialized.error?.errors);
 
     if (!serialized.success) return null;
 

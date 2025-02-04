@@ -97,6 +97,13 @@ export function TutorialsPage() {
       image: '/templates/Stackbit_13_a_24_DIY.png',
       description: 'Stackbit 13 a 24 Template',
     },
+    {
+      id: 12,
+      title: 'Tiny Seed Modelo',
+      file: '/templates/Stackbit_13_a_24_DIY.png',
+      image: '/templates/TINY-SEED-12-24-WORDS.png',
+      description: 'Tiny Seed Modelo',
+    },
   ];
 
   const tutorialsUS = [
@@ -178,6 +185,13 @@ export function TutorialsPage() {
       file: '/templates/Stackbit_13_a_24_DIY.png',
       image: '/templates/Stackbit_13_a_24_DIY.png',
       description: 'Stackbit 13 a 24 Template',
+    },
+    {
+      id: 12,
+      title: 'Tiny Seed Model',
+      file: '/templates/Stackbit_13_a_24_DIY.png',
+      image: '/templates/TINY-SEED-12-24-WORDS.png',
+      description: 'Tiny Seed Model',
     },
   ];
 

@@ -32,10 +32,19 @@ export function useCheckout() {
   const form = useForm<GetCheckout>({
     mode: 'onChange',
     defaultValues: {
-      ...JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '{}'),
+      ...(() => {
+        const storedData = JSON.parse(
+          localStorage.getItem(LOCAL_STORAGE_KEY) || '{}',
+        );
+        if (storedData.shipping) {
+          delete storedData.shipping;
+        }
+        return storedData;
+      })(),
       items,
     },
   });
+
   const navigate = useNavigate();
 
   const shippingPrice = form.watch('shipping.price');
@@ -103,6 +112,21 @@ export function useCheckout() {
 
     recalculateDiscount();
   }, [items, form, subtotal]);
+
+  useEffect(() => {
+    const method = form.watch('method');
+
+    if (method === 'YAMPI') {
+      form.setValue('shipping', {
+        name: 'Frete Yampi',
+        price: 0,
+        service: 'Frete Yampi',
+        days: 0,
+        logoUrl: '',
+        quoteId: 0,
+      });
+    }
+  }, [form.watch('method')]);
 
   async function onSubmit(data: GetCheckout) {
     setLoading(true);

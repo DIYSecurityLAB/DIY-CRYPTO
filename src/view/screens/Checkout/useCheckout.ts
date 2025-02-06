@@ -172,7 +172,7 @@ export function useCheckout() {
         birthday: data.birthday,
         paymentOption: data.paymentOption,
         selectedPaymentLabel: data.selectedPaymentLabel,
-        shipping: data.method === 'YAMPI' ? undefined : data.shipping,
+        shipping: data.shipping,
         discount: data.discount ?? 0,
       };
 
@@ -222,10 +222,15 @@ export function useCheckout() {
         }
       }
 
-      // Lógica de redirecionamento dependendo do método de pagamento
       if (req.method === 'YAMPI' && 'reorder_url' in result.data) {
         const yampiData = result.data as { reorder_url: string };
         window.location.href = yampiData.reorder_url;
+        return;
+      }
+
+      if (req.method === 'PAGBANK' && 'payUrl' in result.data) {
+        const pagbankData = result.data as { payUrl: string };
+        window.location.href = pagbankData.payUrl;
         return;
       }
 
@@ -253,7 +258,7 @@ export function useCheckout() {
         return;
       }
 
-      if (result.data.data.status === 'approved') {
+      if ('data' in result.data && result.data.data.status === 'approved') {
         clearCart();
         navigate(ROUTES.paymentStatus.success.call(currentLang));
       } else {

@@ -21,7 +21,7 @@ export function TutorialsPage() {
     {
       id: 1,
       title: '#1 - Valide o código instalado na sua carteira',
-      file: '/tutorial/BR_1_Valide_o_codigo_instalado_na_sua_carteira.pdf',
+      file: '/tutorial/BR_1_Valide_o_codigo_instalado_no_seu_dispositivo.pdf',
       image: valide_o_codigo_instalado_na_sua_carteira,
       description: t('tutorials.items.7.description'),
     },

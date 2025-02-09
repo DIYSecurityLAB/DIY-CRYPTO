@@ -25,7 +25,8 @@ export type CreateRes = Promise<
     | PaymentAPIResponse
     | ChargedPIXModel
     | ChargedBTCModel
-    | { reorder_url: string },
+    | { reorder_url: string } // Adicionado o tipo de resposta YAMPI
+    | { payUrl: string },
     { code: 'SERIALIZATION' } | DefaultResultError
   >
 >;
@@ -80,9 +81,6 @@ export class PaymentRepositoryImpl implements PaymentRepository {
     }
 
     const modelToValidate = this.getModelToValidate(method, req.paymentOption);
-
-    this.api.setHeaders('Authorization', import.meta.env.VITE_API_TOKEN);
-
     const result = await this.api.post({
       url: `/create-payment/${method}`,
       model: modelToValidate,
@@ -99,6 +97,7 @@ export class PaymentRepositoryImpl implements PaymentRepository {
         birthday: req.birthday,
         paymentToken: paymentToken,
         paymentOption: req.paymentOption,
+        shipping: req.shipping,
       },
     });
 
@@ -153,7 +152,7 @@ export class PaymentRepositoryImpl implements PaymentRepository {
 
   private getModelToValidate(
     method: PaymentMethod,
-    paymentOption?: 'creditCard' | 'pix' | 'BTC' | 'YAMPI',
+    paymentOption?: 'creditCard' | 'pix' | 'BTC' | 'YAMPI' | 'PAGBANK',
   ) {
     switch (method) {
       case 'MP':
@@ -170,6 +169,8 @@ export class PaymentRepositoryImpl implements PaymentRepository {
         return ChargedBTCModel;
       case 'YAMPI':
         return z.object({ reorder_url: z.string().url() });
+      case 'PAGBANK':
+        return z.object({ payUrl: z.string().url() });
       default:
         throw new Error('Método de pagamento não suportado');
     }

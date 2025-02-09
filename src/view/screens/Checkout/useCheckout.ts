@@ -32,10 +32,19 @@ export function useCheckout() {
   const form = useForm<GetCheckout>({
     mode: 'onChange',
     defaultValues: {
-      ...JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '{}'),
+      ...(() => {
+        const storedData = JSON.parse(
+          localStorage.getItem(LOCAL_STORAGE_KEY) || '{}',
+        );
+        if (storedData.shipping) {
+          delete storedData.shipping;
+        }
+        return storedData;
+      })(),
       items,
     },
   });
+
   const navigate = useNavigate();
 
   const shippingPrice = form.watch('shipping.price');
@@ -104,6 +113,21 @@ export function useCheckout() {
     recalculateDiscount();
   }, [items, form, subtotal]);
 
+  useEffect(() => {
+    const method = form.watch('method');
+
+    if (method === 'YAMPI') {
+      form.setValue('shipping', {
+        name: 'Frete Yampi',
+        price: 0,
+        service: 'Frete Yampi',
+        days: 0,
+        logoUrl: '',
+        quoteId: 0,
+      });
+    }
+  }, [form.watch('method')]);
+
   async function onSubmit(data: GetCheckout) {
     setLoading(true);
     const shipping = form.getValues('shipping');
@@ -148,7 +172,7 @@ export function useCheckout() {
         birthday: data.birthday,
         paymentOption: data.paymentOption,
         selectedPaymentLabel: data.selectedPaymentLabel,
-        shipping: data.method === 'YAMPI' ? undefined : data.shipping,
+        shipping: data.shipping,
         discount: data.discount ?? 0,
       };
 
@@ -198,10 +222,15 @@ export function useCheckout() {
         }
       }
 
-      // Lógica de redirecionamento dependendo do método de pagamento
       if (req.method === 'YAMPI' && 'reorder_url' in result.data) {
         const yampiData = result.data as { reorder_url: string };
         window.location.href = yampiData.reorder_url;
+        return;
+      }
+
+      if (req.method === 'PAGBANK' && 'payUrl' in result.data) {
+        const pagbankData = result.data as { payUrl: string };
+        window.location.href = pagbankData.payUrl;
         return;
       }
 
@@ -229,7 +258,7 @@ export function useCheckout() {
         return;
       }
 
-      if (result.data.data.status === 'approved') {
+      if ('data' in result.data && result.data.data.status === 'approved') {
         clearCart();
         navigate(ROUTES.paymentStatus.success.call(currentLang));
       } else {

@@ -4,6 +4,7 @@ import { GetCheckout } from '../../../../domain/entities/payment.entity';
 export function ConfirmInfos() {
   const form = useFormContext<GetCheckout>();
 
+  const paymentOption = form.watch('paymentOption');
   const infos = form.getValues();
 
   const formatCurrency = (value: number | string | undefined) => {
@@ -55,13 +56,14 @@ export function ConfirmInfos() {
             {formatCurrency(infos.total - Number(infos.shipping.price))}
           </span>
         )}
-        {infos.shipping && (
+        {infos.shipping && paymentOption !== 'YAMPI' && (
           <span className="dark:text-white">
             FRETE - {infos.shipping.service}: R${' '}
             {formatCurrency(infos.shipping.price)}. Entrega em:{' '}
             {infos.shipping.days} dias
           </span>
         )}
+
         <span className="dark:text-white">
           Total: R$ {formatCurrency(infos.total)}
         </span>

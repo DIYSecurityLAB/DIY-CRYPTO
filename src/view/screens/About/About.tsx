@@ -24,14 +24,36 @@ export function About() {
     <>
       <BackgroundAnimatedProduct />
       <section
-        className="grid grid-cols-1 md:grid-cols-12 px-8 md:px-16 min-h-screen pt-36 md:pt-0"
+        className="grid grid-cols-1 md:grid-cols-12 px-8 md:px-16 min-h-screen"
         style={{
           paddingTop: IS_ZOOM_BIGGER_THAN_100 ? '8rem' : '9rem',
         }}
       >
         <article
           className={classNames(
-            'h-full col-span-full md:col-span-6 flex flex-col gap-y-6 items-center md:items-start  px-12 md:px-0',
+            'h-full col-span-full flex flex-col gap-y-6 items-center px-4 sm:px-12',
+          )}
+        >
+          <h2
+            className={classNames(
+              'text-center md:text-left font-bold text-lg md:text-xl top-15',
+              IS_ZOOM_BIGGER_THAN_100 && 'text-2xl',
+            )}
+          >
+            {t(LanguageTexts.about.manifestTitle)}
+          </h2>
+          <p
+            className={classNames(
+              'text-lg md:text-base text-justify',
+              !IS_ZOOM_BIGGER_THAN_100 && 'text-2xl',
+            )}
+          >
+            {t(LanguageTexts.about.manifest)}
+          </p>
+        </article>
+        <article
+          className={classNames(
+            'h-full col-span-full md:col-span-6 flex flex-col gap-y-6 items-center md:items-start pt-4 px-12 md:px-0',
             IS_ZOOM_BIGGER_THAN_100 && 'justify-start',
             !IS_ZOOM_BIGGER_THAN_100 && 'justify-center',
           )}
@@ -82,11 +104,11 @@ export function About() {
             </Swiper>
           </div>
         </article>
-        <article className="h-full col-span-full md:col-span-6 flex flex-col gap-y-4 items-center md:items-start justify-center py-6 md:px-6">
+        <article className="h-full col-span-full md:col-span-6 flex flex-col gap-y-4 items-center md:items-start justify-center pb-6 pt-6 md:px-4">
           <div className="w-full max-w-4xl">
             <h2
               className={classNames(
-                'text-2xl font-bold pb-6',
+                'text-2xl font-bold pb-6 text-justify',
                 IS_ZOOM_BIGGER_THAN_100 && 'text-xl',
               )}
             >
@@ -94,7 +116,7 @@ export function About() {
             </h2>
             <p
               className={classNames(
-                'pb-6',
+                'pb-6 text-justify',
                 IS_ZOOM_BIGGER_THAN_100 && 'text-sm',
               )}
             >
@@ -103,7 +125,7 @@ export function About() {
 
             <h2
               className={classNames(
-                'text-2xl font-bold pb-6',
+                'text-2xl font-bold pb-6 ',
                 IS_ZOOM_BIGGER_THAN_100 && 'text-xl',
               )}
             >
@@ -111,6 +133,7 @@ export function About() {
             </h2>
             <p
               className={classNames(
+                'text-justify',
                 IS_ZOOM_BIGGER_THAN_100 && 'text-sm',
                 !IS_ZOOM_BIGGER_THAN_100 && 'pb-6',
               )}
@@ -125,28 +148,6 @@ export function About() {
             )}
           >
             {t(LanguageTexts.about.signature)}
-          </p>
-        </article>
-        <article
-          className={classNames(
-            'h-full col-span-full md:col-span-6 flex flex-col gap-y-6 items-center md:items-start  px-12 md:px-0',
-          )}
-        >
-          <h2
-            className={classNames(
-              'text-center md:text-left font-semibold text-base md:text-lg top-15',
-              IS_ZOOM_BIGGER_THAN_100 && 'text-xl',
-            )}
-          >
-            {t(LanguageTexts.about.manifestTitle)}
-          </h2>
-          <p
-            className={classNames(
-              'text-center md:text-left text-base md:text-sm',
-              !IS_ZOOM_BIGGER_THAN_100 && 'text-xl',
-            )}
-          >
-            {t(LanguageTexts.about.manifest)}
           </p>
         </article>
       </section>

@@ -21,7 +21,7 @@ export function TutorialsPage() {
     {
       id: 1,
       title: '#1 - Valide o código instalado na sua carteira',
-      file: '/tutorial/BR_1_Valide_o_codigo_instalado_na_sua_carteira.pdf',
+      file: '/tutorial/BR_1_Valide_o_codigo_instalado_no_seu_dispositivo.pdf',
       image: valide_o_codigo_instalado_na_sua_carteira,
       description: t('tutorials.items.7.description'),
     },
@@ -84,18 +84,20 @@ export function TutorialsPage() {
       description: t('tutorials.items.9.description'),
     },
     {
-      id: 10,
-      title: 'Modelo Stackbit 1 a 12',
-      file: '/templates/Stackbit_1_a_12_DIY.png',
-      image: '/templates/Stackbit_1_a_12_DIY.png',
-      description: 'Stackbit 1 a 12 Template',
+      id: 11,
+      title: 'Modelo Tiny Seed - 12 e 24 palavras',
+      file: '/templates/Tiny_Seed_PT.pdf',
+      image: '/templates/TINY-SEED-12-24-WORDS.png',
+      description:
+        'Modelo para impressão e demonstração do backup da sua chave privada com Tiny Seed, compatível com 12 e 24 palavras.',
     },
     {
-      id: 11,
-      title: 'Modelo Stackbit 13 a 24',
-      file: '/templates/Stackbit_13_a_24_DIY.png',
+      id: 12,
+      title: 'Modelo Stackbit - 12 e 24 palavras',
+      file: '/templates/Stackbit_PT.pdf',
       image: '/templates/Stackbit_13_a_24_DIY.png',
-      description: 'Stackbit 13 a 24 Template',
+      description:
+        'Modelo para impressão e demonstração do backup da sua chave privada com Stackbit, compatível com 12 e 24 palavras.',
     },
   ];
 
@@ -166,18 +168,20 @@ export function TutorialsPage() {
       description: t('tutorials.items.9.description'),
     },
     {
-      id: 10,
-      title: 'Stackbit model 1 to 12',
-      file: '/templates/Stackbit_1_a_12_DIY.png',
-      image: '/templates/Stackbit_1_a_12_DIY.png',
-      description: 'Stackbit 1 a 12 Template',
+      id: 11,
+      title: 'Tiny Seed Model - 12 and 24 words',
+      file: '/templates/Tiny_Seed_EN.pdf',
+      image: '/templates/TINY-SEED-12-24-WORDS.png',
+      description:
+        'Printable and demonstration model for backing up your private key with Tiny Seed, compatible with 12 and 24 words.',
     },
     {
-      id: 11,
-      title: 'Stackbit model 13 to 24',
-      file: '/templates/Stackbit_13_a_24_DIY.png',
+      id: 12,
+      title: 'Stackbit Model - 12 and 24 words',
+      file: '/templates/Stackbit_EN.pdf',
       image: '/templates/Stackbit_13_a_24_DIY.png',
-      description: 'Stackbit 13 a 24 Template',
+      description:
+        'Printable and demonstration model for backing up your private key with Stackbit, compatible with 12 and 24 words.',
     },
   ];
 

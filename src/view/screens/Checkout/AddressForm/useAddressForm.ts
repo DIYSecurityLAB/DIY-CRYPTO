@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
@@ -11,6 +11,40 @@ export function useAddressForm() {
 
   const form = useFormContext<GetCheckout>();
   const zipCode = form.watch('address.zipCode');
+  const selectedUf = form.watch('address.uf');
+
+  const stateMap: Record<string, string> = useMemo(
+    () => ({
+      AC: 'Acre',
+      AL: 'Alagoas',
+      AP: 'Amapá',
+      AM: 'Amazonas',
+      BA: 'Bahia',
+      CE: 'Ceará',
+      DF: 'Distrito Federal',
+      ES: 'Espírito Santo',
+      GO: 'Goiás',
+      MA: 'Maranhão',
+      MT: 'Mato Grosso',
+      MS: 'Mato Grosso do Sul',
+      MG: 'Minas Gerais',
+      PA: 'Pará',
+      PB: 'Paraíba',
+      PR: 'Paraná',
+      PE: 'Pernambuco',
+      PI: 'Piauí',
+      RJ: 'Rio de Janeiro',
+      RN: 'Rio Grande do Norte',
+      RS: 'Rio Grande do Sul',
+      RO: 'Rondônia',
+      RR: 'Roraima',
+      SC: 'Santa Catarina',
+      SP: 'São Paulo',
+      SE: 'Sergipe',
+      TO: 'Tocantins',
+    }),
+    [],
+  );
 
   const getAddressInfos = useCallback(
     async (cep: string) => {
@@ -56,6 +90,12 @@ export function useAddressForm() {
       getAddressInfos(zipCode);
     }
   }, [zipCode, getAddressInfos]);
+
+  useEffect(() => {
+    if (selectedUf && stateMap[selectedUf]) {
+      form.setValue('address.state', stateMap[selectedUf]);
+    }
+  }, [selectedUf, form, stateMap]);
 
   return {
     t,

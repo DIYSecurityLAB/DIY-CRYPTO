@@ -238,12 +238,14 @@
     "internationalSupportMessage": "Hello, I would like to make an international purchase"
   },
   "addressForm": {
-    "zipCode": "Zip Code",
+    "zipCode": "ZIP Code",
     "street": "Street",
     "number": "Number",
     "complement": "Complement",
     "city": "City",
     "neighborhood": "Neighborhood",
+    "state": "State",
+    "selectState": "Select a state",
     "requiredField": "This field is required"
   },
   "shipping": {

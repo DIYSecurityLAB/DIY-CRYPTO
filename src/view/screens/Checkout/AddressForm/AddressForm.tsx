@@ -4,6 +4,36 @@ import { useAddressForm } from './useAddressForm';
 export function AddressForm() {
   const { t, form, loading, zipCodeMask } = useAddressForm();
 
+  const states = [
+    'AC',
+    'AL',
+    'AP',
+    'AM',
+    'BA',
+    'CE',
+    'DF',
+    'ES',
+    'GO',
+    'MA',
+    'MT',
+    'MS',
+    'MG',
+    'PA',
+    'PB',
+    'PR',
+    'PE',
+    'PI',
+    'RJ',
+    'RN',
+    'RS',
+    'RO',
+    'RR',
+    'SC',
+    'SP',
+    'SE',
+    'TO',
+  ];
+
   return (
     <>
       {loading && <Loader />}
@@ -105,7 +135,28 @@ export function AddressForm() {
           )}
         </div>
 
-        <input type="hidden" {...form.register('address.uf')} />
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            {t('addressForm.state')}
+          </label>
+          <select
+            {...form.register('address.uf', { required: true })}
+            className="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            disabled={loading}
+          >
+            <option value="">{t('addressForm.selectState')}</option>
+            {states.map((state) => (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            ))}
+          </select>
+          {form.formState.errors.address?.uf && (
+            <span className="text-red-500 text-sm">
+              {t('addressForm.requiredField')}
+            </span>
+          )}
+        </div>
       </div>
     </>
   );

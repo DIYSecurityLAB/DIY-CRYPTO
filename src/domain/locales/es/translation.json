@@ -244,6 +244,8 @@
     "complement": "Complemento",
     "city": "Ciudad",
     "neighborhood": "Barrio",
+    "state": "Estado",
+    "selectState": "Seleccione un estado",
     "requiredField": "Este campo es obligatorio"
   },
   "shipping": {

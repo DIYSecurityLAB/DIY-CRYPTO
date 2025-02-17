@@ -244,8 +244,11 @@
     "complement": "Complemento",
     "city": "Cidade",
     "neighborhood": "Bairro",
+    "state": "Estado",
+    "selectState": "Selecione um estado",
     "requiredField": "Este campo é obrigatório"
   },
+
   "shipping": {
     "title": "Frete",
     "calculateButton": "Calcular",

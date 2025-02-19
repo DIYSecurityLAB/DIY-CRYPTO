@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
@@ -12,6 +12,9 @@ export function useAddressForm() {
   const form = useFormContext<GetCheckout>();
   const zipCode = form.watch('address.zipCode');
   const selectedUf = form.watch('address.uf');
+
+  // Ref para guardar o CEP previamente consultado
+  const prevZipCodeRef = useRef<string>('');
 
   const stateMap: Record<string, string> = useMemo(
     () => ({
@@ -48,7 +51,10 @@ export function useAddressForm() {
 
   const getAddressInfos = useCallback(
     async (cep: string) => {
+      if (!cep || cep.length !== 8) return;
+
       setLoading(true);
+
       try {
         const { result: ListedAddress } = await UseCases.address.list.execute({
           postalCode: cep,
@@ -65,29 +71,34 @@ export function useAddressForm() {
               return;
           }
         }
-
         const { city, state, street, uf, neighborhood } = ListedAddress.data;
 
-        form.setValue('address.city', city);
-        form.setValue('address.street', street);
-        form.setValue('address.state', state);
-        form.setValue('address.uf', uf);
-        form.setValue('address.neighborhood', neighborhood);
+        form.setValue('address.city', city, { shouldDirty: true });
+        form.setValue('address.street', street, { shouldDirty: true });
+        form.setValue('address.state', state, { shouldDirty: true });
+        form.setValue('address.uf', uf, { shouldDirty: true });
+        form.setValue('address.neighborhood', neighborhood, {
+          shouldDirty: true,
+        });
       } finally {
-        setLoading(false);
+        setTimeout(() => setLoading(false), 300); // Pequeno delay para evitar re-renders muito rápidos
       }
     },
     [form],
   );
 
-  function zipCodeMask(e: React.ChangeEvent<HTMLInputElement>) {
-    const sanitizedValue = e.target.value.replace(/\D/g, '').slice(0, 8);
-    form.setValue('address.zipCode', sanitizedValue);
-  }
+  const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    if (zipCode && zipCode.length === 8) {
-      getAddressInfos(zipCode);
+    // Só dispara se o CEP for válido e diferente do último consultado
+    if (zipCode && zipCode.length === 8 && zipCode !== prevZipCodeRef.current) {
+      prevZipCodeRef.current = zipCode; // Atualiza o CEP previamente consultado
+
+      if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
+
+      debounceTimeout.current = setTimeout(() => {
+        getAddressInfos(zipCode);
+      }, 500); // Aguarda 500ms antes de chamar a API
     }
   }, [zipCode, getAddressInfos]);
 
@@ -96,6 +107,11 @@ export function useAddressForm() {
       form.setValue('address.state', stateMap[selectedUf]);
     }
   }, [selectedUf, form, stateMap]);
+
+  function zipCodeMask(e: React.ChangeEvent<HTMLInputElement>) {
+    const sanitizedValue = e.target.value.replace(/\D/g, '').slice(0, 8);
+    form.setValue('address.zipCode', sanitizedValue);
+  }
 
   return {
     t,

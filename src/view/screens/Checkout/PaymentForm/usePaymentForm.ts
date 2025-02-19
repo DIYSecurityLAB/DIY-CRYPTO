@@ -108,7 +108,10 @@ export function usePaymentForm() {
             });
             return;
           default:
-            toast.error('ERRO AO PROCESSAR CUPOM. ENTRE EM CONTATO.');
+            form.setError('couponCode', {
+              type: 'manual',
+              message: 'Cupom inexistente',
+            });
             return;
         }
       }
@@ -126,6 +129,7 @@ export function usePaymentForm() {
         form.setValue('discount', calculatedDiscount);
       }
     } finally {
+      toast.success('Cupom adicionado com sucesso!');
       setLoading(false);
     }
   };

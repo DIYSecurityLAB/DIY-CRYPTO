@@ -128,8 +128,8 @@ export function usePaymentForm() {
             : Math.min(discountValue, maxDiscountValue);
         form.setValue('discount', calculatedDiscount);
       }
-    } finally {
       toast.success('Cupom adicionado com sucesso!');
+    } finally {
       setLoading(false);
     }
   };

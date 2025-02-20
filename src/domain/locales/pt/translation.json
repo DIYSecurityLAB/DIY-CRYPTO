@@ -234,6 +234,8 @@
     "areaCode": "DDD",
     "number": "Número",
     "requiredField": "Este campo é obrigatório",
+    "invalidCPF": "O CPF informado é inválido. Certifique-se de digitar apenas números.",
+    "invalidCNPJ": "O CNPJ informado é inválido. Certifique-se de digitar apenas números.",
     "internationalSupport": "Não mora no Brasil? Nos chame aqui para compra internacional com nosso suporte",
     "internationalSupportMessage": "Olá, gostaria de realizar uma compra internacional"
   },

@@ -3,6 +3,7 @@ import { FaTrash } from 'react-icons/fa';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { MdCreditCard, MdHome, MdPerson } from 'react-icons/md';
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
+import { toast } from 'react-toastify';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import { BackgroundAnimatedProduct } from '../../components/BackgroundAnimatedProduct';
@@ -123,12 +124,37 @@ export function Checkout() {
                 {steps.current < 6 && (
                   <button
                     type="button"
-                    onClick={
-                      steps.current === 3 &&
-                      form.getValues('paymentOption') === 'YAMPI'
-                        ? steps.lastStep
-                        : steps.next
-                    }
+                    onClick={() => {
+                      const couponCode = form.getValues('couponCode');
+                      const discount = form.getValues('discount');
+                      const areaCode = form.getValues('phone.areaCode');
+                      const phoneNumber = form.getValues('phone.number');
+
+                      if (couponCode && !discount) {
+                        toast.warning('Aplique o cupom antes de continuar.');
+                        return;
+                      }
+
+                      if (!/^\d{2}$/.test(areaCode)) {
+                        toast.error('DDD inválido (máx. 2 dígitos).');
+                        return;
+                      }
+                      if (!/^\d{8,10}$/.test(phoneNumber)) {
+                        toast.error(
+                          'Número de telefone inválido (máx. 10 dígitos).',
+                        );
+                        return;
+                      }
+
+                      if (
+                        steps.current === 3 &&
+                        form.getValues('paymentOption') === 'YAMPI'
+                      ) {
+                        steps.lastStep();
+                      } else {
+                        steps.next();
+                      }
+                    }}
                     className="w-full bg-orange-primary text-white p-2 rounded-md font-semibold hover:bg-orange-500 transition-colors"
                     disabled={
                       (steps.current === 4 &&

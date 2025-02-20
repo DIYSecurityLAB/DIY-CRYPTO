@@ -223,19 +223,21 @@
     "email": "Correo electrónico",
     "firstName": "Nombre",
     "lastName": "Apellido",
-    "birthday": "Fecha de Nacimiento",
+    "birthday": "Fecha de nacimiento",
     "document": "Documento",
     "documentOptions": {
       "CPF": "CPF",
       "CNPJ": "CNPJ"
     },
-    "idNumber": "Número de Identificación",
+    "idNumber": "Número de identificación",
     "phone": "Teléfono",
-    "areaCode": "Código de Área",
+    "areaCode": "Código de área",
     "number": "Número",
     "requiredField": "Este campo es obligatorio",
-    "internationalSupport": "¿No vives en Brasil? Contáctanos aquí para compras internacionales con nuestro soporte",
-    "internationalSupportMessage": "Hola, me gustaría realizar una compra internacional"
+    "invalidCPF": "El CPF ingresado no es válido. Asegúrese de ingresar solo números.",
+    "invalidCNPJ": "El CNPJ ingresado no es válido. Asegúrese de ingresar solo números.",
+    "internationalSupport": "¿No vives en Brasil? Contáctanos aquí para compras internacionales con nuestro equipo de soporte.",
+    "internationalSupportMessage": "Hola, me gustaría realizar una compra internacional."
   },
   "addressForm": {
     "zipCode": "Código Postal",

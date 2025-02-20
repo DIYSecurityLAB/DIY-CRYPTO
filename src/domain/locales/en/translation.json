@@ -234,8 +234,10 @@
     "areaCode": "Area Code",
     "number": "Number",
     "requiredField": "This field is required",
-    "internationalSupport": "Not living in Brazil? Contact us here for international purchases with our support",
-    "internationalSupportMessage": "Hello, I would like to make an international purchase"
+    "invalidCPF": "The CPF provided is invalid. Make sure to enter numbers only.",
+    "invalidCNPJ": "The CNPJ provided is invalid. Make sure to enter numbers only.",
+    "internationalSupport": "Don't live in Brazil? Contact us here for international purchases with our support team.",
+    "internationalSupportMessage": "Hello, I would like to make an international purchase."
   },
   "addressForm": {
     "zipCode": "ZIP Code",

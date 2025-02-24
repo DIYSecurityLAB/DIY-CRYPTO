@@ -24,7 +24,7 @@ export class ShippingRepositoryImpl implements ShippingRepository {
 
   @ExceptionHandler()
   async calculate(req: CalculateReq): CalculateRes {
-    if (req.amount >= 1000) {
+    if (req.amount >= 1) {
       const result: CalculatedShippingModel = {
         quotes: [
           {

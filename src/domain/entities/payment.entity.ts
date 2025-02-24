@@ -28,7 +28,7 @@ const Identification = z.object({
 type Identification = z.infer<typeof Identification>;
 
 const Phone = z.object({
-  areaCode: z.string().min(1),
+  areaCode: z.string().min(1).max(2),
   number: z.string().min(1),
 });
 type Phone = z.infer<typeof Phone>;

@@ -159,6 +159,10 @@ export function PaymentForm() {
             type="text"
             {...form.register('couponCode')}
             disabled={form.getValues('discount') ? true : false}
+            onBlur={(event) => {
+              const trimmedValue = event.target.value.trim();
+              form.setValue('couponCode', trimmedValue);
+            }}
             className="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white dark:border-gray-600"
           />
           <button

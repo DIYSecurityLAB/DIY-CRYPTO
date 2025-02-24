@@ -6,8 +6,12 @@ export function PersonForm() {
     form,
     whatsappLink,
     isValidCPF,
+    isValidCNPJ,
     birthdayMask: handleBirthdayChange,
   } = usePersonForm();
+
+  // Acompanhar o tipo de documento para validação dinâmica
+  const documentType = form.watch('identification.type');
 
   return (
     <div className="grid grid-cols-12 gap-2">
@@ -64,14 +68,34 @@ export function PersonForm() {
         <div className="flex gap-x-2">
           <input
             type="text"
-            {...form.register('phone.areaCode', { required: true })}
+            {...form.register('phone.areaCode', {
+              required: true,
+              maxLength: {
+                value: 2,
+                message: 'DDD inválido (máx. 2 dígitos)',
+              },
+              pattern: {
+                value: /^[0-9]{2}$/,
+                message: 'DDD inválido',
+              },
+            })}
             placeholder={t('personForm.areaCode')}
             maxLength={2}
             className="w-1/4 p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           />
           <input
             type="text"
-            {...form.register('phone.number', { required: true })}
+            {...form.register('phone.number', {
+              required: true,
+              maxLength: {
+                value: 10,
+                message: 'Número inválido (máx. 10 dígitos)',
+              },
+              pattern: {
+                value: /^[0-9]{8,10}$/,
+                message: 'Número de telefone inválido',
+              },
+            })}
             placeholder={t('personForm.number')}
             className="w-3/4 p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             onInput={(e) => {
@@ -82,12 +106,12 @@ export function PersonForm() {
         </div>
         {form.formState.errors.phone?.areaCode && (
           <span className="text-red-500 text-sm">
-            {t('personForm.requiredField')}
+            {form.formState.errors.phone.areaCode.message}
           </span>
         )}
         {form.formState.errors.phone?.number && (
           <span className="text-red-500 text-sm">
-            {t('personForm.requiredField')}
+            {form.formState.errors.phone.number.message}
           </span>
         )}
       </div>
@@ -118,8 +142,14 @@ export function PersonForm() {
           type="text"
           {...form.register('identification.number', {
             required: true,
-            validate: (value) =>
-              isValidCPF(value) || t('personForm.invalidCPF'),
+            validate: (value) => {
+              if (documentType === 'CPF') {
+                return isValidCPF(value) || t('personForm.invalidCPF');
+              } else if (documentType === 'CNPJ') {
+                return isValidCNPJ(value) || t('personForm.invalidCNPJ');
+              }
+              return true;
+            },
           })}
           className="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
         />

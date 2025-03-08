@@ -86,7 +86,7 @@
         ]
       },
       {
-        "name": "BITKIT",
+        "name": "COLDKIT",
         "title": "¡Seguridad Elevada para tus Inversiones!",
         "description": "Para aquellos que buscan el más alto nivel de protección en sus transacciones financieras.",
         "items": [
@@ -126,7 +126,7 @@
         ]
       },
       {
-        "name": "BITKIT X",
+        "name": "COLDKIT X",
         "title": "¡Movilidad y Seguridad en Cualquier Lugar!",
         "description": "Para aquellos que buscan el más alto nivel de protección en sus transacciones financieras.",
         "items": [
@@ -198,7 +198,7 @@
     "title": "DIY Security Lab",
     "subtitle": "Bitcoin, Libertad y Soberanía",
     "descriptionTitle": "¿Qué es DIY Security Lab?",
-    "description": "DIY Security Lab es una empresa enfocada en soluciones que promueven la adopción de Bitcoin, eliminando intermediarios y empoderando al usuario final. Creamos BITKIT, el método más seguro y sencillo para almacenar Bitcoins, y Alfred P2P, una plataforma para compras descentralizadas y anónimas. Nuestra misión es garantizar que todos puedan controlar sus propios activos de forma segura e independiente, contribuyendo a un futuro financiero más libre y descentralizado.",
+    "description": "DIY Security Lab es una empresa enfocada en soluciones que promueven la adopción de Bitcoin, eliminando intermediarios y empoderando al usuario final. Creamos COLDKIT, el método más seguro y sencillo para almacenar Bitcoins, y Alfred P2P, una plataforma para compras descentralizadas y anónimas. Nuestra misión es garantizar que todos puedan controlar sus propios activos de forma segura e independiente, contribuyendo a un futuro financiero más libre y descentralizado.",
     "foundersTitle": "Fundadores",
     "founders": "DIY Security Lab fue fundada en 2024 por tres ingenieros apasionados por las finanzas descentralizadas, quienes comenzaron a estudiar el mercado cripto en 2017. Leonardo Maximiliano, CEO, está fascinado por la macroeconomía y los impactos sociales que Bitcoin puede generar en diferentes estructuras sociales. Guilherme, con su enfoque en la gestión empresarial y el emprendimiento, busca constantemente innovaciones disruptivas. Giovanni, el 'nerd de la tecnología,' convierte ideas en soluciones técnicas avanzadas. Juntos se complementan para crear soluciones que promuevan la adopción de Bitcoin, empoderando al usuario final y eliminando intermediarios.",
     "signature": "Atentamente, equipo DIY Security Lab",
@@ -415,6 +415,6 @@
   "ReadMore": "Leer más",
   "ServiceTitle": "Servicios",
   "ServiceDescription": "Protege y conquista tu viaje cripto con las mejores herramientas.",
-  "CustomizationDescription": "Todo lo que necesitas en un bitkit",
+  "CustomizationDescription": "Todo lo que necesitas en un COLDKIT",
   "ServiceGetInTouchButton": "Comprar"
 }

@@ -86,7 +86,7 @@
         ]
       },
       {
-        "name": "BITKIT",
+        "name": "COLDKIT",
         "title": "High Security for Your Investments!",
         "description": "For those looking for the highest level of protection in their financial transactions.",
         "items": [
@@ -126,7 +126,7 @@
         ]
       },
       {
-        "name": "BITKIT X",
+        "name": "COLDKIT X",
         "title": "Mobility and Security Anywhere!",
         "description": "For those looking for the highest level of protection in their financial transactions.",
         "items": [
@@ -202,7 +202,7 @@
     "title": "DIY Security Lab",
     "subtitle": "Bitcoin, Freedom, and Sovereignty",
     "descriptionTitle": "What is DIY Security Lab?",
-    "description": "DIY Security Lab is a company focused on solutions that promote Bitcoin adoption by removing intermediaries and empowering end users. We created BITKIT, the safest and simplest method to store Bitcoins, and Alfred P2P, a platform for decentralized and anonymous purchasing. Our mission is to ensure that everyone can control their own assets securely and independently, contributing to a freer and more decentralized financial future.",
+    "description": "DIY Security Lab is a company focused on solutions that promote Bitcoin adoption by removing intermediaries and empowering end users. We created COLDKIT, the safest and simplest method to store Bitcoins, and Alfred P2P, a platform for decentralized and anonymous purchasing. Our mission is to ensure that everyone can control their own assets securely and independently, contributing to a freer and more decentralized financial future.",
     "foundersTitle": "Founders",
     "founders": "DIY Security Lab was founded in 2024 by three engineers passionate about decentralized finance who began studying the crypto market in 2017. Leonardo Maximiliano, CEO, is fascinated by macroeconomics and the social impacts Bitcoin can generate in different social structures. Guilherme, with his focus on business management and entrepreneurship, constantly seeks disruptive innovations. Giovanni, the 'tech nerd,' turns ideas into advanced technical solutions. Together, they complement each other to create solutions that promote Bitcoin adoption, empowering end users and eliminating intermediaries.",
     "signature": "Sincerely, DIY Security Lab Team",
@@ -403,6 +403,6 @@
   "confirmPaymentButton": "Confirm Payment",
   "ServiceTitle": "Services",
   "ServiceDescription": "Protect and conquer your crypto journey with the best tools.",
-  "CustomizationDescription": "Everything you need in a bitkit",
+  "CustomizationDescription": "Everything you need in a COLDKIT",
   "ServiceGetInTouchButton": "Buy"
 }

@@ -78,7 +78,7 @@ export const ROUTES = {
     },
     products: {
       path: 'produtos',
-      BITKIT: {
+      COLDKIT: {
         call: (currentLang: string, id: string = '1') =>
           `/${currentLang}/produto/${id}`,
       },
@@ -86,7 +86,7 @@ export const ROUTES = {
         call: (currentLang: string, id: string = '2') =>
           `/${currentLang}/produto/${id}`,
       },
-      BITKITX: {
+      COLDKITX: {
         call: (currentLang: string, id: string = '3') =>
           `/${currentLang}/produto/${id}`,
       },

@@ -35,7 +35,8 @@ export function HardwareWallet() {
         você mantém o controle total de seus recursos, garantindo soberania
         financeira e independência de instituições financeiras tradicionais.
         Para exercer a custódia de seus Bitcoins de forma segura, uma das
-        melhores opções é a KRUX, uma hardware wallet disponibilizada no Bitkit.
+        melhores opções é a KRUX, uma hardware wallet disponibilizada no
+        COLDKIT.
       </p>
       <h2 className="text-2xl font-bold leading-tight lg:text-3xl">
         O que são carteiras de Bitcoin?
@@ -162,16 +163,16 @@ export function HardwareWallet() {
       </h2>
       <p className="text-justify">
         Garantir a segurança de seus Bitcoins é fundamental para proteger seus
-        ativos digitais. As carteiras de hardware, como o BITKIT da DIY Security
-        Lab, oferecem uma solução prática e segura, permitindo que você armazene
-        suas chaves privadas de forma offline e mantenha o controle total sobre
-        seus fundos. Com a crescente importância da soberania financeira,
-        investir em uma carteira de Bitcoin segura, com o BITKIT (Krux), é uma
-        excelente escolha para quem busca maior proteção e controle sobre suas
-        transações.
+        ativos digitais. As carteiras de hardware, como o COLDKIT da DIY
+        Security Lab, oferecem uma solução prática e segura, permitindo que você
+        armazene suas chaves privadas de forma offline e mantenha o controle
+        total sobre seus fundos. Com a crescente importância da soberania
+        financeira, investir em uma carteira de Bitcoin segura, com o COLDKIT
+        (Krux), é uma excelente escolha para quem busca maior proteção e
+        controle sobre suas transações.
       </p>
       <p className="text-justify">
-        O BITKIT oferece o método definitivo para a criação e armazenamento da
+        O COLDKIT oferece o método definitivo para a criação e armazenamento da
         sua chave privada, tudo em um só lugar. Segurança sem intermediários
         (WEB3) para você que quer manter seus Bitcoins Intocáveis!
       </p>

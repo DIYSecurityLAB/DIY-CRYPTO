@@ -1,5 +1,5 @@
-import { BackgroundAnimatedProduct } from '../components/BackgroundAnimatedProduct';
 import { useTranslation } from 'react-i18next';
+import { BackgroundAnimatedProduct } from '../components/BackgroundAnimatedProduct';
 
 export function VideosPage() {
   const { t } = useTranslation();
@@ -24,6 +24,11 @@ export function VideosPage() {
       id: 4,
       title: t('videos.items.4.title'),
       videoSrc: t('videos.items.4.videoSrc'),
+    },
+    {
+      id: 5,
+      title: t('videos.items.5.title'),
+      videoSrc: t('videos.items.5.videoSrc'),
     },
   ];
 
